@@ -1,6 +1,173 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Road of the Dead — Project Hub</title><meta name="description" content="Road of the Dead development workspace"><style>
 :root{color-scheme:dark;--bg:#0c1010;--panel:#151b1a;--line:#293431;--muted:#9aa9a0;--text:#e9ede5;--acid:#d5e870;--orange:#e78f5a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,sans-serif}button,input,select{font:inherit}button,a{cursor:pointer}a{color:inherit}aside{position:fixed;top:0;left:0;width:235px;height:100vh;padding:28px 20px;background:#101615;border-right:1px solid var(--line);overflow:auto}.brand{font-weight:900;letter-spacing:.09em;line-height:1.05;font-size:18px}.brand span{color:var(--acid)}.eyebrow{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--muted);font-weight:800}.nav{display:grid;gap:4px;margin-top:40px}.nav a{text-decoration:none;color:#a8b4ad;padding:9px 10px;border-radius:7px}.nav a:hover,.nav a.active{color:var(--acid);background:#202922}.side-foot{margin-top:45px;color:#75847b;font-size:12px}.main{margin-left:235px;max-width:1700px}.top{padding:18px 5%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;letter-spacing:.07em}.live{color:var(--acid)}.wrap{padding:32px 5% 80px}.hero{position:relative;overflow:hidden;border:1px solid #35443a;background:radial-gradient(ellipse at 78% 20%,#526046 0%,#23332d 25%,#15201d 55%,#121a18 100%);padding:52px 5%;min-height:330px;border-radius:12px}.hero:after{content:'///';position:absolute;right:7%;top:5%;color:#d5e87016;font-size:230px;font-weight:900;line-height:1}.hero>*{position:relative;z-index:1}.tag{display:inline-block;border:1px solid #98aa6b;color:var(--acid);border-radius:3px;font-size:10px;letter-spacing:.16em;padding:6px 9px;font-weight:800}.hero h1{font-size:clamp(43px,6vw,82px);line-height:.95;letter-spacing:-.055em;margin:25px 0 17px;max-width:750px}.hero h1 span{color:var(--acid)}.hero p{max-width:610px;color:#c6d0c4;font-size:16px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--acid);color:#11180e;border:0;border-radius:5px;padding:11px 16px;text-decoration:none;font-weight:800}.btn.secondary{background:transparent;color:var(--text);border:1px solid #687569}.section{margin-top:58px;scroll-margin-top:20px}.heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.heading h2{font-size:28px;letter-spacing:-.035em;margin:4px 0}.heading p{color:var(--muted);margin:0}.stats,.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat,.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px}.stat strong{display:block;font-size:25px;letter-spacing:-.04em}.stat small,.sub{color:var(--muted)}.stat strong em{font-style:normal;color:var(--acid)}.route{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stop{padding:20px;background:#1a2420;border:1px solid var(--line);border-top:2px solid #91a45e;border-radius:5px}.stop b{display:block;font-size:20px;margin:8px 0}.stop small{color:var(--muted)}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.filters input,.filters select,.entry input{background:#101615;color:var(--text);border:1px solid #3b4940;border-radius:5px;padding:11px 12px}.filters input{flex:1;min-width:190px}.grid{grid-template-columns:repeat(3,1fr)}.card{display:flex;flex-direction:column;min-height:190px;transition:.2s}.card:hover{border-color:#899b63;transform:translateY(-2px)}.card-top{display:flex;justify-content:space-between;gap:8px}.chip{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--acid)}.status{font-size:10px;color:#d9bd8e;border:1px solid #584d39;border-radius:20px;padding:2px 8px;white-space:nowrap}.card h3{font-size:18px;margin:16px 0 6px}.card p{color:var(--muted);margin:0 0 17px;font-size:13px}.card button{background:none;color:var(--acid);text-align:left;border:0;padding:0;margin-top:auto;font-weight:700}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel h3{margin:0 0 12px}.item{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start}.item:last-child{border-bottom:0}.item input{accent-color:var(--acid);margin-top:5px}.item label{flex:1}.item small{display:block;color:var(--muted)}.entry{display:flex;gap:8px;margin-top:14px}.entry input{flex:1;min-width:0}.entry button{padding:8px 12px}.artgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.art{display:flex;min-height:150px;flex-direction:column;justify-content:space-between;text-decoration:none;border:1px solid #34443a;border-radius:8px;padding:18px;background:linear-gradient(135deg,#293931,#151d1b)}.art:nth-child(3n+2){background:linear-gradient(135deg,#393128,#191c19)}.art:nth-child(3n){background:linear-gradient(135deg,#263139,#151a1a)}.art span{font-size:11px;color:var(--acid)}.art b{font-size:17px}.art small{color:var(--muted)}dialog{background:#18201d;color:var(--text);border:1px solid #536353;border-radius:10px;max-width:620px;width:calc(100% - 30px);padding:28px}dialog::backdrop{background:#000b}dialog h2{font-size:28px;margin:10px 0}dialog p{color:#bdc8be}dialog .close{float:right;color:var(--text);background:transparent;border:1px solid #536353;border-radius:5px;padding:5px 10px}.source-link{color:var(--acid)}.note{color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:20px}footer{border-top:1px solid var(--line);margin-top:60px;padding-top:20px;color:#839187;font-size:12px}@media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.artgrid{grid-template-columns:repeat(2,1fr)}.route{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){aside{position:static;width:auto;height:auto;padding:16px;border-bottom:1px solid var(--line)}.brand{font-size:15px}.nav{display:flex;overflow:auto;margin:15px 0 0;gap:4px}.nav a{white-space:nowrap;font-size:12px;padding:6px}.side-foot{display:none}.main{margin:0}.top{padding:12px 5%}.wrap{padding-top:18px}.hero{padding:35px 24px;min-height:0}.hero h1{font-size:46px}.hero:after{font-size:140px}.section{margin-top:40px}.grid,.two,.artgrid{grid-template-columns:1fr}.heading{align-items:start;flex-direction:column}.route{grid-template-columns:1fr 1fr}.stat{padding:15px}}
-</style></head><body><aside><div class="brand">ROAD <span>OF THE</span><br>DEAD<span> /</span></div><div class="eyebrow" style="margin-top:12px">Project command center</div><nav class="nav"><a href="#overview">◉ &nbsp; Overview</a><a href="#campaign">⌁ &nbsp; Campaign</a><a href="#systems">▦ &nbsp; Project database</a><a href="#gallery">▧ &nbsp; Concept art</a><a href="#production">◫ &nbsp; Production</a><a href="#sources">↗ &nbsp; Sources</a></nav><div class="side-foot">VERSION 0.3 / WORKSPACE<br>Concept in development</div></aside><main class="main"><div class="top"><span>DEVELOPMENT HUB / 001</span><span class="live">● CONCEPT IN DEVELOPMENT</span></div><div class="wrap"><section id="overview" class="hero"><div class="tag">AAA VISION · SURVIVAL ROAD TRIP</div><h1>THE ROAD<br><span>IS YOUR LIFELINE.</span></h1><p>Europe after the outbreak. Your vehicle is shelter, weapon, and your best chance of reaching the next safe place.</p><div class="hero-actions"><a class="btn" href="#systems">Explore the project ↗</a><a class="btn secondary" href="#production">Development plan</a></div></section><section class="section" style="margin-top:16px"><div class="stats"><div class="stat"><small>ROUTE</small><strong>London <em>→</em> Berlin</strong><small>Via the English Channel and Paris</small></div><div class="stat"><small>CORE EXPERIENCE</small><strong>Driving + on foot</strong><small>Third-person survival</small></div><div class="stat"><small>SCOPE</small><strong>12–18 hours</strong><small>Estimate; subject to validation</small></div><div class="stat"><small>NEXT MILESTONE</small><strong>Prototype</strong><small>One vehicle and a short road</small></div></div></section><section id="campaign" class="section"><div class="heading"><div><div class="eyebrow">01 / JOURNEY ACROSS EUROPE</div><h2>Campaign map</h2></div><p>Designed regions and transitions, not a 1:1 map</p></div><div class="route"><div class="stop"><span class="eyebrow">01 / Beginning</span><b>London → Dover</b><small>Escape through the streets and motorway, then secure a ferry crossing.</small></div><div class="stop"><span class="eyebrow">02 / Crossing</span><b>English Channel</b><small>Restore port power, defend the loading lane, and take the car aboard.</small></div><div class="stop"><span class="eyebrow">03 / France</span><b>Paris</b><small>Farmland, industrial districts, and a choice between a boulevard and a flooded underpass.</small></div><div class="stop"><span class="eyebrow">04 / Finale</span><b>Berlin</b><small>Forests, freight yards, and evacuation amid rival factions.</small></div></div></section><section id="systems" class="section"><div class="heading"><div><div class="eyebrow">02 / KNOWLEDGE BASE</div><h2>Project database</h2></div><p>Open a card for details and related materials</p></div><div class="filters"><input id="search" aria-label="Search" placeholder="Search mechanics, vehicles, characters…"><select id="filter" aria-label="Filter by section"><option value="">All sections</option></select><select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Concept</option><option>Open</option><option>Prototype</option><option>Done</option></select></div><div id="cards" class="grid"></div></section><section id="gallery" class="section"><div class="heading"><div><div class="eyebrow">03 / VISUAL DEVELOPMENT</div><h2>Gallery and references</h2></div><p>Concept art is visual exploration, not final game assets</p></div><div id="arts" class="artgrid"></div></section><section id="production" class="section"><div class="heading"><div><div class="eyebrow">04 / PRODUCTION BOARD</div><h2>Demo preparation</h2></div><p>Changes and notes are saved in this browser</p></div><div class="two"><div class="panel"><h3>Browser demo checklist</h3><div id="checklist"></div><p class="note">A browser demo is a focused test of ideas, not a commitment to the full AAA scope.</p></div><div class="panel"><h3>Open decisions and blockers</h3><div id="issues"></div><form class="entry" id="issueForm"><input id="issueInput" placeholder="Add a decision or blocker" required><button class="btn">Add</button></form></div><div class="panel"><h3>Change log</h3><div id="log"></div><form class="entry" id="logForm"><input id="logInput" placeholder="Record a change" required><button class="btn">Add</button></form></div><div class="panel"><h3>Milestones</h3><div class="item"><span>01</span><label>Pre-production<small>Agree goals, camera and platforms; assess rights and physics.</small></label></div><div class="item"><span>02</span><label>Playable prototype<small>A road, car, infected, fuel, damage and checkpoint.</small></label></div><div class="item"><span>03</span><label>Vertical slice<small>10–15 minutes: London, fuel stop, chase and route choice.</small></label></div><div class="item"><span>04</span><label>Production and release<small>Expand the campaign after validating quality and resources.</small></label></div></div></div></section><section id="sources" class="section"><div class="heading"><div><div class="eyebrow">05 / SOURCE OF TRUTH</div><h2>Project documents</h2></div></div><div class="two"><a class="art" href="docs/road_v3.md" target="_blank" rel="noopener"><span>GDD / VERSION 0.3 ↗</span><b>road_v3.md</b><small>Vision, systems, campaign and production plan</small></a><a class="art" href="docs/Concept_Art_Book.pdf" target="_blank" rel="noopener"><span>ART BOOK / 15 PAGES ↗</span><b>Concept Art Book.pdf</b><small>Visual direction and exploration</small></a></div></section><footer>ROAD OF THE DEAD / PROJECT HUB · Working interpretation of v0.3. Statuses require confirmation against actual implementation.</footer></div></main><dialog id="modal"><button class="close" aria-label="Close">✕</button><div id="detail"></div></dialog><script>
+
+.campaign-art {
+  margin: 0 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+}
+.campaign-art img {
+  display: block;
+  width: 100%;
+  height: clamp(160px, 27vw, 360px);
+  object-fit: cover;
+  object-position: center 50%;
+}
+.campaign-art figcaption {
+  padding: 8px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.campaign-stages { align-items: start; }
+.campaign-stages .stop { padding: 0; }
+.campaign-stages summary {
+  position: relative;
+  display: block;
+  min-height: 142px;
+  padding: 17px 34px 17px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.campaign-stages summary::-webkit-details-marker { display: none; }
+.campaign-stages summary::after {
+  content: '+';
+  position: absolute;
+  top: 17px;
+  right: 15px;
+  font-size: 17px;
+  color: var(--acid);
+}
+.campaign-stages details[open] summary::after { content: '−'; }
+.campaign-stages details[open] { border-color: #768657; }
+.stage-details {
+  padding: 0 16px 15px;
+  border-top: 1px solid var(--line);
+  color: #c4cfc4;
+  font-size: 13px;
+}
+.stage-details strong { color: var(--text); }
+.slice-brief {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  border-color: #46543e;
+}
+.slice-copy { padding: clamp(20px, 3vw, 36px); }
+.slice-copy h3 { margin: 0; font-size: clamp(25px, 3vw, 40px); line-height: 1.12; }
+.slice-copy p { color: #c4cfc4; }
+.slice-brief img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  max-height: 380px;
+  object-fit: cover;
+}
+.slice-scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  padding: 0;
+  margin: 18px 0 0;
+  list-style: none;
+  color: var(--acid);
+  font-size: 12px;
+}
+.slice-scope li { border: 1px solid #46543e; border-radius: 4px; padding: 4px 8px; }
+.slice-beats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+  counter-reset: mission-beat;
+}
+.slice-beats li {
+  counter-increment: mission-beat;
+  border: 1px solid var(--line);
+  border-top: 2px solid #91a45e;
+  border-radius: 6px;
+  padding: 14px;
+  background: var(--panel);
+}
+.slice-beats li::before { content: counter(mission-beat, decimal-leading-zero); color: var(--acid); font-size: 12px; }
+.slice-beats h3 { margin: 6px 0; font-size: 15px; }
+.slice-beats p, .design-list { color: #c4cfc4; font-size: 13px; margin: 0; }
+.design-list { padding-left: 19px; }
+.design-list li + li { margin-top: 9px; }
+.result-count { margin: -7px 0 12px; color: var(--muted); font-size: 12px; }
+.design-notes { margin: 18px 0; border-top: 1px solid var(--line); }
+.design-notes dt { color: var(--acid); font-weight: 700; margin-top: 12px; font-size: 13px; }
+.design-notes dd { margin: 3px 0 0; color: #c4cfc4; font-size: 14px; }
+#modal { max-height: 90vh; overflow: auto; }
+.artgrid .art { display: block; padding: 0; overflow: hidden; }
+.artgrid .art:hover { border-color: #899b63; }
+.art-preview { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+.art-caption { display: grid; gap: 4px; padding: 14px 16px; }
+.main :focus-visible, dialog :focus-visible, .nav a:focus-visible { outline: 2px solid var(--acid); outline-offset: 3px; }
+@media (max-width: 1190px) {
+  .slice-beats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .slice-brief { grid-template-columns: 1fr; }
+  .slice-brief img { min-height: 0; height: auto; }
+  .slice-beats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .campaign-stages summary { min-height: 110px; }
+}
+@media (max-width: 430px) {
+  .slice-beats, .campaign-stages { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
+</style></head><body><aside><div class="brand">ROAD <span>OF THE</span><br>DEAD<span> /</span></div><div class="eyebrow" style="margin-top:12px">Project command center</div><nav class="nav"><a href="#overview">◉ &nbsp; Overview</a><a href="#campaign">⌁ &nbsp; Campaign</a><a href="#vertical-slice">Vertical slice</a><a href="#systems">▦ &nbsp; Project database</a><a href="#gallery">▧ &nbsp; Concept art</a><a href="#production">◫ &nbsp; Production</a><a href="#sources">↗ &nbsp; Sources</a></nav><div class="side-foot">VERSION 0.3 / WORKSPACE<br>Concept in development</div></aside><main class="main"><div class="top"><span>DEVELOPMENT HUB / 001</span><span class="live">● CONCEPT IN DEVELOPMENT</span></div><div class="wrap"><section id="overview" class="hero"><div class="tag">AAA VISION · SURVIVAL ROAD TRIP</div><h1>THE ROAD<br><span>IS YOUR LIFELINE.</span></h1><p>Europe after the outbreak. Your vehicle is shelter, weapon, and your best chance of reaching the next safe place.</p><div class="hero-actions"><a class="btn" href="#systems">Explore the project ↗</a><a class="btn secondary" href="#vertical-slice">Explore the London mission</a></div></section><section class="section" style="margin-top:16px"><div class="stats"><div class="stat"><small>ROUTE</small><strong>London <em>→</em> Berlin</strong><small>Via the English Channel and Paris</small></div><div class="stat"><small>CORE EXPERIENCE</small><strong>Driving + on foot</strong><small>Third-person survival</small></div><div class="stat"><small>SCOPE</small><strong>12–18 hours</strong><small>Estimate; subject to validation</small></div><div class="stat"><small>NEXT MILESTONE</small><strong>Prototype</strong><small>One vehicle and a short road</small></div></div></section>
+<section id="campaign" class="section" aria-labelledby="campaign-title">
+  <div class="heading"><div><h2 id="campaign-title">Campaign map</h2><p>London to Berlin through the Channel and Paris</p></div></div>
+  <figure class="campaign-art">
+    <img src="docs/concept-01.jpg" width="1672" height="941" loading="lazy" alt="Concept art of the European campaign through London, Dover, Paris and Berlin">
+    <figcaption>European campaign concept art</figcaption>
+  </figure>
+  <div class="route campaign-stages">
+    <details class="stop"><summary><span class="eyebrow">Prologue</span><b>London</b><small>Find a compact car and cross the first bridge.</small></summary><div class="stage-details"><p>A delivery yard teaches reversing, steering and collision damage before an evacuation queue collapses at the bridge.</p><p><strong>Route choice.</strong> Take the open bus lane and risk repeated impacts, or abandon momentum to open the service gate on foot.</p><p><strong>Payoff.</strong> A radio contact gives Alex the first safehouse location. The car's fuel and damage carry forward.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Act I</span><b>Southern England</b><small>Get tools, fuel and a route to Dover.</small></summary><div class="stage-details"><p>A wet motorway pileup forces a choice between a narrow service road and a supply stop with a safer exit but a longer on-foot approach.</p><p><strong>New options.</strong> Van and pickup capacity, a repair kit and roadside refueling. Samira's workshop teaches how weight changes handling.</p><p><strong>Payoff.</strong> Open the route to the harbor with a usable vehicle and a recovery option if fuel runs low.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Act I finale</span><b>Dover &amp; the Channel</b><small>Restore the ramp and load the vehicle onto the ferry.</small></summary><div class="stage-details"><p>Scout the port, restore loading power and return to the queue before the final embarkation window closes.</p><p><strong>Optional rescue.</strong> Spend time guiding a stranded group to the ramp. Boarding space and the time remaining are visible before committing.</p><p><strong>Payoff.</strong> The ferry transition keeps the registered vehicle, secured cargo and completed rescue state.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Act II</span><b>Northern France</b><small>Reach Paris via farmland or an industrial corridor.</small></summary><div class="stage-details"><p>Muddy field tracks suit a buggy or 4×4. Paved factory roads have tighter gates and more salvage.</p><p><strong>New options.</strong> Trade for off-road tires or spend fuel to reach a supply depot. A tractor can clear a blocked farm route at the cost of speed.</p><p><strong>Payoff.</strong> Meet a survivor group and carry its help or the supplies you saved into Paris.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Act III</span><b>Paris</b><small>Recover an evacuation relay and reach the eastern exit.</small></summary><div class="stage-details"><p>Enter a parking garage on foot and recover the relay. Starting the generator draws infected toward the route back to the car.</p><p><strong>Route choice.</strong> The boulevard offers speed through a crowd. The flooded underpass trades crowd density for poor grip and a blocked lane. A separate Seine encounter tests boat handling and boarding threats.</p><p><strong>Payoff.</strong> Rescuing the garage mechanic earns a repair discount at the next hub.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Act IV</span><b>Eastbound borderlands</b><small>Cross forests, freight yards and industrial barriers.</small></summary><div class="stage-details"><p>Heavy weather cuts visibility around a freight junction. A bulldozer can open the main lane, while a small vehicle can reach an alternate access road.</p><p><strong>Tradeoff.</strong> Heavy machinery clears the obstacle but draws a larger response. The bypass preserves fuel and exposes the player during a manual gate sequence.</p><p><strong>Payoff.</strong> The border checkpoint registers vehicle damage and the route information recovered from the yard.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Act V</span><b>Berlin</b><small>Reach the evacuation network as rival groups close in.</small></summary><div class="stage-details"><p>Jonas offers a freight-yard rendezvous. Access and assistance depend on earlier rescues, alliances and the supplies carried into the city.</p><p><strong>Final decision.</strong> Use remaining cargo space for survivors or supplies. A limited armored vehicle or patrol boat can support specific branches.</p><p><strong>Payoff.</strong> The finale resolves who reaches the rendezvous and which resources remain for evacuation.</p></div></details>
+    <details class="stop"><summary><span class="eyebrow">Late campaign</span><b>Aircraft extraction</b><small>Mission-specific helicopter and small-plane sequences.</small></summary><div class="stage-details"><p>The helicopter uses a marked landing area. The small plane requires a prepared runway. Each has a dedicated approach, exit and recovery checkpoint.</p><p><strong>Design gate.</strong> Prototype camera comfort, landing readability and recoverable missed approaches before adding either sequence to the campaign.</p></div></details>
+  </div>
+</section>
+<section id="vertical-slice" class="section" aria-labelledby="slice-title">
+  <div class="heading"><div><h2 id="slice-title">Vertical slice</h2><p>Proposed 10–15 minute London-to-outskirts mission</p></div></div>
+  <div class="slice-brief panel">
+    <div class="slice-copy">
+      <h3>Out of London</h3>
+      <p>Alex leaves a neighborhood safehouse in a battered sedan. Reach the motorway checkpoint with a running engine and enough fuel to continue. The route takes the player through a vulnerable fuel stop, a foot-to-car escape and a choice that changes the condition of the vehicle at the finish.</p>
+      <ul class="slice-scope" aria-label="Playable scope"><li>One sedan</li><li>Walkers and a screamer</li><li>Two escape routes</li><li>Checkpoint and reload</li></ul>
+    </div>
+    <img src="docs/concept-05.jpg" width="1672" height="941" loading="lazy" alt="Roadside survival concept art showing fuel stops, repairs and the garage">
+  </div>
+  <ol class="slice-beats" aria-label="Mission beats">
+    <li><h3>Leave the safehouse</h3><p>Teach braking, reverse and the chase camera on a short road. Introduce the low-fuel cue before the junction.</p></li>
+    <li><h3>Approach the fuel stop</h3><p>Read the blocked road from the driver’s seat. Park at a valid exit point, then cross the forecourt on foot.</p></li>
+    <li><h3>Refuel under pressure</h3><p>Let the player interrupt the fill and keep fuel already transferred. A visual cue and distinct audio tell signal the screamer before it calls.</p></li>
+    <li><h3>Choose the escape route</h3><p>The high street is shorter and crowded. The service lane is longer and has fewer infected, with a narrow turn and poor grip.</p></li>
+    <li><h3>Reach the checkpoint</h3><p>Record route, fuel, engine condition and damage. Explain why the run succeeded or failed, and let the player retry from a consistent snapshot.</p></li>
+  </ol>
+  <div class="two design-gates">
+    <article class="panel"><h3>Playtest acceptance</h3><ul class="design-list"><li>At least 16 of 20 first-time testers complete the slice unaided. Log stalls, deaths, refueling choices and fuel remaining.</li><li>Both escape routes succeed from the intended checkpoint state. Test blocked doors, canceled refuels, empty fuel and interrupted saves for recovery.</li><li>Test the full sequence with keyboard and controller, remapped inputs, reduced motion and visual sound cues enabled.</li></ul></article>
+    <article class="panel"><h3>Production gates</h3><ul class="design-list"><li>One near-final sedan with readable damage, a polished fuel stop and two distinct infected silhouettes with complete interaction feedback.</li><li>Profile rain, crowd, collisions and streaming together on agreed hardware. The provisional performance-mode target is 60 fps, or about 16.7 ms per frame.</li><li>Lock the region size, hardware targets and content pipeline after the slice. Prototype boats and aircraft after the core road loop passes.</li></ul></article>
+  </div>
+</section>
+<section id="systems" class="section"><div class="heading"><div><h2>Project database</h2></div><p>Search player actions, system rules and playtest checks</p></div><div class="filters"><input id="search" aria-label="Search" placeholder="Search mechanics, vehicles, characters…"><select id="filter" aria-label="Filter by section"><option value="">All sections</option></select><select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Concept</option><option>Open</option><option>Prototype</option><option>Done</option></select></div><p id="results" class="result-count" role="status"></p><div id="cards" class="grid"></div></section><section id="gallery" class="section"><div class="heading"><div><h2>Gallery and references</h2></div><p>Open an image to view the full concept artwork</p></div><div id="arts" class="artgrid"></div></section><section id="production" class="section"><div class="heading"><div><div class="eyebrow">04 / PRODUCTION BOARD</div><h2>Demo preparation</h2></div><p>Changes and notes are saved in this browser</p></div><div class="two"><div class="panel"><h3>Browser demo checklist</h3><div id="checklist"></div><p class="note">A browser demo is a focused test of ideas, not a commitment to the full AAA scope.</p></div><div class="panel"><h3>Open decisions and blockers</h3><div id="issues"></div><form class="entry" id="issueForm"><input id="issueInput" placeholder="Add a decision or blocker" required><button class="btn">Add</button></form></div><div class="panel"><h3>Change log</h3><div id="log"></div><form class="entry" id="logForm"><input id="logInput" placeholder="Record a change" required><button class="btn">Add</button></form></div><div class="panel"><h3>Milestones</h3><div class="item"><span>01</span><label>Pre-production<small>Agree goals, camera and platforms; assess rights and physics.</small></label></div><div class="item"><span>02</span><label>Playable prototype<small>A road, car, infected, fuel, damage and checkpoint.</small></label></div><div class="item"><span>03</span><label>Vertical slice<small>10–15 minutes: London, fuel stop, chase and route choice.</small></label></div><div class="item"><span>04</span><label>Production and release<small>Expand the campaign after validating quality and resources.</small></label></div></div></div></section><section id="sources" class="section"><div class="heading"><div><div class="eyebrow">05 / SOURCE OF TRUTH</div><h2>Project documents</h2></div></div><div class="two"><a class="art" href="docs/road_v3.md" target="_blank" rel="noopener"><span>GDD / VERSION 0.3 ↗</span><b>road_v3.md</b><small>Vision, systems, campaign and production plan</small></a><a class="art" href="docs/Concept_Art_Book.pdf" target="_blank" rel="noopener"><span>ART BOOK / 15 PAGES ↗</span><b>Concept Art Book.pdf</b><small>Visual direction and exploration</small></a></div></section><footer>ROAD OF THE DEAD / PROJECT HUB · Working interpretation of v0.3. Statuses require confirmation against actual implementation.</footer></div></main><dialog id="modal" aria-labelledby="record-title"><button class="close" aria-label="Close">✕</button><div id="detail"></div></dialog><script>
 const gdd='docs/road_v3.md',pdf='docs/Concept_Art_Book.pdf';
 const art=[['European campaign','London, Dover, Paris and Berlin','docs/concept-01.jpg',1],['Survivors and infected','Characters and silhouettes','docs/concept-02.jpg',2],['On-foot combat','Weapons, inventory and melee combat','docs/concept-03.jpg',3],['Vehicle progression','Armor, damage and upgrades','docs/concept-04.jpg',4],['Roadside survival','Refueling, repairs and garage','docs/concept-05.jpg',5],['Land vehicles','Motorcycle, truck, bulldozer and tank','docs/concept-06.jpg',6],['Vehicles in action','Roads, fields and heavy vehicles','docs/concept-07.jpg',7],['Aircraft and garage','Helicopter, plane and scavenging','docs/concept-08.jpg',8],['Buggies and boats','Water and off-road vehicles','docs/concept-09.jpg',9],['Land and water','Dangerous waterways','docs/concept-10.jpg',10],['Aquatic infected','Enemy types with swimming abilities','docs/concept-11.jpg',11],['Early studies','Chase and atmosphere; European setting supersedes the mountain location','docs/concept-12.jpg',12]];
 const data=[
@@ -20,8 +187,197 @@ const data=[
 ['Planes and helicopters','Aircraft','Late-game special missions and transitions.','Simplified controls, defined flight corridors, fuel and damage. Planes need runways; helicopters need landing zones. Free continent-wide flight is not planned.',8],
 ['Garage and progression','Progression','Register, repair and upgrade vehicles.','Upgrades include armor, storage, tires, cooling and fuel capacity. Heavy vehicles, boats and aircraft need suitable storage.',4],
 ['Campaign and choices','Campaign','Journey from London through Dover, France and Paris to Berlin.','Choices affect help, resources and the finale. The Channel ferry is a distinct stage; branches and endings remain unapproved.',1],
-['Browser demo','Production','A first testable slice on one short route.','Proposed test: driving, entry and exit, one infected, fuel, damage, an objective, restart and mobile controls. Implementation requires separate verification.',5]];
-const statuses=JSON.parse(localStorage.getItem('rot-status')||'{}');for (const k in statuses) statuses[k]=({'Концепция':'Concept','Открыто':'Open','Прототип':'Prototype','Готово':'Done'})[statuses[k]]||statuses[k];const save=(k,v)=>localStorage.setItem('rot-'+k,JSON.stringify(v));const filter=document.querySelector('#filter');[...new Set(data.map(x=>x[1]))].forEach(x=>filter.add(new Option(x,x)));function render(){const q=document.querySelector('#search').value.toLowerCase().trim(),f=filter.value,s=document.querySelector('#statusFilter').value;const matches=data.map((x,i)=>({x,i})).filter(({x,i})=>(!f||x[1]===f)&&(!s||(statuses[i]||'Concept')===s)&&x.join(' ').toLowerCase().includes(q));document.querySelector('#cards').innerHTML=matches.length?matches.map(({x,i})=>`<article class="card"><div class="card-top"><span class="chip">${x[1]}</span><span class="status">${statuses[i]||'Concept'}</span></div><h3>${x[0]}</h3><p>${x[2]}</p><button onclick="show(${i})">Details ↗</button></article>`).join(''):'<div class="empty">No results. Try another search or filter.</div>'}function show(i){let x=data[i],a=art.find(t=>t[3]===x[4]);document.querySelector('#detail').innerHTML=`<span class="chip">${x[1]} / CARD</span><h2>${x[0]}</h2><p>${x[3]}</p><label>Readiness status <select id="changeStatus" style="margin:10px;background:#111;color:white;padding:8px;border:1px solid #536353;border-radius:5px">${['Concept','Open','Prototype','Done'].map(s=>`<option ${s===(statuses[i]||'Concept')?'selected':''}>${s}</option>`).join('')}</select></label><p class="note">Status is set manually and saved only in this browser.</p><p><a class="source-link" href="${gdd}" target="_blank">Design document ↗</a> · <a class="source-link" href="${pdf}#page=${x[4]}" target="_blank">Art book, page ${x[4]} ↗</a>${a?` · <a class="source-link" target="_blank" href="${a[2]}">Related art ↗</a>`:''}</p>`;document.querySelector('#changeStatus').onchange=e=>{statuses[i]=e.target.value;save('status',statuses);render()};document.querySelector('#modal').showModal()};document.querySelector('.close').onclick=()=>document.querySelector('#modal').close();document.querySelector('#modal').onclick=e=>{if(e.target===e.currentTarget)e.currentTarget.close()};document.querySelector('#search').oninput=render;filter.onchange=render;document.querySelector('#statusFilter').onchange=render;render();document.querySelector('#arts').innerHTML=art.map(a=>`<a class="art" target="_blank" rel="noopener" href="${a[2]}"><span>ART BOOK / ${String(a[3]).padStart(2,'0')} ↗</span><b>${a[0]}</b><small>${a[1]}</small></a>`).join('');
+['Browser demo','Production','A first testable slice on one short route.','Proposed test: driving, entry and exit, one infected, fuel, damage, an objective, restart and mobile controls. Implementation requires separate verification.',5],
+["Encounter director","Enemies","Pace pressure around driving, scavenging and escape.","Local encounter budgets and distinct phases control when pressure builds and releases.",2],
+["Camera and accessibility","Mechanics","Readable driving, on-foot transitions and configurable cues.","Input, motion and audiovisual settings support both driving and exploration.",3],
+["Streaming and checkpoints","Production","Keep the world responsive and restore consistent state.","Profile at speed and save mission, inventory and vehicle state together.",5]];
+const designNotes = {
+  'Driving and collisions': [
+    'Players read the road ahead, choose a line and commit to a braking or ramming decision. Keep the steering response predictable in a normal turn and visibly degrade it when a wheel is damaged.',
+    'Maintain separate bumper, wheel, radiator and engine conditions. Bodywork, HUD icons and engine audio should indicate the same state. A damaged radiator builds heat under load and gives the player a chance to ease off or repair.',
+    'Compare a clean run with a damaged run through the same bend. Verify the car remains recoverable after a moderate hit and that a heavy impact does not switch the camera into an unreadable angle.'
+  ],
+  'On-foot combat': [
+    'A valid door transitions from driving to on-foot controls, with the car still present and vulnerable. An interrupted entry returns control near the door. An obstruction offers an alternate door where reachable.',
+    'Light attacks conserve time, heavy attacks trade stamina for stagger, and firearms trade ammunition and noise for distance. A runner makes reloading in the open risky. A screamer makes a quick response valuable.',
+    'Test reload interruption, door obstruction on slopes, switching control modes while injured and retreating under pressure. Ammo, collision and player controls should remain consistent.'
+  ],
+  'Survival and resources': [
+    'Before leaving a safehouse, choose what to carry between fuel, repairs, healing and ammunition. The vehicle trunk extends capacity, while access requires a stop and time out of the driving seat.',
+    'Every critical route needs a recovery source for a depleted tank or a damaged component. Optional detours offer more stock in exchange for time, travel fuel and exposure.',
+    'Replay from a depleted checkpoint and a well-stocked one. Both states should have a readable path forward, and the better-prepared run should have more freedom in route choice.'
+  ],
+  'Fuel and repairs': [
+    'Show whether a stop is worthwhile through range and vehicle-condition cues. At a fuel source, the driver can cancel mid-fill and leave with the fuel already transferred.',
+    'Field repairs restore a limited amount of function with carried supplies. A garage handles full component repair and part replacement. More armor and extended idling raise fuel use.',
+    'Check fuel and repair totals across cancel, death and reload. An empty tank should surface a nearby recovery option when a restart is avoidable.'
+  ],
+  'Passenger cars': [
+    'The compact fits blocked streets and uses less fuel. The sedan covers mixed routes. The wagon and van carry more supplies but need larger turns. The 4×4 earns its upkeep on rough terrain.',
+    'Compare turning clearance, usable cargo space, off-road grip, consumption and component protection. Garage selection shows the missions and terrain each vehicle suits.',
+    'Benchmark each class on the same loop and on its preferred route. A later unlock should create a new route option while preserving a reason to keep the compact.'
+  ],
+  'Heavy vehicles': [
+    'The tractor can pull an authored obstruction, the bulldozer can clear an industrial barrier, and the monster truck can climb smaller wrecks. A late armored vehicle offers protection with class-specific access limits.',
+    'Gate heavy routes by turning space, overhead clearance, fuel and noise. A mission that requires a heavy vehicle supplies a recoverable replacement or checkpoint reset.',
+    'Exercise narrow turns, blocked clearance, collision with authored debris and recovery after engine failure. Keep vehicle and obstacle state consistent after reloading.'
+  ],
+  'Motorcycle and buggy': [
+    'The motorcycle makes city gaps useful at the expense of protection and storage. The buggy opens field tracks with better agility and introduces tire damage and rollover recovery.',
+    'Use class-specific chase framing and communicate whether a gap, slope or surface is appropriate before entry. Both classes carry limited emergency resources.',
+    'Test low-speed steering and getting unstuck after a failed turn, fall or rollover. Remounting must place the player and vehicle in valid positions.'
+  ],
+  'Weapons': [
+    'Give each fictional weapon a readable role through reach, stagger, stamina or ammunition, and noise. Melee rewards timing and distance. A reserved firearm can buy space at the cost of drawing attention.',
+    'Persist loaded rounds and spare ammunition separately. Show inventory capacity before a pickup and allow explicit replacement when slots are full.',
+    'Test repeated reload interruptions and save/reload boundaries for ammo duplication. Compare similar encounters with quiet and loud approaches so both have meaningful costs.'
+  ],
+  'Infected and hordes': [
+    'Walkers occupy space, runners close distance, screamers draw nearby infected, brutes threaten narrow lanes and clingers punish a slow vehicle. Lead with silhouette and behavior cues.',
+    'Use investigate, pursue, search and disengage states. Apply a local encounter budget and off-screen entry points. Give the player a recoverable route when pressure rises.',
+    'Test the same sequence with and without a screamer call. Confirm the escalation is legible, response counts stay bounded and fallback paths remain reachable.'
+  ],
+  'Aquatic infected': [
+    'Swimmers pursue via water navigation. Divers leave bubble or wake cues, and boat clingers board only through authored low-speed attachment points with room to climb.',
+    'Use visual wakes and bubbles with a distinct sound cue. Limit pursuit by navigation and encounter rules so losing line of sight or reaching a valid dock can break contact.',
+    'Test wade-to-swim, climb-out, hull attachment and blocked landing cases. Verify enemies cannot enter unreachable routes and that a viable boarding or shore exit remains available.'
+  ],
+  'Survivors': [
+    'Alex is the driver. Samira teaches repairs and expands garage access. Camille coordinates Paris over radio. Jonas interprets route data and available evacuation capacity in Berlin.',
+    'Write consequences as a short set of flags: rescue completed, supplies shared, relay recovered. Show consequences through later help, prices, dialogue or seats at the finale.',
+    'Test dialogue and resource changes from every supported flag combination. Keep the main story legible if the player skips optional encounters.'
+  ],
+  'Swimming and water': [
+    'A swim trades speed and stamina for a route around road closures. Mark ladders, reachable banks and compatible vessels before the player commits to entering the water.',
+    'Falling overboard uses the same swim and reboarding rules. Low stamina slows swimming and directs the player toward a reachable recovery point.',
+    'Test approaches from both sides of a dock, exhausted swimming and failed boarding. Save only at appropriate land or dock transitions with repeatable recovery.'
+  ],
+  'Boats': [
+    'Inflatables use narrow approaches, speedboats excel on open water, fishing boats carry supplies, barges support cargo routes and patrol boats trade operating cost for protection.',
+    'Use hull, motor and fuel condition. A damaged motor reduces the ability to outrun pursuit. Docking and on-foot movement happen at authored boarding points or walkable decks.',
+    'Compare a fast river escape with a lower-consumption route. Test collision, mooring, boarded enemies, and overboard recovery before expanding the vessel roster.'
+  ],
+  'Planes and helicopters': [
+    'Use the helicopter for a short extraction with a visible approach and landing zone. Use the small plane for a longer controlled transition requiring a cleared runway.',
+    'Track fuel, damage and mission progress within marked flight corridors. Offer a retry from approach or a checkpoint if the aircraft becomes unusable.',
+    'Test runway and pad visibility, valid landing and exit, missed approach recovery, camera comfort and handling with remapped inputs.'
+  ],
+  'Garage and progression': [
+    'Upgrades change the route plan. Armor costs fuel and handling, cooling delays overheating, off-road tires open rough tracks and storage changes what the vehicle can bring back.',
+    'Compare projected gains and costs before installing. Record the registered vehicle, cargo, installed parts and condition at a safehouse. Use separate spaces for boats and heavy vehicles.',
+    'Verify that swap, install, removal and checkpoint loading agree on fuel, cargo and fitted components. Check the player can retrieve a registered vehicle after a mission transition.'
+  ],
+  'Campaign and choices': [
+    'Teach one system at a time in London and southern England, then combine route choice, collision and exposure in the port. Paris adds vehicle and water alternatives. Berlin tests the choices carried through the campaign.',
+    'Record only meaningful narrative outcomes. The Paris rescue changes the repair economy, ferry choices affect help on the continent, and earlier assistance changes available evacuation support in Berlin.',
+    'Test critical-path completion with and without every optional rescue. Verify that the consequences appear at the advertised checkpoint and that no branch requires a missing unique vehicle.'
+  ],
+  'Browser demo': [
+    'Start with one road, a car, one infected, one fuel pickup, basic damage and a clear escape objective. Show why the run ended and offer an immediate restart.',
+    'Observe whether first-time players discover entry, exit and refueling without instruction. Record where they stall and which danger cues they miss.',
+    'Promote the design to the London vertical slice once the core loop is repeatable. Add a second infected, a branching escape, component repair and accessibility controls in the slice.'
+  ],
+  'Encounter director': [
+    'Use quiet, rising, pursuit and recovery phases. A fuel stop begins quiet, draws attention as exposure grows and gives space to recover after a successful escape.',
+    'Budget threats per zone, keep spawned enemies out of view and preserve an exit that the player can identify. Author landmarks and sound cues before raising pressure.',
+    'Run each encounter with cautious and direct play. Compare completion, resource use and peak active enemies. Investigate stalls where the player has no visible route.'
+  ],
+  'Camera and accessibility': [
+    'Driving uses an exterior chase camera high enough to read the road. On foot, transition to a closer third-person view. Keep the character and vehicle readable near walls and obstacles.',
+    'Offer remapping, hold or toggle inputs, subtitle sizing with speaker labels, independent camera shake, motion settings and visual alternatives for sound cues.',
+    'Test with keyboard and controller, after rebinding, and with reduced motion and subtitles enabled. Confirm that low fuel, a screamer call and blocked door prompts can be understood without color or sound alone.'
+  ],
+  'Streaming and checkpoints': [
+    'Stream authored road cells ahead of predicted driving speed. Keep near-player collisions and animation at full detail, with simpler distant simulation and pooled effects.',
+    'Write checkpoint snapshots atomically after safe transitions. Include mission flags, route, inventory, vehicle parts, fuel and position. Keep a recoverable fallback if the newest save is interrupted.',
+    'Profile rain, blocked road, crowds, streaming and collisions in the same run. Test restarting during a write and reloading into both approved route branches.'
+  ]
+};
+
+const statuses = JSON.parse(localStorage.getItem('rot-status') || '{}');
+const translated = { 'Концепция': 'Concept', 'Открыто': 'Open', 'Прототип': 'Prototype', 'Готово': 'Done' };
+for (const index in statuses) {
+  statuses[index] = translated[statuses[index]] || statuses[index];
+}
+const save = (key, value) => localStorage.setItem('rot-' + key, JSON.stringify(value));
+const filter = document.querySelector('#filter');
+const search = document.querySelector('#search');
+const statusFilter = document.querySelector('#statusFilter');
+const cards = document.querySelector('#cards');
+const results = document.querySelector('#results');
+const modal = document.querySelector('#modal');
+const readiness = ['Concept', 'Open', 'Prototype', 'Done'];
+
+for (const category of new Set(data.map(record => record[1]))) {
+  filter.add(new Option(category, category));
+}
+
+function render() {
+  const query = search.value.toLowerCase().trim();
+  const matches = data.map((record, index) => ({ record, index })).filter(({ record, index }) => {
+    const [title, category] = record;
+    const status = statuses[index] || 'Concept';
+    const searchable = [...record, ...designNotes[title]].join(' ').toLowerCase();
+    return (!filter.value || category === filter.value)
+      && (!statusFilter.value || status === statusFilter.value)
+      && searchable.includes(query);
+  });
+  results.textContent = `${matches.length} of ${data.length} design records`;
+  cards.innerHTML = matches.length ? matches.map(({ record, index }) => {
+    const [title, category, description] = record;
+    const status = statuses[index] || 'Concept';
+    return `<article class="card">
+      <div class="card-top"><span class="chip">${category}</span><span class="status">${status}</span></div>
+      <h3>${title}</h3><p>${description}</p>
+      <button type="button" data-record="${index}">Details ↗</button>
+    </article>`;
+  }).join('') : '<p class="empty">No results. Try another search or filter.</p>';
+}
+
+function show(index) {
+  const [title, category, , summary, page] = data[index];
+  const relatedArt = art.find(asset => asset[3] === page);
+  const [experience, rules, verification] = designNotes[title];
+  const status = statuses[index] || 'Concept';
+  document.querySelector('#detail').innerHTML = `<span class="chip">${category}</span>
+    <h2 id="record-title">${title}</h2><p>${summary}</p>
+    <dl class="design-notes">
+      <dt>Player experience</dt><dd>${experience}</dd>
+      <dt>System rules</dt><dd>${rules}</dd>
+      <dt>Playtest checks</dt><dd>${verification}</dd>
+    </dl>
+    <label>Readiness status <select id="changeStatus" style="margin:10px;background:#111;color:white;padding:8px;border:1px solid #536353;border-radius:5px">
+      ${readiness.map(value => `<option ${value === status ? 'selected' : ''}>${value}</option>`).join('')}
+    </select></label>
+    <p class="note">Readiness status is saved in this browser.</p>
+    <p><a class="source-link" href="${gdd}" target="_blank" rel="noopener">Design document ↗</a>
+      · <a class="source-link" href="${pdf}#page=${page}" target="_blank" rel="noopener">Art book, page ${page} ↗</a>
+      ${relatedArt ? `· <a class="source-link" target="_blank" rel="noopener" href="${relatedArt[2]}">Related art ↗</a>` : ''}</p>`;
+  document.querySelector('#changeStatus').onchange = event => {
+    statuses[index] = event.target.value;
+    save('status', statuses);
+    render();
+  };
+  modal.showModal();
+}
+
+cards.addEventListener('click', event => {
+  const button = event.target.closest('button[data-record]');
+  if (button) show(Number(button.dataset.record));
+});
+modal.querySelector('.close').onclick = () => modal.close();
+modal.onclick = event => { if (event.target === modal) modal.close(); };
+search.oninput = render;
+filter.onchange = render;
+statusFilter.onchange = render;
+render();
+
+document.querySelector('#arts').innerHTML = art.map(([title, description, path, page]) => `
+  <a class="art" target="_blank" rel="noopener" href="${path}">
+    <img class="art-preview" src="${path}" width="320" height="180" loading="lazy" decoding="async" alt="">
+    <div class="art-caption"><span>ART BOOK / ${String(page).padStart(2, '0')} ↗</span><b>${title}</b><small>${description}</small></div>
+  </a>`).join('');
+
 const defaults=['Define one short scene and its win condition','Implement driving and camera controls','Add entry and exit, combat and one infected','Implement fuel, damage, pickups and recovery','Build HUD, pause, failure and restart','Test mobile controls and performance','Check rights for models, music and other assets','Create a separate GitHub repository and configure Pages','Verify the build, asset paths and published URL'];let checks=JSON.parse(localStorage.getItem('rot-checks')||'[]');document.querySelector('#checklist').innerHTML=defaults.map((x,i)=>`<div class="item"><input type="checkbox" id="c${i}" ${checks[i]?'checked':''}><label for="c${i}">${x}</label></div>`).join('');document.querySelectorAll('#checklist input').forEach((e,i)=>e.onchange=()=>{checks[i]=e.checked;save('checks',checks)});
 let issues=JSON.parse(localStorage.getItem('rot-issues')||'null')||['Choose an engine and target devices after prototype testing','Confirm browser demo scope and acceptance criteria','Check rights and suitability of existing models','Approve character, ending, survival depth and vehicle approach','Estimate team, funding and horde performance'];let logs=JSON.parse(localStorage.getItem('rot-log')||'null')||['10.11.2026 · Created hub based on GDD v0.3 and art book'];function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function list(id,arr){document.querySelector('#'+id).innerHTML=arr.map((x,i)=>`<div class="item"><label>${escapeHtml(x)}</label><button aria-label="Delete entry" style="background:none;color:#9aa9a0;border:0" onclick="removeItem('${id}',${i})">✕</button></div>`).join('')||'<p class="note">No entries yet.</p>'}function removeItem(id,i){let a=id==='issues'?issues:logs;a.splice(i,1);save(id==='issues'?'issues':'log',a);list(id,a)}list('issues',issues);list('log',logs);document.querySelector('#issueForm').onsubmit=e=>{e.preventDefault();issues.unshift(document.querySelector('#issueInput').value);save('issues',issues);list('issues',issues);e.target.reset()};document.querySelector('#logForm').onsubmit=e=>{e.preventDefault();logs.unshift(new Date().toLocaleDateString('en-GB')+' · '+document.querySelector('#logInput').value);save('log',logs);list('log',logs);e.target.reset()};
 </script></body></html>
