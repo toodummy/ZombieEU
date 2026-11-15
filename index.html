@@ -184,6 +184,43 @@
   .quality-lead, .quality-topic-body, .quality-gate-list { grid-template-columns: 1fr; }
 }
 
+
+.document-readers { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 20px; }
+.document-reader.panel { padding: 0; scroll-margin-top: 16px; }
+.document-reader summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  list-style: none;
+  cursor: pointer;
+}
+.document-reader summary::-webkit-details-marker { display: none; }
+.document-reader summary:hover { background: #202a22; }
+.document-reader summary::after { content: '+'; color: var(--acid); font-size: 22px; line-height: 1; }
+.document-reader[open] summary::after { content: '−'; }
+.document-reader summary strong, .document-reader summary small { display: block; }
+.document-reader summary small { margin-top: 3px; color: var(--muted); }
+.document-body { padding: 18px clamp(16px, 3vw, 32px) 24px; border-top: 1px solid var(--line); }
+.document-body > p, .document-body > ul, .document-body > ol { max-width: 78ch; }
+.document-body p, .document-body li { color: #c4cfc4; }
+.document-body p:first-child { margin-top: 0; }
+.document-body h3 { margin: 24px 0 10px; font-size: 21px; }
+.document-body strong { color: var(--text); }
+.document-body a { color: var(--acid); }
+.document-repo { font-size: 13px; }
+.document-body code { overflow-wrap: anywhere; }
+.document-table { max-width: 100%; overflow: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 5px; }
+.document-table table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 14px; }
+.document-table th, .document-table td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.document-table th { color: var(--text); background: #222c23; }
+.document-table td { color: #c4cfc4; }
+.document-table tr:last-child td { border-bottom: 0; }
+.document-route { padding: 12px 18px; border-left: 2px solid var(--acid); background: #1b251e; }
+.document-route ol { margin: 0; padding-left: 21px; }
+.document-route p { margin: 8px 0 0; }
 </style></head><body><aside><div class="brand">ROAD <span>OF THE</span><br>DEAD<span> /</span></div><div class="eyebrow" style="margin-top:12px">Project command center</div><nav class="nav"><a href="#overview">◉ &nbsp; Overview</a><a href="#campaign">⌁ &nbsp; Campaign</a><a href="#vertical-slice">Vertical slice</a><a href="#systems">▦ &nbsp; Project database</a><a href="#gallery">▧ &nbsp; Concept art</a><a href="#production">◫ &nbsp; Production</a><a href="#aaa-production">AAA production brief</a><a href="#sources">↗ &nbsp; Sources</a></nav><div class="side-foot">VERSION 0.3 / WORKSPACE<br>Concept in development</div></aside><main class="main"><div class="top"><span>DEVELOPMENT HUB / 001</span><span class="live">● CONCEPT IN DEVELOPMENT</span></div><div class="wrap"><section id="overview" class="hero"><div class="tag">AAA VISION · SURVIVAL ROAD TRIP</div><h1>THE ROAD<br><span>IS YOUR LIFELINE.</span></h1><p>Europe after the outbreak. Your vehicle is shelter, weapon, and your best chance of reaching the next safe place.</p><div class="hero-actions"><a class="btn" href="#systems">Explore the project ↗</a><a class="btn secondary" href="#vertical-slice">Explore the London mission</a></div></section><section class="section" style="margin-top:16px"><div class="stats"><div class="stat"><small>ROUTE</small><strong>London <em>→</em> Berlin</strong><small>Via the English Channel and Paris</small></div><div class="stat"><small>CORE EXPERIENCE</small><strong>Driving + on foot</strong><small>Third-person survival</small></div><div class="stat"><small>SCOPE</small><strong>12–18 hours</strong><small>Estimate; subject to validation</small></div><div class="stat"><small>NEXT MILESTONE</small><strong>Prototype</strong><small>One vehicle and a short road</small></div></div></section>
 <section id="campaign" class="section" aria-labelledby="campaign-title">
   <div class="heading"><div><h2 id="campaign-title">Campaign map</h2><p>London to Berlin through the Channel and Paris</p></div></div>
@@ -290,15 +327,609 @@
 </section>
 
 <section id="sources" class="section" aria-labelledby="project-documents-title">
-  <div class="heading"><div><h2 id="project-documents-title">Project documents</h2><p>Design references and production specifications for Out of London</p></div></div>
+  <div class="heading"><div><h2 id="project-documents-title">Project documents</h2><p>Open a production document to read it here.</p></div></div>
   <div class="two">
     <a class="art" href="docs/road_v3.md" target="_blank" rel="noopener"><span>Version 0.3 ↗</span><b>Game Design Document</b><small>Vision, systems, campaign and production plan</small></a>
     <a class="art" href="docs/Concept_Art_Book.pdf" target="_blank" rel="noopener"><span>15 pages · PDF ↗</span><b>Concept Art Book</b><small>Visual direction and exploration</small></a>
-    <a class="art" href="https://github.com/toodummy/ZombieEU/blob/main/docs/out-of-london-vertical-slice.md" target="_blank" rel="noopener"><span>Markdown on GitHub ↗</span><b>Out of London — Vertical Slice Specification</b><small>Mission beats, routes, encounter rules and build scope</small></a>
-    <a class="art" href="https://github.com/toodummy/ZombieEU/blob/main/docs/technical-design.md" target="_blank" rel="noopener"><span>Markdown on GitHub ↗</span><b>Technical Design Document</b><small>Engine evaluation, system ownership, checkpoints and profiling</small></a>
-    <a class="art" href="https://github.com/toodummy/ZombieEU/blob/main/docs/art-and-audio-production-guide.md" target="_blank" rel="noopener"><span>Markdown on GitHub ↗</span><b>Art and Audio Production Guide</b><small>In-engine quality standards, acceptance captures and asset rights</small></a>
-    <a class="art" href="https://github.com/toodummy/ZombieEU/blob/main/docs/playtest-and-qa-plan.md" target="_blank" rel="noopener"><span>Markdown on GitHub ↗</span><b>Playtest and QA Plan</b><small>Route, save and accessibility checks with sign-off criteria</small></a>
-    <a class="art" href="https://github.com/toodummy/ZombieEU/blob/main/docs/production-roadmap-and-backlog.md" target="_blank" rel="noopener"><span>Markdown on GitHub ↗</span><b>Production Roadmap and Backlog</b><small>Milestones, owner roles, dependencies and proposed effort</small></a>
+  </div>
+  <div class="document-readers">
+<details id="doc-out-of-london-vertical-slice" class="panel document-reader">
+  <summary><span><strong>Out of London — Vertical Slice Specification</strong><small>Mission beats, routes, encounter rules and build scope</small></span></summary>
+  <div class="document-body">
+    <p class="document-repo"><a href="https://github.com/toodummy/ZombieEU/blob/main/docs/out-of-london-vertical-slice.md" target="_blank" rel="noopener">View Markdown file on GitHub ↗</a></p>
+<p><strong>Status</strong> · Proposed for pre-production review<br><strong>Target</strong> · One complete single-player PC mission in 10–15 minutes<br><strong>Player</strong> · Alex Morgan, driving a battered sedan from a neighborhood safehouse to a motorway checkpoint</p>
+<h3>Mission contract</h3>
+<p>The player leaves with enough fuel to reach the station and must refuel to have a reliable margin for the escape. The station is the moment where the driving and on-foot loops meet. The player can watch the gauge rise while the forecourt becomes less safe, then decide when to stop fueling and which route to take. The slice ends with a running car reaching the motorway checkpoint. Its debrief explains the route taken, fuel left, vehicle condition and optional rescue outcome.</p>
+<div class="document-table" role="region" aria-label="Out of London — Vertical Slice Specification table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Required for the slice</th>
+<th scope="col">Deferred past the slice</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sedan, chase camera, one drive-to-foot-to-drive sequence, interruptible fuel transfer, readable wheel damage and recovery</td>
+<td>Additional vehicles, garage progression, water and aircraft, companion AI, systemic city simulation</td>
+</tr>
+<tr>
+<td>One safehouse, one forecourt, two escape routes, two infected archetypes, one optional rescue, two resumable checkpoints</td>
+<td>Campaign branching, voiced cinematics, dynamic weather cycles, console certification</td>
+</tr>
+</tbody></table></div>
+<h3>Route and pacing</h3>
+<div class="document-route" aria-label="Mission route">
+  <ol><li>Neighborhood safehouse</li><li>Approach and park</li><li>Fuel stop under pressure</li></ol>
+  <p>Choose the high street or the service lane. Both routes end at the motorway checkpoint.</p>
+</div>
+<div class="document-table" role="region" aria-label="Out of London — Vertical Slice Specification table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Beat</th>
+<th scope="col" align="right">Pacing target</th>
+<th scope="col">Player action and success cue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Leave the safehouse</td>
+<td align="right">1–2 min</td>
+<td>Steer, brake and reverse before reaching traffic. Following the route sign leads to a low-fuel cue and the station approach.</td>
+</tr>
+<tr>
+<td>Approach the forecourt</td>
+<td align="right">2–3 min</td>
+<td>Spot the blocked junction and a place to park. Exit from a valid door and orient toward the fuel point.</td>
+</tr>
+<tr>
+<td>Refuel under pressure</td>
+<td align="right">3–4 min</td>
+<td>Start the fill, see fuel accumulate and hear the screamer&#39;s warning. Canceling preserves transferred fuel. The kiosk rescue can be attempted here.</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td align="right">3–4 min</td>
+<td>Re-enter the car and choose the shorter crowded high street or the longer service lane with a narrow turn and low grip. The rescue opens a shortcut off the service lane.</td>
+</tr>
+<tr>
+<td>Reach the checkpoint</td>
+<td align="right">1–2 min</td>
+<td>Cross the marked motorway threshold under the car&#39;s own power. Show the route, condition, fuel and rescue result, then permit replay.</td>
+</tr>
+</tbody></table></div>
+<p>Pacing estimates include orientation and first-time reading. Tune the overall run to the stated target before locking individual beats.</p>
+<h3>Encounter behavior</h3>
+<ul>
+<li><strong>Approach.</strong> Let the player see the canopy, parking opportunity and both road exits before the danger escalates. A blocked driver-side door offers a reachable alternate entry or a clear blocked cue.</li>
+<li><strong>Pressure.</strong> Start with walkers at a distance. The screamer telegraphs escalation with sound and a directional visual cue. If its call completes, the authored encounter budget admits reinforcements through occluded entrances. Give the player time to disengage and preserve a readable route back to the car.</li>
+<li><strong>Optional rescue.</strong> Alex can help a worker behind the kiosk shutter. Success unlocks the service-lane shortcut and a radio report. Skipping the rescue preserves both original routes. Set the rescue flag only after the interaction resolves and keep it consistent on reload.</li>
+<li><strong>Route balance.</strong> The high street trades short distance for crowd pressure and collision risk. The service lane trades lower enemy density for restricted steering clearance and poor grip. Both routes must be reachable and completable with the intended unmodified sedan and a partial fill established by playtests.</li>
+</ul>
+<h3>Progress, failure and recovery</h3>
+<div class="document-table" role="region" aria-label="Out of London — Vertical Slice Specification table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">State</th>
+<th scope="col">Trigger</th>
+<th scope="col">Recovery or persistence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Start checkpoint</td>
+<td>Leave the safehouse</td>
+<td>Restore car, fuel, damage, player and encounter state together.</td>
+</tr>
+<tr>
+<td>Forecourt checkpoint</td>
+<td>Cross the forecourt approach threshold before any fuel or rescue change</td>
+<td>Restore approach state, preserve the same valid parking options and reset encounter progress.</td>
+</tr>
+<tr>
+<td>Cancel fuel transfer</td>
+<td>Release or cancel the fueling interaction</td>
+<td>Return control promptly and preserve the completed amount exactly once.</td>
+</tr>
+<tr>
+<td>Out of fuel</td>
+<td>Tank reaches zero</td>
+<td>Offer an authored recovery canister where reachable. Otherwise show a clear retry and return to the forecourt checkpoint.</td>
+</tr>
+<tr>
+<td>Car unusable or player down</td>
+<td>Engine cannot drive or the player is defeated</td>
+<td>Show the reason, then allow retry. Retrying restores the selected checkpoint and removes temporary encounter state.</td>
+</tr>
+<tr>
+<td>Mission complete</td>
+<td>Reach motorway threshold with running engine</td>
+<td>Lock a single completion event and summarize route, fuel, damage and rescue.</td>
+</tr>
+</tbody></table></div>
+<h3>Minimum build list</h3>
+<div class="document-table" role="region" aria-label="Out of London — Vertical Slice Specification table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Owner role</th>
+<th scope="col">Deliverable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Level design</td>
+<td>One connected route with two exits, a safehouse apron, forecourt, kiosk, alternative door clearances and recovery points</td>
+</tr>
+<tr>
+<td>Gameplay</td>
+<td>Sedan handling, camera, foot controls, interaction ownership, fuel transfer, wheel damage, threat state, rescue flag and checkpoint logic</td>
+</tr>
+<tr>
+<td>Art and audio</td>
+<td>One hero sedan, forecourt kit, walker and screamer silhouettes, entry and exit animations, rain, headlights, audio cues and simple radio dialogue</td>
+</tr>
+<tr>
+<td>UI and QA</td>
+<td>Remappable inputs, fuel and condition feedback, directional threat cues, debrief, route and checkpoint tests</td>
+</tr>
+</tbody></table></div>
+<h3>Definition of done</h3>
+<ul>
+<li>A packaged build is completable through either base route. The rescue outcome and shortcut survive a checkpoint replay without precluding the main objective.</li>
+<li>At least <strong>16 of 20</strong> first-time participants complete the mission unaided on the agreed build. Record where they stop, why they cancel fueling, which route they choose and whether they can explain the result.</li>
+<li>No progression blocker remains across the save, transition, fuel and accessibility checks in the <a href="#doc-playtest-and-qa-plan">Playtest and QA Plan</a>.</li>
+<li>The wet-weather escape has repeatable performance captures on the agreed PC against the provisional 60 fps mode. Hardware and tuning values require approval before they become fixed targets.</li>
+</ul>
+<p>Related documents · <a href="docs/road_v3.md">Game design</a> · <a href="#doc-technical-design">Technical design</a> · <a href="#doc-art-and-audio-production-guide">Art and audio production guide</a> · <a href="#doc-production-roadmap-and-backlog">Production roadmap</a></p>
+  </div>
+</details>
+<details id="doc-technical-design" class="panel document-reader">
+  <summary><span><strong>Technical Design Document</strong><small>Engine evaluation, system ownership, checkpoints and profiling</small></span></summary>
+  <div class="document-body">
+    <p class="document-repo"><a href="https://github.com/toodummy/ZombieEU/blob/main/docs/technical-design.md" target="_blank" rel="noopener">View Markdown file on GitHub ↗</a></p>
+<p><strong>Status</strong> · Proposed architecture for the Out of London vertical slice<br><strong>Engine decision</strong> · Unreal Engine is the current candidate for the AAA slice. Record the selection after a repeatable handling, camera, crowd and packaging benchmark on the available PC.</p>
+<h3>Platform and benchmarking contract</h3>
+<p>The initial target is a packaged Windows PC build with keyboard, mouse and controller support. Record CPU, GPU, RAM, driver, resolution, graphics preset and build revision before profiling. Use a proposed 60 fps performance mode, which gives 16.7 ms per frame. Collect CPU and GPU frame times, p95 and p99 frame times, peak memory and the largest streaming hitch through the same rainy escape. Establish stricter CPU, GPU, memory and hitch budgets from the first measured baseline. Platform expansion depends on profiling and available hardware.</p>
+<h3>Runtime ownership</h3>
+<div class="document-table" role="region" aria-label="Technical Design Document table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">System</th>
+<th scope="col">Owns</th>
+<th scope="col">Contract at the boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mission director</td>
+<td>Mission phase, objective, route, rescue flag, checkpoint eligibility, end reason</td>
+<td>Consumes domain events once and reports state to UI and checkpoint services.</td>
+</tr>
+<tr>
+<td>Player and vehicle controllers</td>
+<td>Input mode, current occupant, valid door, camera target, health and vehicle movement</td>
+<td>A transition transfers control only when the other mode can accept it. If interrupted, restore a valid previous mode and position.</td>
+</tr>
+<tr>
+<td>Vehicle condition and resources</td>
+<td>Fuel, component condition, usable movement and active transfer</td>
+<td>Publish elapsed fuel transfer in bounded increments. Cancel, interruption or checkpoint restore must never double-count a transfer.</td>
+</tr>
+<tr>
+<td>Encounter director</td>
+<td>Infected budget, legal spawn areas, cues, pursuit and cleanup</td>
+<td>Reacts to mission phase and noise. Spawn candidates must be occluded and reachable, with a budget and a valid escape route.</td>
+</tr>
+<tr>
+<td>Level and streaming</td>
+<td>Cells, collision, navigation and authored spawn or recovery anchors</td>
+<td>Preload approaching junction cells using predicted travel speed. Keep previous safe space available through transitions.</td>
+</tr>
+<tr>
+<td>Checkpoint service</td>
+<td>Versioned, validated snapshot and last known-good backup</td>
+<td>Commit a complete generation before promoting it. Restore all authoritative game state before enabling controls or encounters.</td>
+</tr>
+<tr>
+<td>Presentation</td>
+<td>HUD, audio, haptics, animation, subtitles and accessibility settings</td>
+<td>Derive from authoritative state. A HUD gauge, door prompt or animation cue cannot complete a gameplay action on its own.</td>
+</tr>
+</tbody></table></div>
+<h3>Proposed data contracts</h3>
+<ul>
+<li><code>VehicleTune</code> defines mass, steering and braking curves, fuel consumption, grip response and component thresholds. Author paved, wet and gravel surface responses as editable data.</li>
+<li><code>RouteTune</code> defines segments, checkpoint anchors, recovery positions and encounter caps. Store route identifiers independently of level object names so checkpoints survive reasonable level revisions.</li>
+<li><code>EncounterTune</code> defines legal entry volumes, warning duration, awareness ranges, active budgets and cleanup. Use full movement and collision for near threats and cheaper behavior for distant shapes. Measure the transition distance in a playable build.</li>
+<li><code>CheckpointSnapshot</code> stores schema version, checkpoint ID, mission flags, route, player state, vehicle position and condition, fuel, inventory and checkpoint generation. Reconstruct active encounter state from a valid mission phase instead of serializing temporary visual effects.</li>
+</ul>
+<h3>Failure handling</h3>
+<div class="document-table" role="region" aria-label="Technical Design Document table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Case</th>
+<th scope="col">Required behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Entry door becomes obstructed mid-transition</td>
+<td>Cancel cleanly, clear the interaction lock and place the player at a navigable point with the prior input mode.</td>
+</tr>
+<tr>
+<td>Player stops fueling at the same instant as a hit or pause</td>
+<td>Commit the transferred amount once and close the interaction. The gauge and snapshot agree.</td>
+</tr>
+<tr>
+<td>A segment fails to stream or navigation is missing</td>
+<td>Hold at a readable boundary or use an alternate safe anchor. Log the cell, phase and route so QA can reproduce it.</td>
+</tr>
+<tr>
+<td>A later encounter collides with a prior trigger</td>
+<td>Ignore duplicate mission or completion events. Bound the active enemy budget.</td>
+</tr>
+<tr>
+<td>Latest save write fails or data is invalid on load</td>
+<td>Recover from the last complete validated checkpoint and surface the recovery result to the player.</td>
+</tr>
+</tbody></table></div>
+<h3>Implementation order</h3>
+<ol>
+<li>Ship a packaged greybox with the sedan, chase camera and one repeatable road loop.</li>
+<li>Add on-foot entry and exit, fuel transfer, reusable checkpoint state and valid recovery positions.</li>
+<li>Add the encounter director, two authored routes and the optional rescue. Test the encounter with temporary assets.</li>
+<li>Integrate near-final visual, animation and audio assets. Profile the busiest segment with rain, streaming and collisions enabled.</li>
+</ol>
+<p>Open decisions · Record the exact engine version, baseline PC, job ownership and telemetry policy at the first milestone. Reproduce tests locally before electing to collect any player telemetry.</p>
+<p>Related documents · <a href="#doc-out-of-london-vertical-slice">Vertical slice specification</a> · <a href="#doc-playtest-and-qa-plan">Playtest and QA plan</a> · <a href="#doc-production-roadmap-and-backlog">Production roadmap</a></p>
+  </div>
+</details>
+<details id="doc-art-and-audio-production-guide" class="panel document-reader">
+  <summary><span><strong>Art and Audio Production Guide</strong><small>In-engine quality standards, acceptance captures and asset rights</small></span></summary>
+  <div class="document-body">
+    <p class="document-repo"><a href="https://github.com/toodummy/ZombieEU/blob/main/docs/art-and-audio-production-guide.md" target="_blank" rel="noopener">View Markdown file on GitHub ↗</a></p>
+<p><strong>Status</strong> · Proposed standards for the Out of London slice<br><strong>Reference</strong> · <a href="docs/Concept_Art_Book.pdf">Concept Art Book</a>, especially the vehicle progression and roadside survival studies</p>
+<h3>Visual target</h3>
+<p>The forecourt sits in a fictional south London district. Use observed street proportions, road markings, kerb wear, service-station signage and everyday props to establish place. The canopy is a navigation landmark. Headlights reveal a candidate parking spot and the route back to the sedan. During the escape, protect the silhouettes of infected, drivable gaps and the road edge even when rain fills the frame.</p>
+<p>Use playable chase and on-foot views for every acceptance capture. Lock the exposure reference and capture an intact sedan, a damaged sedan, the camera transition and the escape. Repeat the same views as models, effects and lighting change.</p>
+<h3>Production standards</h3>
+<div class="document-table" role="region" aria-label="Art and Audio Production Guide table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Deliverable</th>
+<th scope="col">Art and implementation requirements</th>
+<th scope="col">Review evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hero sedan</td>
+<td>Consistent scale and pivot, separated moving parts, functioning lamps, sensible wheel clearance, collision aligned to the body, readable damaged wheel and radiator states</td>
+<td>Intact and damaged turntables, chase-camera run over a kerb, door entry from both sides, headlight response in rain</td>
+</tr>
+<tr>
+<td>Forecourt and roads</td>
+<td>Modular kerbs, lane marks, drainage, canopy and kiosk. Use measured scale references. Match roughness, puddle placement, tire feedback and gameplay surface types</td>
+<td>Approach, parking and retreat screenshots with collision and route visibility reviewed</td>
+</tr>
+<tr>
+<td>Alex, walker and screamer</td>
+<td>Distinct silhouettes and grounded clothing. Scrutinize hand and foot contact during entry, fuel transfer, hits, recovery and climb-over transitions</td>
+<td>Clips from the playable camera at normal speed, including interrupted entry and the screamer cue</td>
+</tr>
+<tr>
+<td>Lighting and effects</td>
+<td>Hold black levels and highlight detail in the gameplay view. Use splashes and contact cues at tires and feet. Keep rain, headlights, steam and debris within the frame budget</td>
+<td>Side-by-side reference views and capture of the most expensive rain-and-crowd sequence</td>
+</tr>
+<tr>
+<td>HUD and accessibility</td>
+<td>Pair warning colors with icons and words. Show fuel transfer and damage states without obstructing the road. Subtitle radio dialogue and offer visual alternatives for important sound cues</td>
+<td>Identical encounter recorded with normal audio, muted audio, subtitles and reduced motion</td>
+</tr>
+<tr>
+<td>Audio and music</td>
+<td>Use engine load and cabin filtering, different tire surfaces, rain under and outside the canopy, fuel transfer, radio speech and a distinct screamer cue</td>
+<td>Check audibility near the kiosk, inside the sedan and at peak engine load. Record a music-off run with all critical cues intact.</td>
+</tr>
+</tbody></table></div>
+<h3>Asset workflow</h3>
+<ol>
+<li>Record a reference, named owner, source provenance and intended camera distance for every hero asset.</li>
+<li>Block out scale, pivot, movement, contact and collision with temporary material. Review under playable lighting before finishing detail.</li>
+<li>Deliver editable source plus runtime files, material assignments, textures, quality tiers and an in-engine test capture. Use measured scene budgets when choosing texture size, draw calls and levels of detail.</li>
+<li>Accept an asset after visual, gameplay and performance checks on the agreed build. Track the build and asset revision together so later regressions can be reproduced.</li>
+</ol>
+<h3>Rights register</h3>
+<p>Keep one row per externally sourced asset, including textures, fonts, audio, motion data and scans. Retain the source URL, creator, acquisition date, license evidence, modification and redistribution terms, credit requirement, intended use, and reviewer. A placeholder remains marked provisional until rights are recorded. Capture any credits with the asset revision that ships.</p>
+<div class="document-table" role="region" aria-label="Art and Audio Production Guide table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">First entries to resolve</th>
+<th scope="col">Required decision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sedan model and material references</td>
+<td>Commission, create or identify a cleared source asset. Record both the mesh and texture provenance.</td>
+</tr>
+<tr>
+<td>Engine, tire, rain and infected sound libraries</td>
+<td>Record the library title, license evidence and the permitted uses of the selected clips.</td>
+</tr>
+<tr>
+<td>Brand marks and reference signs</td>
+<td>Use fictional marks and independently authored signage for the distributed build unless a cleared source is recorded.</td>
+</tr>
+<tr>
+<td>Concept art and gallery</td>
+<td>Track as visual reference. Review the rights and suitability of each element separately before making it part of a distributed game asset.</td>
+</tr>
+</tbody></table></div>
+<p>Related documents · <a href="#doc-out-of-london-vertical-slice">Vertical slice specification</a> · <a href="#doc-technical-design">Technical design</a> · <a href="#doc-playtest-and-qa-plan">Playtest and QA plan</a></p>
+  </div>
+</details>
+<details id="doc-playtest-and-qa-plan" class="panel document-reader">
+  <summary><span><strong>Playtest and QA Plan</strong><small>Route, save and accessibility checks with sign-off criteria</small></span></summary>
+  <div class="document-body">
+    <p class="document-repo"><a href="https://github.com/toodummy/ZombieEU/blob/main/docs/playtest-and-qa-plan.md" target="_blank" rel="noopener">View Markdown file on GitHub ↗</a></p>
+<p><strong>Status</strong> · Proposed sign-off plan for the Out of London vertical slice<br><strong>Release candidate</strong> · Freeze the exact build, settings and test machine before evaluating the cohort. Record fixes and retest the affected cases on a new build.</p>
+<h3>Gates</h3>
+<div class="document-table" role="region" aria-label="Playtest and QA Plan table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Gate</th>
+<th scope="col">Method</th>
+<th scope="col">Pass criterion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Greybox comprehension</td>
+<td>Five first-time players run the temporary-art build. Observe the controls, valid door, fuel transfer and escape cue.</td>
+<td>Document the observed failure points. Resolve any repeated loss of control or progression blocker before expanding the build.</td>
+</tr>
+<tr>
+<td>Slice completion</td>
+<td>Twenty first-time players start independently using the same candidate build. External coaching counts as assisted completion.</td>
+<td>At least 16 of 20 finish unaided. Report assisted completions, skips, retries and timing separately.</td>
+</tr>
+<tr>
+<td>Correctness</td>
+<td>Run the route, transition and checkpoint matrix on keyboard and controller. Repeat every blocker after fixes.</td>
+<td>Both base routes complete, no reproducible progression blocker remains, and checkpoint state matches the last valid save in all recovery cases.</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Profile the rain-and-crowd escape from a clean launch on the agreed PC. Capture three comparable runs spanning both routes.</td>
+<td>Assess the provisional 60 fps budget, p95 and p99 frame times, peak memory and worst hitch. Record the measured thresholds and approval before sign-off.</td>
+</tr>
+</tbody></table></div>
+<h3>Scenario matrix</h3>
+<div class="document-table" role="region" aria-label="Playtest and QA Plan table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Test</th>
+<th scope="col">Expected result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QA-01</td>
+<td>Complete each base route without the kiosk rescue on the intended partial fill.</td>
+<td>Both runs reach the motorway. Debrief shows the correct route, fuel and vehicle condition.</td>
+</tr>
+<tr>
+<td>QA-02</td>
+<td>Complete the rescue, then use the shortcut and reach the checkpoint.</td>
+<td>Shortcut, radio report and debrief agree. Retry resolves the prior checkpoint&#39;s rescue state consistently.</td>
+</tr>
+<tr>
+<td>QA-03</td>
+<td>Park with a door blocked on a slope. Interrupt re-entry while under pressure.</td>
+<td>The alternate door or blocked cue is legible. Input and camera return to a valid mode.</td>
+</tr>
+<tr>
+<td>QA-04</td>
+<td>Cancel fueling at several progress points. Repeat during an enemy hit and a pause.</td>
+<td>The transferred volume is credited exactly once. HUD, next interaction and saved state agree.</td>
+</tr>
+<tr>
+<td>QA-05</td>
+<td>Run the tank empty and damage the car past the drivable threshold.</td>
+<td>Recover fuel from the authored location if available. Otherwise show a clear failure reason and reachable retry.</td>
+</tr>
+<tr>
+<td>QA-06</td>
+<td>Interrupt a new checkpoint write and relaunch. Repeat with an invalid latest snapshot in a QA build.</td>
+<td>Last complete checkpoint loads with corresponding fuel, damage, position, inventory and flags.</td>
+</tr>
+<tr>
+<td>QA-07</td>
+<td>Approach, leave and re-enter a streaming boundary during the busiest chase.</td>
+<td>Navigable surfaces and collision stay consistent. The game keeps a valid exit or recovery anchor.</td>
+</tr>
+<tr>
+<td>QA-08</td>
+<td>Play with audio muted, alternative inputs, subtitles, reduced motion and visual sound cues.</td>
+<td>Fuel warnings, threat direction, door state, pause, resume and restart are usable on both input types.</td>
+</tr>
+<tr>
+<td>QA-09</td>
+<td>Replay the final checkpoint and attempt to cross the finish threshold twice.</td>
+<td>Completion fires once. Restart starts the intended checkpoint with repeatable mission state.</td>
+</tr>
+</tbody></table></div>
+<h3>Session and reporting protocol</h3>
+<ul>
+<li>Record anonymized session ID, build, test machine, input mode, configuration, first run completion, route, rescue choice, retries and assist points. Capture timing for fuel transfer start, departure and finish. Record only consented footage or notes.</li>
+<li>Observe without directing the player. Ask afterward how they knew they could cancel fueling, why they picked their route and what caused a failure or success.</li>
+<li>For defects, retain build, severity, fixture or checkpoint, steps, expected and actual behavior, and evidence. A blocker prevents finish or recovery. A major defect obscures a critical cue or makes a supported route unreliable. Track other defects for the next triage.</li>
+<li>Sign-off records include the QA matrix, anonymized cohort results, profiling captures and the remaining known issues with owners. Apply a documented exit decision to every unmet target.</li>
+</ul>
+<p>Related documents · <a href="#doc-out-of-london-vertical-slice">Vertical slice specification</a> · <a href="#doc-technical-design">Technical design</a> · <a href="#doc-production-roadmap-and-backlog">Production roadmap</a></p>
+  </div>
+</details>
+<details id="doc-production-roadmap-and-backlog" class="panel document-reader">
+  <summary><span><strong>Production Roadmap and Backlog</strong><small>Milestones, owner roles, dependencies and proposed effort</small></span></summary>
+  <div class="document-body">
+    <p class="document-repo"><a href="https://github.com/toodummy/ZombieEU/blob/main/docs/production-roadmap-and-backlog.md" target="_blank" rel="noopener">View Markdown file on GitHub ↗</a></p>
+<p><strong>Status</strong> · Proposed pre-production plan<br><strong>Current milestone</strong> · Establish a repeatable PC greybox for Out of London<br><strong>Ownership</strong> · Roles are proposed. Assign named owners and dates after confirming availability.</p>
+<h3>Milestones and evidence</h3>
+<div class="document-table" role="region" aria-label="Production Roadmap and Backlog table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Milestone</th>
+<th scope="col">Build and evidence</th>
+<th scope="col">Exit decision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>M0 · Feasibility baseline</td>
+<td>Compare handling and camera in a small road scene. Select a baseline PC and archive a packaged build and representative capture.</td>
+<td>Approve an engine, test machine and versioned build process.</td>
+</tr>
+<tr>
+<td>M1 · Playable greybox</td>
+<td>One drive-to-foot-to-drive loop, one infected, interruptible refueling, a checkpoint and one working escape. Record observations from five first-time players.</td>
+<td>Advance after recurrent control and completion failures have a reproduced fix or a named owner and retest.</td>
+</tr>
+<tr>
+<td>M2 · Art and systems benchmark</td>
+<td>Near-final sedan and forecourt, two infected silhouettes, usable door and fuel animations, readable audio and HUD cues, source asset register and initial profile.</td>
+<td>Confirm the benchmark can be reproduced from the game camera. Retain the profile and accept assets against the production guide.</td>
+</tr>
+<tr>
+<td>M3 · Vertical slice sign-off</td>
+<td>A packaged 10–15 minute mission, two routes, optional rescue, consistent save recovery, accessible cues and repeatable rainy-escape profiling. Test with a 20-person first-time cohort.</td>
+<td>Apply the QA gates. Decide whether to revise the slice, reduce scope or prepare a funded campaign estimate.</td>
+</tr>
+</tbody></table></div>
+<h3>Work breakdown</h3>
+<p>Effort bands are provisional planning estimates, in focused <strong>person-days</strong> per work item. <strong>S</strong> is roughly 1–2 days, <strong>M</strong> is 3–5 days, and <strong>L</strong> is 6–10 days before review and integration. Re-estimate after M0. Shared personnel, unlicensed assets and unstable tooling can change these assumptions substantially.</p>
+<div class="document-table" role="region" aria-label="Production Roadmap and Backlog table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Work item</th>
+<th scope="col">Owner role</th>
+<th scope="col">Depends on</th>
+<th scope="col">Effort</th>
+<th scope="col">Gate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ROT-01</td>
+<td>Reproducible package and baseline route capture</td>
+<td>Gameplay or build engineering</td>
+<td>—</td>
+<td>S</td>
+<td>M0</td>
+</tr>
+<tr>
+<td>ROT-02</td>
+<td>Sedan handling, chase camera and wet surface comparison</td>
+<td>Gameplay engineering</td>
+<td>ROT-01</td>
+<td>M</td>
+<td>M0</td>
+</tr>
+<tr>
+<td>ROT-03</td>
+<td>Forecourt greybox, parking anchors and short escape</td>
+<td>Level design</td>
+<td>ROT-01</td>
+<td>M</td>
+<td>M1</td>
+</tr>
+<tr>
+<td>ROT-04</td>
+<td>On-foot movement, valid doors and camera transitions</td>
+<td>Gameplay engineering</td>
+<td>ROT-02, ROT-03</td>
+<td>L</td>
+<td>M1</td>
+</tr>
+<tr>
+<td>ROT-05</td>
+<td>Fuel transfer, wheel condition, checkpoint and retry</td>
+<td>Gameplay engineering</td>
+<td>ROT-02, ROT-03</td>
+<td>L</td>
+<td>M1</td>
+</tr>
+<tr>
+<td>ROT-06</td>
+<td>Walker and screamer behaviors, readable cues and encounter bounds</td>
+<td>AI or gameplay engineering</td>
+<td>ROT-03, ROT-04</td>
+<td>L</td>
+<td>M2</td>
+</tr>
+<tr>
+<td>ROT-07</td>
+<td>Hero sedan, forecourt kit, lighting and rain feedback</td>
+<td>Environment, vehicle and technical art</td>
+<td>ROT-02, ROT-03</td>
+<td>L</td>
+<td>M2</td>
+</tr>
+<tr>
+<td>ROT-08</td>
+<td>Door, fuel and infected animations, HUD and audio mix</td>
+<td>Animation, UI and audio</td>
+<td>ROT-04, ROT-06, ROT-07</td>
+<td>L</td>
+<td>M2</td>
+</tr>
+<tr>
+<td>ROT-09</td>
+<td>Second route, optional rescue and debrief</td>
+<td>Level design and gameplay</td>
+<td>ROT-03, ROT-05, ROT-06</td>
+<td>L</td>
+<td>M3</td>
+</tr>
+<tr>
+<td>ROT-10</td>
+<td>Recovery matrix, accessibility passes, cohort and profiling</td>
+<td>QA and production</td>
+<td>ROT-07, ROT-08, ROT-09</td>
+<td>L</td>
+<td>M3</td>
+</tr>
+</tbody></table></div>
+<h3>Early scope and costs</h3>
+<ul>
+<li>Use the available PC and provenance-checked temporary assets for M0–M1. Preserve temporary asset references and reassess rights before retaining any asset in a distributed build.</li>
+<li>Treat authored travel, boats, aircraft, additional vehicles, full cinematic scenes, localized dialogue and console work as campaign planning items. Keep their design notes available while the team proves the road loop.</li>
+<li>At M2, log time spent on a finished road segment, one environment module, the vehicle, one encounter and one voiced interaction. Separate first-time pipeline work from repeatable production time.</li>
+<li>After M3, build a scope estimate from measured throughput and intended content counts. Include integration, QA, accessibility, localization, platform work and contingency. Compare a focused road campaign with the wider multi-city proposal before making staffing commitments.</li>
+</ul>
+<h3>Open decisions</h3>
+<div class="document-table" role="region" aria-label="Production Roadmap and Backlog table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Decision</th>
+<th scope="col">Resolve by</th>
+<th scope="col">Evidence needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Engine and PC baseline</td>
+<td>M0</td>
+<td>Handling and camera result, packaging reliability and measured performance</td>
+</tr>
+<tr>
+<td>Asset sourcing and contributor roles</td>
+<td>M2</td>
+<td>Approved asset provenance, usable source files and confirmed availability</td>
+</tr>
+<tr>
+<td>Final mission scope and quality budget</td>
+<td>M3</td>
+<td>Cohort findings, route and save results, performance captures and asset throughput</td>
+</tr>
+<tr>
+<td>Campaign size, team and funding</td>
+<td>After M3</td>
+<td>Costed scope options, dependencies and a confirmed funding decision</td>
+</tr>
+</tbody></table></div>
+<p>Related documents · <a href="#doc-out-of-london-vertical-slice">Vertical slice specification</a> · <a href="#doc-technical-design">Technical design</a> · <a href="#doc-art-and-audio-production-guide">Art and audio production guide</a> · <a href="#doc-playtest-and-qa-plan">Playtest and QA plan</a></p>
+  </div>
+</details>
   </div>
 </section><footer>ROAD OF THE DEAD / PROJECT HUB · Working interpretation of v0.3. Statuses require confirmation against actual implementation.</footer></div></main><dialog id="modal" aria-labelledby="record-title"><button class="close" aria-label="Close">✕</button><div id="detail"></div></dialog><script>
 const gdd='docs/road_v3.md',pdf='docs/Concept_Art_Book.pdf';
@@ -513,4 +1144,16 @@ document.querySelector('#arts').innerHTML = art.map(([title, description, path, 
 
 const defaults=['Define one short scene and its win condition','Implement driving and camera controls','Add entry and exit, combat and one infected','Implement fuel, damage, pickups and recovery','Build HUD, pause, failure and restart','Test mobile controls and performance','Check rights for models, music and other assets','Create a separate GitHub repository and configure Pages','Verify the build, asset paths and published URL'];let checks=JSON.parse(localStorage.getItem('rot-checks')||'[]');document.querySelector('#checklist').innerHTML=defaults.map((x,i)=>`<div class="item"><input type="checkbox" id="c${i}" ${checks[i]?'checked':''}><label for="c${i}">${x}</label></div>`).join('');document.querySelectorAll('#checklist input').forEach((e,i)=>e.onchange=()=>{checks[i]=e.checked;save('checks',checks)});
 let issues=JSON.parse(localStorage.getItem('rot-issues')||'null')||['Choose an engine and target devices after prototype testing','Confirm browser demo scope and acceptance criteria','Check rights and suitability of existing models','Approve character, ending, survival depth and vehicle approach','Estimate team, funding and horde performance'];let logs=JSON.parse(localStorage.getItem('rot-log')||'null')||['10.11.2026 · Created hub based on GDD v0.3 and art book'];function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function list(id,arr){document.querySelector('#'+id).innerHTML=arr.map((x,i)=>`<div class="item"><label>${escapeHtml(x)}</label><button aria-label="Delete entry" style="background:none;color:#9aa9a0;border:0" onclick="removeItem('${id}',${i})">✕</button></div>`).join('')||'<p class="note">No entries yet.</p>'}function removeItem(id,i){let a=id==='issues'?issues:logs;a.splice(i,1);save(id==='issues'?'issues':'log',a);list(id,a)}list('issues',issues);list('log',logs);document.querySelector('#issueForm').onsubmit=e=>{e.preventDefault();issues.unshift(document.querySelector('#issueInput').value);save('issues',issues);list('issues',issues);e.target.reset()};document.querySelector('#logForm').onsubmit=e=>{e.preventDefault();logs.unshift(new Date().toLocaleDateString('en-GB')+' · '+document.querySelector('#logInput').value);save('log',logs);list('log',logs);e.target.reset()};
-</script></body></html>
+</script>
+<script>
+function openLinkedProjectDocument() {
+  const target = document.getElementById(window.location.hash.slice(1));
+  if (target?.classList.contains('document-reader')) {
+    target.open = true;
+    target.scrollIntoView();
+  }
+}
+window.addEventListener('hashchange', openLinkedProjectDocument);
+openLinkedProjectDocument();
+</script>
+</body></html>
