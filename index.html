@@ -127,7 +127,64 @@
   .card { transition: none; }
   .card:hover { transform: none; }
 }
-</style></head><body><aside><div class="brand">ROAD <span>OF THE</span><br>DEAD<span> /</span></div><div class="eyebrow" style="margin-top:12px">Project command center</div><nav class="nav"><a href="#overview">◉ &nbsp; Overview</a><a href="#campaign">⌁ &nbsp; Campaign</a><a href="#vertical-slice">Vertical slice</a><a href="#systems">▦ &nbsp; Project database</a><a href="#gallery">▧ &nbsp; Concept art</a><a href="#production">◫ &nbsp; Production</a><a href="#sources">↗ &nbsp; Sources</a></nav><div class="side-foot">VERSION 0.3 / WORKSPACE<br>Concept in development</div></aside><main class="main"><div class="top"><span>DEVELOPMENT HUB / 001</span><span class="live">● CONCEPT IN DEVELOPMENT</span></div><div class="wrap"><section id="overview" class="hero"><div class="tag">AAA VISION · SURVIVAL ROAD TRIP</div><h1>THE ROAD<br><span>IS YOUR LIFELINE.</span></h1><p>Europe after the outbreak. Your vehicle is shelter, weapon, and your best chance of reaching the next safe place.</p><div class="hero-actions"><a class="btn" href="#systems">Explore the project ↗</a><a class="btn secondary" href="#vertical-slice">Explore the London mission</a></div></section><section class="section" style="margin-top:16px"><div class="stats"><div class="stat"><small>ROUTE</small><strong>London <em>→</em> Berlin</strong><small>Via the English Channel and Paris</small></div><div class="stat"><small>CORE EXPERIENCE</small><strong>Driving + on foot</strong><small>Third-person survival</small></div><div class="stat"><small>SCOPE</small><strong>12–18 hours</strong><small>Estimate; subject to validation</small></div><div class="stat"><small>NEXT MILESTONE</small><strong>Prototype</strong><small>One vehicle and a short road</small></div></div></section>
+.quality-lead {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(16px, 3vw, 32px);
+  align-items: center;
+  border-color: #526047;
+  padding: clamp(18px, 3vw, 32px);
+}
+.quality-lead h3 { margin: 0; font-size: clamp(24px, 3vw, 37px); line-height: 1.15; letter-spacing: -.03em; }
+.quality-lead p, .quality-topic-body p, .quality-gate-list p { color: #c4cfc4; }
+.quality-lead p:last-child { margin-bottom: 0; }
+.quality-lead figure { margin: 0; min-width: 0; }
+.quality-lead img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.quality-lead figcaption { color: var(--muted); font-size: 12px; margin-top: 6px; }
+.quality-topics { display: grid; gap: 9px; margin: 16px 0 27px; }
+.quality-topics .quality-topic { padding: 0; }
+.quality-topic summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  cursor: pointer;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+.quality-topic summary:hover { background: #202a22; }
+.quality-topic summary::-webkit-details-marker { display: none; }
+.quality-topic summary::after { content: '+'; color: var(--acid); font-size: 22px; line-height: 1; }
+.quality-topic[open] summary::after { content: '−'; }
+.quality-topic summary strong, .quality-topic summary small { display: block; }
+.quality-topic summary small { color: var(--muted); }
+.quality-topic-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 26px;
+  padding: 18px 20px 21px;
+  border-top: 1px solid var(--line);
+}
+.quality-topic-body h4, .quality-gate-list h4 { margin: 0 0 7px; }
+.quality-topic-body p, .quality-gate-list p { margin: 0; font-size: 14px; }
+.quality-gate-list p + p { margin-top: 12px; }
+.quality-gate-list strong, #aaa-production .heading a, .quality-link { color: var(--acid); }
+.quality-gates .heading h3 { font-size: 22px; margin: 0 0 4px; }
+.quality-gate-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.quality-gate-list li { border-top: 2px solid #879858; }
+@media (max-width: 700px) {
+  .quality-lead, .quality-topic-body, .quality-gate-list { grid-template-columns: 1fr; }
+}
+
+</style></head><body><aside><div class="brand">ROAD <span>OF THE</span><br>DEAD<span> /</span></div><div class="eyebrow" style="margin-top:12px">Project command center</div><nav class="nav"><a href="#overview">◉ &nbsp; Overview</a><a href="#campaign">⌁ &nbsp; Campaign</a><a href="#vertical-slice">Vertical slice</a><a href="#systems">▦ &nbsp; Project database</a><a href="#gallery">▧ &nbsp; Concept art</a><a href="#production">◫ &nbsp; Production</a><a href="#aaa-production">AAA production brief</a><a href="#sources">↗ &nbsp; Sources</a></nav><div class="side-foot">VERSION 0.3 / WORKSPACE<br>Concept in development</div></aside><main class="main"><div class="top"><span>DEVELOPMENT HUB / 001</span><span class="live">● CONCEPT IN DEVELOPMENT</span></div><div class="wrap"><section id="overview" class="hero"><div class="tag">AAA VISION · SURVIVAL ROAD TRIP</div><h1>THE ROAD<br><span>IS YOUR LIFELINE.</span></h1><p>Europe after the outbreak. Your vehicle is shelter, weapon, and your best chance of reaching the next safe place.</p><div class="hero-actions"><a class="btn" href="#systems">Explore the project ↗</a><a class="btn secondary" href="#vertical-slice">Explore the London mission</a></div></section><section class="section" style="margin-top:16px"><div class="stats"><div class="stat"><small>ROUTE</small><strong>London <em>→</em> Berlin</strong><small>Via the English Channel and Paris</small></div><div class="stat"><small>CORE EXPERIENCE</small><strong>Driving + on foot</strong><small>Third-person survival</small></div><div class="stat"><small>SCOPE</small><strong>12–18 hours</strong><small>Estimate; subject to validation</small></div><div class="stat"><small>NEXT MILESTONE</small><strong>Prototype</strong><small>One vehicle and a short road</small></div></div></section>
 <section id="campaign" class="section" aria-labelledby="campaign-title">
   <div class="heading"><div><h2 id="campaign-title">Campaign map</h2><p>London to Berlin through the Channel and Paris</p></div></div>
   <figure class="campaign-art">
@@ -152,6 +209,7 @@
       <h3>Out of London</h3>
       <p>Alex leaves a neighborhood safehouse in a battered sedan. Reach the motorway checkpoint with a running engine and enough fuel to continue. The route takes the player through a vulnerable fuel stop, a foot-to-car escape and a choice that changes the condition of the vehicle at the finish.</p>
       <ul class="slice-scope" aria-label="Playable scope"><li>One sedan</li><li>Walkers and a screamer</li><li>Two escape routes</li><li>Checkpoint and reload</li></ul>
+      <p><a class="quality-link" href="#aaa-production">See the production brief</a></p>
     </div>
     <img src="docs/concept-05.jpg" width="1672" height="941" loading="lazy" alt="Roadside survival concept art showing fuel stops, repairs and the garage">
   </div>
@@ -167,7 +225,71 @@
     <article class="panel"><h3>Production gates</h3><ul class="design-list"><li>One near-final sedan with readable damage, a polished fuel stop and two distinct infected silhouettes with complete interaction feedback.</li><li>Profile rain, crowd, collisions and streaming together on agreed hardware. The provisional performance-mode target is 60 fps, or about 16.7 ms per frame.</li><li>Lock the region size, hardware targets and content pipeline after the slice. Prototype boats and aircraft after the core road loop passes.</li></ul></article>
   </div>
 </section>
-<section id="systems" class="section"><div class="heading"><div><h2>Project database</h2></div><p>Search player actions, system rules and playtest checks</p></div><div class="filters"><input id="search" aria-label="Search" placeholder="Search mechanics, vehicles, characters…"><select id="filter" aria-label="Filter by section"><option value="">All sections</option></select><select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Concept</option><option>Open</option><option>Prototype</option><option>Done</option></select></div><p id="results" class="result-count" role="status"></p><div id="cards" class="grid"></div></section><section id="gallery" class="section"><div class="heading"><div><h2>Gallery and references</h2></div><p>Open an image to view the full concept artwork</p></div><div id="arts" class="artgrid"></div></section><section id="production" class="section"><div class="heading"><div><div class="eyebrow">04 / PRODUCTION BOARD</div><h2>Demo preparation</h2></div><p>Changes and notes are saved in this browser</p></div><div class="two"><div class="panel"><h3>Browser demo checklist</h3><div id="checklist"></div><p class="note">A browser demo is a focused test of ideas, not a commitment to the full AAA scope.</p></div><div class="panel"><h3>Open decisions and blockers</h3><div id="issues"></div><form class="entry" id="issueForm"><input id="issueInput" placeholder="Add a decision or blocker" required><button class="btn">Add</button></form></div><div class="panel"><h3>Change log</h3><div id="log"></div><form class="entry" id="logForm"><input id="logInput" placeholder="Record a change" required><button class="btn">Add</button></form></div><div class="panel"><h3>Milestones</h3><div class="item"><span>01</span><label>Pre-production<small>Agree goals, camera and platforms; assess rights and physics.</small></label></div><div class="item"><span>02</span><label>Playable prototype<small>A road, car, infected, fuel, damage and checkpoint.</small></label></div><div class="item"><span>03</span><label>Vertical slice<small>10–15 minutes: London, fuel stop, chase and route choice.</small></label></div><div class="item"><span>04</span><label>Production and release<small>Expand the campaign after validating quality and resources.</small></label></div></div></div></section><section id="sources" class="section"><div class="heading"><div><div class="eyebrow">05 / SOURCE OF TRUTH</div><h2>Project documents</h2></div></div><div class="two"><a class="art" href="docs/road_v3.md" target="_blank" rel="noopener"><span>GDD / VERSION 0.3 ↗</span><b>road_v3.md</b><small>Vision, systems, campaign and production plan</small></a><a class="art" href="docs/Concept_Art_Book.pdf" target="_blank" rel="noopener"><span>ART BOOK / 15 PAGES ↗</span><b>Concept Art Book.pdf</b><small>Visual direction and exploration</small></a></div></section><footer>ROAD OF THE DEAD / PROJECT HUB · Working interpretation of v0.3. Statuses require confirmation against actual implementation.</footer></div></main><dialog id="modal" aria-labelledby="record-title"><button class="close" aria-label="Close">✕</button><div id="detail"></div></dialog><script>
+<section id="systems" class="section"><div class="heading"><div><h2>Project database</h2></div><p>Search player actions, system rules and playtest checks</p></div><div class="filters"><input id="search" aria-label="Search" placeholder="Search mechanics, vehicles, characters…"><select id="filter" aria-label="Filter by section"><option value="">All sections</option></select><select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Concept</option><option>Open</option><option>Prototype</option><option>Done</option></select></div><p id="results" class="result-count" role="status"></p><div id="cards" class="grid"></div></section><section id="gallery" class="section"><div class="heading"><div><h2>Gallery and references</h2></div><p>Open an image to view the full concept artwork</p></div><div id="arts" class="artgrid"></div></section><section id="production" class="section"><div class="heading"><div><div class="eyebrow">04 / PRODUCTION BOARD</div><h2>Demo preparation</h2></div><p>Changes and notes are saved in this browser</p></div><div class="two"><div class="panel"><h3>Browser demo checklist</h3><div id="checklist"></div><p class="note">A browser demo is a focused test of ideas, not a commitment to the full AAA scope.</p></div><div class="panel"><h3>Open decisions and blockers</h3><div id="issues"></div><form class="entry" id="issueForm"><input id="issueInput" placeholder="Add a decision or blocker" required><button class="btn">Add</button></form></div><div class="panel"><h3>Change log</h3><div id="log"></div><form class="entry" id="logForm"><input id="logInput" placeholder="Record a change" required><button class="btn">Add</button></form></div><div class="panel"><h3>Milestones</h3><div class="item"><span>01</span><label>Pre-production<small>Agree goals, camera and platforms; assess rights and physics.</small></label></div><div class="item"><span>02</span><label>Playable prototype<small>A road, car, infected, fuel, damage and checkpoint.</small></label></div><div class="item"><span>03</span><label>Vertical slice<small>10–15 minutes: London, fuel stop, chase and route choice.</small></label></div><div class="item"><span>04</span><label>Production and release<small>Expand the campaign after validating quality and resources.</small></label></div></div></div></section>
+<section id="aaa-production" class="section" aria-labelledby="quality-title">
+  <div class="heading">
+    <div><h2 id="quality-title">AAA production brief</h2><p>Visual direction, playtest criteria and funding decisions for <a href="#vertical-slice">Out of London</a></p></div>
+  </div>
+  <div class="quality-lead panel">
+    <div class="quality-lead-copy">
+      <h3>The forecourt in the rain</h3>
+      <p>Alex coasts onto a dark service-station forecourt with the fuel warning on. A generator keeps one patch of canopy light alive. The car ticks as it cools. While fuel transfers, a knock against a shutter competes with the rain. The player decides whether another few seconds of fuel are worth giving up a clear exit.</p>
+      <p>Carry the consequences into the getaway. A bent wheel pulls on the steering, a patch of standing water reduces grip, and a quiet service lane offers more room to recover than the crowded high street. At the checkpoint, Alex can hear what happened back at the station over the radio.</p>
+    </div>
+    <figure><img src="docs/concept-05.jpg" width="1672" height="941" loading="lazy" alt="Concept panels showing roadside fueling, vehicle repair, a rain-soaked escape and garage upgrades"><figcaption>Roadside survival concept art</figcaption></figure>
+  </div>
+
+  <div class="quality-topics">
+    <details class="panel quality-topic" open>
+      <summary><span><strong>Art direction and authenticity</strong><small>Environment, lighting, vehicle condition and local character</small></span></summary>
+      <div class="quality-topic-body">
+        <div><h4>Stage the same scene at three distances</h4><p>From the approach, the canopy, safe parking space and two road exits should read in the headlight beam. On foot, sell the location through faded lane paint, cables, rain channels, stock cages and handwritten notices. Up close, show hand contact at the fuel cap, wet fabric on sleeves and grime around the sedan's moving parts.</p></div>
+        <div><h4>Build a recognizable place</h4><p>Use a fictional south London district as the reference. Check street widths, signs, road markings, building uses, interiors and language against local references. Apply the same review in Dover, Paris and Berlin. Keep the art palette grounded in each location and grade every region from the same exposure reference.</p></div>
+        <div><h4>Make surface behavior agree with the picture</h4><p>Reserve sharp reflections for puddles and glazed surfaces. Keep wet asphalt rough enough for lane markings to read. Road texture, tire sound and vehicle response should agree when the car moves from tarmac onto standing water or loose gravel.</p></div>
+        <div><h4>Inspect through the gameplay camera</h4><p>Review the sedan intact and damaged from the chase camera, from the door during entry and under headlights in rain. Verify light placement, glass, wheel clearance, panel seams and contact. Capture the same camera positions for every art review.</p></div>
+      </div>
+    </details>
+    <details class="panel quality-topic">
+      <summary><span><strong>Animation, sound and player feedback</strong><small>What the player sees, hears and controls during a transition</small></span></summary>
+      <div class="quality-topic-body">
+        <div><h4>Car to on foot</h4><p>Brake to a valid stop, show the available door, plant the character's feet and blend to the on-foot camera. Test both sides of the car and a sloped parking position. Interrupted entry leaves Alex in a navigable position and restores the correct controls.</p></div>
+        <div><h4>Fuel transfer under pressure</h4><p>Give fueling distinct start, transfer and stop feedback. The gauge and interaction sound update together. Canceling keeps the transferred fuel and immediately restores movement. During the screamer's wind-up, a directional icon accompanies the sound and remains readable with subtitles enabled.</p></div>
+        <div><h4>Damage and handling cues</h4><p>Use one cue each for a damaged wheel, overheating and critical engine condition. Pair the visible effect with a HUD icon, text and a distinct sound. Keep controls predictable until the condition changes and present a recovery option where the route allows one.</p></div>
+        <div><h4>Layer the soundscape</h4><p>Set the rain, canopy drip and engine idle levels in an empty forecourt. Add cab occlusion and distance to the door, fuel transfer and infected cues. Mix radio dialogue against engine load and music so the urgent cue remains intelligible during the getaway.</p></div>
+      </div>
+    </details>
+    <details class="panel quality-topic">
+      <summary><span><strong>Narrative consequences</strong><small>One optional rescue, visible outcomes and a controlled scope</small></span></summary>
+      <div class="quality-topic-body">
+        <div><h4>Put character in the choice</h4><p>Alex hears someone call from the shuttered kiosk. The station worker knows how to open a shortcut off the service lane. Stopping to help costs time while the player is low on fuel. Both original routes remain available.</p></div>
+        <div><h4>Carry state into the payoff</h4><p>If rescued, the worker opens the shortcut and later radios a useful report about the motorway. If Alex leaves, the debrief reflects that choice. At the checkpoint, show route taken, fuel remaining and help received.</p></div>
+        <div><h4>Build the critical path first</h4><p>A single radio guide and one optional interaction are enough to test whether players care about the choice. A larger companion system and fully staged cinematics depend on the result of that test.</p></div>
+        <div><h4>Verify both outcomes</h4><p>Run the mission with the worker rescued and with the rescue skipped. Load the checkpoint immediately after the choice and confirm radio, route access, reward and debrief agree.</p></div>
+      </div>
+    </details>
+    <details class="panel quality-topic">
+      <summary><span><strong>Performance and quality verification</strong><small>Repeatable captures and acceptance criteria</small></span></summary>
+      <div class="quality-topic-body">
+        <div><h4>Agree on the test machine</h4><p>Select a baseline PC and record its hardware, the build ID, resolution and graphics settings. Use the same route and capture points. Console targets depend on hardware access and native profiling.</p></div>
+        <div><h4>Capture the worst section</h4><p>In a 60 fps performance mode, start from a proposed 16.7 ms frame budget. Record frame-time percentiles, CPU and GPU timings, peak memory and the longest streaming hitch during the rain-and-crowd getaway. Profile three comparable runs from a clean launch and retain a capture for each route.</p></div>
+        <div><h4>Test recovery before polish sign-off</h4><p>Repeat the route with partial fuel, a damaged wheel and a blocked door. Interrupt fueling and checkpoint creation. Verify that inventory, damage, route access and prompts match the last valid snapshot after relaunch.</p></div>
+        <div><h4>Measure clarity with new players</h4><p>Use the slice target of 16 successful unaided completions in a 20-player cohort. Ask what prompted each player to stop fueling, which route they picked, and why their run ended. Record route choices and separate first-run findings from experienced-player tuning.</p></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="quality-gates" aria-labelledby="quality-gates-title">
+    <div class="heading"><div><h3 id="quality-gates-title">Production gates</h3><p>Required evidence before committing to the next build</p></div></div>
+    <ol class="quality-gate-list">
+      <li class="panel"><h4>Playable blockout</h4><p>One sedan, one short route and one infected. Demonstrate driving, entry and exit, an interruptible refuel and checkpoint restart with temporary assets.</p><p><strong>Exit criterion.</strong> A captured run and notes from five first-time players show where the core loop succeeds or breaks.</p></li>
+      <li class="panel"><h4>Art and systems benchmark</h4><p>Finish a small forecourt, one hero car and two infected silhouettes. Review the same scene from the chase camera, at the pump and during the escape.</p><p><strong>Exit criterion.</strong> Source and asset rights are recorded, replay captures include lighting, sound and animation, and performance has a measured baseline.</p></li>
+      <li class="panel"><h4>Vertical slice sign-off</h4><p>Complete both escape routes with final-intent feedback, a readable optional choice and save recovery. Gather test results on the agreed machine.</p><p><strong>Exit criterion.</strong> The cohort target, recovery checks and frame-time budget are met or have a documented fix before committing further.</p></li>
+      <li class="panel"><h4>Campaign production decision</h4><p>Use the slice to measure person-days per finished road segment, building kit, vehicle variant, encounter and voiced scene. Estimate team needs and budget from that throughput.</p><p><strong>Exit criterion.</strong> Review one funded campaign scope, a reduced scope and the cost of supporting each target platform. Commit city count and release scope after that review.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="sources" class="section"><div class="heading"><div><div class="eyebrow">05 / SOURCE OF TRUTH</div><h2>Project documents</h2></div></div><div class="two"><a class="art" href="docs/road_v3.md" target="_blank" rel="noopener"><span>GDD / VERSION 0.3 ↗</span><b>road_v3.md</b><small>Vision, systems, campaign and production plan</small></a><a class="art" href="docs/Concept_Art_Book.pdf" target="_blank" rel="noopener"><span>ART BOOK / 15 PAGES ↗</span><b>Concept Art Book.pdf</b><small>Visual direction and exploration</small></a></div></section><footer>ROAD OF THE DEAD / PROJECT HUB · Working interpretation of v0.3. Statuses require confirmation against actual implementation.</footer></div></main><dialog id="modal" aria-labelledby="record-title"><button class="close" aria-label="Close">✕</button><div id="detail"></div></dialog><script>
 const gdd='docs/road_v3.md',pdf='docs/Concept_Art_Book.pdf';
 const art=[['European campaign','London, Dover, Paris and Berlin','docs/concept-01.jpg',1],['Survivors and infected','Characters and silhouettes','docs/concept-02.jpg',2],['On-foot combat','Weapons, inventory and melee combat','docs/concept-03.jpg',3],['Vehicle progression','Armor, damage and upgrades','docs/concept-04.jpg',4],['Roadside survival','Refueling, repairs and garage','docs/concept-05.jpg',5],['Land vehicles','Motorcycle, truck, bulldozer and tank','docs/concept-06.jpg',6],['Vehicles in action','Roads, fields and heavy vehicles','docs/concept-07.jpg',7],['Aircraft and garage','Helicopter, plane and scavenging','docs/concept-08.jpg',8],['Buggies and boats','Water and off-road vehicles','docs/concept-09.jpg',9],['Land and water','Dangerous waterways','docs/concept-10.jpg',10],['Aquatic infected','Enemy types with swimming abilities','docs/concept-11.jpg',11],['Early studies','Chase and atmosphere; European setting supersedes the mountain location','docs/concept-12.jpg',12]];
 const data=[
