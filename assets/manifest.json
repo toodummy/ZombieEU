@@ -344,6 +344,26 @@
    "path": "gen/alex_swing.glb",
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_190225_29327889-22a1-4f97-a2b5-4c6fddbb2c31.glb",
    "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/zombie_run.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_191205_3d6e0d8b-dbe8-4f5c-8b58-90bd3cadd05a.glb",
+   "source": "Higgsfield (Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/zombie_attack.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_191205_b7252e76-ace8-463b-ad2c-00f74342f16b.glb",
+   "source": "Higgsfield (Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/zombie_die.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_191206_4590cae2-80c2-4b68-a498-6dcbe9c79562.glb",
+   "source": "Higgsfield (Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/zombie_scream.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_191207_ab4dafa7-c29b-4c04-ae0e-686452b7e436.glb",
+   "source": "Higgsfield (Meshy rigging) generated for this project"
   }
  ]
 }
