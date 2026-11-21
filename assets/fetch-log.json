@@ -245,22 +245,42 @@
   {
    "path": "sfx/horn.mp3",
    "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
-   "bytes": 30612
+   "bytes": "exists"
   },
   {
    "path": "sfx/claw.mp3",
    "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
-   "bytes": 37383
+   "bytes": "exists"
   },
   {
    "path": "gen/car.glb",
    "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
-   "bytes": 11041836
+   "bytes": "exists"
   },
   {
    "path": "gen/alex_run.glb",
    "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
-   "bytes": 9959312
+   "bytes": "exists"
+  },
+  {
+   "path": "gen/zombie_walk.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project",
+   "bytes": 10533392
+  },
+  {
+   "path": "gen/alex_walk.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project",
+   "bytes": 10057852
+  },
+  {
+   "path": "gen/alex_idle.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project",
+   "bytes": 10054404
+  },
+  {
+   "path": "gen/alex_swing.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project",
+   "bytes": 9995784
   }
  ],
  "errors": [
