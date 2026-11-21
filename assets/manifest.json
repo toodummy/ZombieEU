@@ -2,27 +2,308 @@
  "polyhaven": {
   "res": "1k",
   "textures": [
-   {"as": "asphalt", "want": ["asphalt_02", "asphalt_04", "asphalt_track", "aerial_asphalt_01"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "brick", "want": ["red_brick_03", "red_brick_04", "brick_wall_001", "red_bricks_04"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "brick2", "want": ["brick_wall_006", "brick_wall_02", "yellow_brick", "brick_4"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "pavement", "want": ["patterned_paving_02", "paving_stones", "concrete_pavers", "square_tiles_02"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "concrete", "want": ["concrete_floor_02", "concrete_floor_worn_001", "concrete_slab_wall", "concrete_floor_01"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "gravel", "want": ["gravel_floor_02", "gravel_road", "gravel_concrete", "aerial_rocks_02"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "grass", "want": ["aerial_grass_rock", "forrest_ground_01", "brown_mud_leaves_01", "coast_sand_rocks_02"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "metal", "want": ["corrugated_iron", "corrugated_iron_02", "rusty_metal_02", "metal_plate"], "maps": ["Diffuse", "nor_gl", "Rough"]},
-   {"as": "plaster", "want": ["painted_plaster_wall", "beige_wall_001", "plastered_wall_02", "white_plaster_02"], "maps": ["Diffuse", "nor_gl", "Rough"]}
+   {
+    "as": "asphalt",
+    "want": [
+     "asphalt_02",
+     "asphalt_04",
+     "asphalt_track",
+     "aerial_asphalt_01"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "brick",
+    "want": [
+     "red_brick_03",
+     "red_brick_04",
+     "brick_wall_001",
+     "red_bricks_04"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "brick2",
+    "want": [
+     "brick_wall_006",
+     "brick_wall_02",
+     "yellow_brick",
+     "brick_4"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "pavement",
+    "want": [
+     "patterned_paving_02",
+     "paving_stones",
+     "concrete_pavers",
+     "square_tiles_02"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "concrete",
+    "want": [
+     "concrete_floor_02",
+     "concrete_floor_worn_001",
+     "concrete_slab_wall",
+     "concrete_floor_01"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "gravel",
+    "want": [
+     "gravel_floor_02",
+     "gravel_road",
+     "gravel_concrete",
+     "aerial_rocks_02"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "grass",
+    "want": [
+     "aerial_grass_rock",
+     "forrest_ground_01",
+     "brown_mud_leaves_01",
+     "coast_sand_rocks_02"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "metal",
+    "want": [
+     "corrugated_iron",
+     "corrugated_iron_02",
+     "rusty_metal_02",
+     "metal_plate"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   },
+   {
+    "as": "plaster",
+    "want": [
+     "painted_plaster_wall",
+     "beige_wall_001",
+     "plastered_wall_02",
+     "white_plaster_02"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ]
+   }
   ],
-  "hdris": [{"as": "night", "res": "1k", "want": ["dikhololo_night", "moonless_golf", "satara_night", "kloppenheim_02"]}],
+  "hdris": [
+   {
+    "as": "night",
+    "res": "1k",
+    "want": [
+     "dikhololo_night",
+     "moonless_golf",
+     "satara_night",
+     "kloppenheim_02"
+    ]
+   }
+  ],
   "models": [
-   {"as": "barrier", "want": ["concrete_road_barrier", "road_barrier_01"]},
-   {"as": "barrel", "want": ["Barrel_01", "barrel_01", "wooden_barrels_01"]},
-   {"as": "trashcan", "want": ["metal_trash_can", "trash_can", "garbage_bin_01"]},
-   {"as": "cone", "want": ["traffic_cone_01", "traffic_cone"]},
-   {"as": "hydrant", "want": ["fire_hydrant", "fire_hydrant_01"]},
-   {"as": "streetlamp", "want": ["street_lamp_01", "street_lamp_02", "victorian_street_lamp"]},
-   {"as": "pallet", "want": ["wooden_pallet", "pallet_01"]},
-   {"as": "jerrycan", "want": ["jerrycan", "gas_can", "jerry_can_01"]}
+   {
+    "as": "barrier",
+    "want": [
+     "concrete_road_barrier",
+     "road_barrier_01"
+    ]
+   },
+   {
+    "as": "barrel",
+    "want": [
+     "Barrel_01",
+     "barrel_01",
+     "wooden_barrels_01"
+    ]
+   },
+   {
+    "as": "trashcan",
+    "want": [
+     "metal_trash_can",
+     "trash_can",
+     "garbage_bin_01"
+    ]
+   },
+   {
+    "as": "cone",
+    "want": [
+     "traffic_cone_01",
+     "traffic_cone"
+    ]
+   },
+   {
+    "as": "hydrant",
+    "want": [
+     "fire_hydrant",
+     "fire_hydrant_01"
+    ]
+   },
+   {
+    "as": "streetlamp",
+    "want": [
+     "street_lamp_01",
+     "street_lamp_02",
+     "victorian_street_lamp"
+    ]
+   },
+   {
+    "as": "pallet",
+    "want": [
+     "wooden_pallet",
+     "pallet_01"
+    ]
+   },
+   {
+    "as": "jerrycan",
+    "want": [
+     "jerrycan",
+     "gas_can",
+     "jerry_can_01"
+    ]
+   }
   ]
  },
- "urls": []
+ "urls": [
+  {
+   "path": "sfx/engine_idle.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_e69718da-c5da-410a-9829-f7c08dfffdb5.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/engine_rev.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_ad1ee1d6-86e4-4a81-8654-813c58244ee5.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/rain.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_fbe34247-db81-48bf-9732-8f77972372d5.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/groan.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_97e56a76-f2c9-495c-8fcd-2da606f7b991.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/snarl.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_03c9b390-23ff-4287-8aa8-8b99c34a63f5.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/scream.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_b88a2411-6484-4374-a75c-686648dadfb7.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/crash.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_c67ff8e7-c32c-4801-a7eb-ce84a93dffa8.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/bodyhit.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_03893065-77ad-48e6-b54a-0400b66109c8.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/gun.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_d857e477-ccd3-4498-a5ee-bdbd30bc4d8a.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/crowbar.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_53d696c6-4de5-4928-a209-57c26a7686b4.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/pump.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_503ff389-67b6-437a-8f97-6a5e0c251a94.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/door.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185444_0398c676-6c4c-4f2e-af89-356dce15af5f.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/thunder.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_9eaaa0ad-01ce-4136-8f37-a8aa69df933b.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/skid.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_2aa601db-a182-4de6-9b80-2ab4cbf81f55.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/reload.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_efd0255f-dca6-47b9-a881-4a52fbf10e21.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/static.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_57c211c9-b049-446e-903e-a1663e3f6d9c.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/shutter.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_e47e327c-f501-4058-83ed-e64bdb192006.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/horde.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_1e3d3db3-a06b-43c8-adcc-c194996dbb8b.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/swing.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_562bd9da-ac71-49b8-9e7c-31ccd24837fb.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/gate.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_a5c24184-a6c8-4eb4-abd4-e039eee93d62.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  }
+ ]
 }
