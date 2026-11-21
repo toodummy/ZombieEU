@@ -56,7 +56,7 @@ visual sound cues, graphics quality and an FPS counter.
 `tools/qa-playthrough.mjs` drives a headless Chromium (Playwright) through the loop with `?qa=1`: it fails on any console
 error and checks frames render, the mission starts, the car drives, the forecourt checkpoint saves, Alex exits the car,
 refuelling transfers fuel and is credited exactly once on release, re-entry, checkpoint restore, the High Street escape,
-the debrief and replay. Screenshots go to `$OUT` (default `qa-shots/`).
+the debrief and replay. Screenshots go to `$OUT` (default `game/tools/qa-shots/`, git-ignored).
 
 ```bash
 python3 -m http.server 8931 &            # repo root

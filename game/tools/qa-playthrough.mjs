@@ -5,7 +5,7 @@
 // interruptible refuel (exactly-once credit), re-entry, checkpoint restore, High Street escape, debrief, replay.
 import { chromium } from 'playwright-core';
 import { mkdirSync } from 'node:fs';
-const OUT = process.env.OUT || 'qa-shots'; mkdirSync(OUT, { recursive: true });
+const OUT = process.env.OUT || new URL('./qa-shots/', import.meta.url).pathname; mkdirSync(OUT, { recursive: true });
 const base = (process.env.BASE || 'http://127.0.0.1:8931') + '/game/index.html?qa=1&quality=' + (process.argv[2] || 'low');
 const W = +(process.argv[3] || 960), H = +(process.argv[4] || 540);
 const browser = await chromium.launch({ ...(process.env.CHROME ? { executablePath: process.env.CHROME } : {}), args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required'] });
