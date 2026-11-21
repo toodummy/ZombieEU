@@ -190,7 +190,6 @@ body.touch #pbtn{top:10px;bottom:auto;right:136px;width:36px;height:36px}
 <script type="module">
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {RGBELoader} from 'three/addons/loaders/RGBELoader.js';
 import {clone as skClone} from 'three/addons/utils/SkeletonUtils.js';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
@@ -236,11 +235,14 @@ addEventListener('resize',resize);
 
 // ================================================================ asset loading
 const AS={tex:{},props:{},car:null,carLod:null,zombie:null,zclips:{},alex:null,aclips:{},sfx:{},env:null};
-const texL=new THREE.TextureLoader(),gltfL=new GLTFLoader(),hdrL=new RGBELoader();
+const texL=new THREE.TextureLoader(),gltfL=new GLTFLoader();
 let ldDone=0,ldTotal=0;
 function prog(){$('lfill').style.width=(ldDone/Math.max(1,ldTotal)*100)+'%';}
 function track(p,label){ldTotal++;prog();return p.then(v=>{ldDone++;prog();return v;},e=>{ldDone++;prog();console.warn('asset failed:',label,e&&e.message);return null;});}
 const loadTexP=(url,srgb)=>new Promise((res,rej)=>texL.load(url,t=>{t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=8;if(srgb)t.colorSpace=THREE.SRGBColorSpace;res(t);},undefined,rej));
+const BLOB={"car": "67c31109fb044ca467869a00ea8dcfee", "car_lod": "b329c67e23f40cc31cc9daaa7e66ceb9", "zombie": "17cf95f38a69a33fd655b3ca231b2ec6", "zombie_run": "865c3895930ccafbbed752c7b55b6e6e", "zombie_attack": "349dfa945e26d4feacd2a568378321fb", "zombie_die": "1bb0eeaad610c13380cb12ebfb5e2ca3", "zombie_scream": "33fed3aea151a4dd5ab71557311bf83a", "alex": "39ec597d54cb018bda7bb75f34041399", "alex_walk": "e3fe17e18bc08d2813465ea8636f9ab4", "alex_idle": "50cb9f9a09eb644deb9de67a9488dd5a", "alex_swing": "9c5d7a56eb42fd7d3aba665b5a1aa281", "barrel": "f07fec0603229be539d701a839c3d137", "barrier": "db499d1222386a512a5545453f4c60cf", "hydrant": "802632b30deded6f670b4fd5a68bfe25", "streetlamp": "1252aa7dac7b6b7dcc94b23112d993e5", "trashcan": "2f43e0957b29045cd84f738ed80b2e50"};
+const LOCAL=/^(localhost|127\.)/.test(location.hostname);
+const murl=n=>LOCAL||!BLOB[n]?`assets/models/${n}.glb`:'/_blob/'+BLOB[n];
 const loadGLB=url=>new Promise((res,rej)=>gltfL.load(url,res,undefined,rej));
 const AC=new (window.AudioContext||window.webkitAudioContext)();
 const SFX_LIST=['engine_idle','engine_rev','rain','groan','snarl','scream','crash','bodyhit','gun','crowbar','pump','door','thunder','skid','reload','static','shutter','horde','swing','gate','horn','claw'];
@@ -252,14 +254,14 @@ async function loadAll(){
   const jobs=[];
   for(const n of ['asphalt','brick','brick2','pavement','concrete','gravel','grass','metal','plaster']){
     jobs.push(track(Promise.all([loadTexP(`assets/textures/${n}_d.webp`,true),loadTexP(`assets/textures/${n}_n.webp`),loadTexP(`assets/textures/${n}_r.webp`)]).then(([d,nn,r])=>AS.tex[n]={d,n:nn,r}),'tex '+n));}
-  jobs.push(track(new Promise((res,rej)=>hdrL.load('assets/night.hdr',res,undefined,rej)).then(t=>{const pm=new THREE.PMREMGenerator(renderer);AS.env=pm.fromEquirectangular(t).texture;t.dispose();}),'hdr'));
-  for(const n of ['barrel','barrier','hydrant','streetlamp','trashcan'])jobs.push(track(loadGLB(`assets/models/${n}.glb`).then(g=>AS.props[n]=g.scene),n));
-  jobs.push(track(loadGLB('assets/models/car.glb').then(g=>AS.car=wrapCar(g.scene)),'car'));
-  jobs.push(track(loadGLB('assets/models/car_lod.glb').then(g=>AS.carLod=wrapCar(g.scene)),'carlod'));
-  jobs.push(track(loadGLB('assets/models/zombie.glb').then(g=>{AS.zombie=g;if(g.animations[0])AS.zclips.walk=g.animations[0];}),'zombie'));
-  for(const c of ['run','attack','die','scream'])jobs.push(track(loadGLB(`assets/models/zombie_${c}.glb`).then(g=>{if(g.animations[0])AS.zclips[c]=g.animations[0];}),'z'+c));
-  jobs.push(track(loadGLB('assets/models/alex.glb').then(g=>{AS.alex=g;if(g.animations[0])AS.aclips.run=g.animations[0];}),'alex'));
-  for(const c of ['walk','idle','swing'])jobs.push(track(loadGLB(`assets/models/alex_${c}.glb`).then(g=>{if(g.animations[0])AS.aclips[c]=g.animations[0];}),'a'+c));
+  jobs.push(track(loadTexP('assets/night_env.jpg',true).then(t=>{t.mapping=THREE.EquirectangularReflectionMapping;const pm=new THREE.PMREMGenerator(renderer);AS.env=pm.fromEquirectangular(t).texture;t.dispose();}),'env'));
+  for(const n of ['barrel','barrier','hydrant','streetlamp','trashcan'])jobs.push(track(loadGLB(murl(n)).then(g=>AS.props[n]=g.scene),n));
+  jobs.push(track(loadGLB(murl('car')).then(g=>AS.car=wrapCar(g.scene)),'car'));
+  jobs.push(track(loadGLB(murl('car_lod')).then(g=>AS.carLod=wrapCar(g.scene)),'carlod'));
+  jobs.push(track(loadGLB(murl('zombie')).then(g=>{AS.zombie=g;if(g.animations[0])AS.zclips.walk=g.animations[0];}),'zombie'));
+  for(const c of ['run','attack','die','scream'])jobs.push(track(loadGLB(murl('zombie_'+c)).then(g=>{if(g.animations[0])AS.zclips[c]=g.animations[0];}),'z'+c));
+  jobs.push(track(loadGLB(murl('alex')).then(g=>{AS.alex=g;if(g.animations[0])AS.aclips.run=g.animations[0];}),'alex'));
+  for(const c of ['walk','idle','swing'])jobs.push(track(loadGLB(murl('alex_'+c)).then(g=>{if(g.animations[0])AS.aclips[c]=g.animations[0];}),'a'+c));
   for(const s of SFX_LIST)jobs.push(track(fetch(`assets/sfx/${s}.mp3`).then(r=>{if(!r.ok)throw new Error(r.status);return r.arrayBuffer();}).then(b=>AC.decodeAudioData(b)).then(buf=>AS.sfx[s]=buf),'sfx '+s));
   await Promise.all(jobs);
 }
