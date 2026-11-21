@@ -1,0 +1,28 @@
+{
+ "polyhaven": {
+  "res": "1k",
+  "textures": [
+   {"as": "asphalt", "want": ["asphalt_02", "asphalt_04", "asphalt_track", "aerial_asphalt_01"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "brick", "want": ["red_brick_03", "red_brick_04", "brick_wall_001", "red_bricks_04"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "brick2", "want": ["brick_wall_006", "brick_wall_02", "yellow_brick", "brick_4"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "pavement", "want": ["patterned_paving_02", "paving_stones", "concrete_pavers", "square_tiles_02"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "concrete", "want": ["concrete_floor_02", "concrete_floor_worn_001", "concrete_slab_wall", "concrete_floor_01"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "gravel", "want": ["gravel_floor_02", "gravel_road", "gravel_concrete", "aerial_rocks_02"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "grass", "want": ["aerial_grass_rock", "forrest_ground_01", "brown_mud_leaves_01", "coast_sand_rocks_02"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "metal", "want": ["corrugated_iron", "corrugated_iron_02", "rusty_metal_02", "metal_plate"], "maps": ["Diffuse", "nor_gl", "Rough"]},
+   {"as": "plaster", "want": ["painted_plaster_wall", "beige_wall_001", "plastered_wall_02", "white_plaster_02"], "maps": ["Diffuse", "nor_gl", "Rough"]}
+  ],
+  "hdris": [{"as": "night", "res": "1k", "want": ["dikhololo_night", "moonless_golf", "satara_night", "kloppenheim_02"]}],
+  "models": [
+   {"as": "barrier", "want": ["concrete_road_barrier", "road_barrier_01"]},
+   {"as": "barrel", "want": ["Barrel_01", "barrel_01", "wooden_barrels_01"]},
+   {"as": "trashcan", "want": ["metal_trash_can", "trash_can", "garbage_bin_01"]},
+   {"as": "cone", "want": ["traffic_cone_01", "traffic_cone"]},
+   {"as": "hydrant", "want": ["fire_hydrant", "fire_hydrant_01"]},
+   {"as": "streetlamp", "want": ["street_lamp_01", "street_lamp_02", "victorian_street_lamp"]},
+   {"as": "pallet", "want": ["wooden_pallet", "pallet_01"]},
+   {"as": "jerrycan", "want": ["jerrycan", "gas_can", "jerry_can_01"]}
+  ]
+ },
+ "urls": []
+}
