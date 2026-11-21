@@ -47,7 +47,7 @@ export class MissionDirector {
         const away = Math.hypot(car.x - FORECOURT.x, car.z - FORECOURT.z) > 42;
         if (away) this.emit('departed', {}, 'departed');
       }
-      if (inCar && this.phase === 'approach' && Math.hypot(car.x - FORECOURT.x, car.z - FORECOURT.z) > 70 && car.x > 268) this.emit('departed', {}, 'departed');
+      if (inCar && this.phase === 'approach' && Math.hypot(car.x - FORECOURT.x, car.z - FORECOURT.z) > 70 && (car.x > 268 || car.z < -390)) this.emit('departed', {}, 'departed');
     }
     if (this.phase === 'escape' || this.phase === 'refuel' || this.phase === 'approach') {
       const road = g.world.roadAt(car.x, car.z);
