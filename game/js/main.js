@@ -424,6 +424,8 @@ class Game {
         pl.yaw = dampAngle(pl.yaw, Math.atan2(-(pump.x - pl.x), -(pump.z - pl.z)), 8, dt);
         if (car.fuel >= VT.tank - 0.05) this.closeFuel();
       } else { this.closeFuel(); if (this.holdKind === 'fuel') this.holdKind = null; }
+      // standing at the pump next to the car: E still gets you back in (refuel prompt keeps priority on screen)
+      if (nearCar && !this.fuelSession) { this.prompt.sub += ' · E: get in'; if (a.interact) this.tryEnterCar(a, true); }
       return;
     } else { this.closeFuel(); if (this.holdKind === 'fuel') this.holdKind = null; }
     // pour jerrycan / patch tyre at the car
@@ -457,15 +459,22 @@ class Game {
       return;
     }
     if (this.holdKind === 'pry') this.holdKind = null;
+    this.tryEnterCar(a, false);
+  }
+  tryEnterCar(a, silent) {
+    const car = this.car, pl = this.player;
+    const nearCar = Math.hypot(pl.x - car.x, pl.z - car.z) < 3.4;
+    const prevPrompt = this.prompt;
     // enter car
     const doors = this.doorState();
     let best = null, bd = 1e9; for (const d of doors) { const dd = Math.hypot(pl.x - d.p[0], pl.z - d.p[1]); if (dd < bd) { bd = dd; best = d; } }
     if (best && (bd < 1.8 || nearCar)) {
       const usable = best.ok ? best : doors.find(d => d.ok);
-      if (!usable) { this.prompt = { key: '', text: 'Both doors blocked', sub: 'Clear the infected or move away', blocked: true }; return; }
+      if (!usable) { if (silent) { if (a.interact) this.hud.toast('BOTH DOORS BLOCKED', '#ff4b3e'); } else this.prompt = { key: '', text: 'Both doors blocked', sub: 'Clear the infected or move away', blocked: true }; return; }
       const blockedNote = !best.ok ? `${best.side} door blocked — use the ${usable.side} side` : '';
       this.prompt = { key: 'E', text: car.fuel <= 0 ? 'Get in (no fuel)' : 'Get in', sub: blockedNote || (usable.side === 'driver' ? 'Driver door' : 'Passenger door — slide across'), blocked: !best.ok };
       if (a.interact) { this.transition = { type: 'enter', t: 0, dur: PT.enterTime + (usable.side === 'passenger' ? 0.4 : 0), door: usable, from: [pl.x, pl.z] }; this.audio.door(true); this.closeFuel(); }
+      if (silent && !this.transition) this.prompt = prevPrompt;
     }
   }
   shoot(p) {
