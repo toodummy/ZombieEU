@@ -304,6 +304,26 @@
    "path": "sfx/gate.mp3",
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185532_a5c24184-a6c8-4eb4-abd4-e039eee93d62.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)"
+  },
+  {
+   "path": "sfx/horn.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185558_7d6200de-5306-4e0b-a859-2d92a82dbbdd.mp3",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project"
+  },
+  {
+   "path": "sfx/claw.mp3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185558_33a58683-5f4c-48e9-8f94-91c68005d375.mp3",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project"
+  },
+  {
+   "path": "gen/car.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185419_f43f754f-d44c-4cd7-9d81-fab1989fb8d7.glb",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project"
+  },
+  {
+   "path": "gen/alex_run.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185422_0e2ff77d-18d5-46bf-ac1d-aa95e6de23d6.glb",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project"
   }
  ]
 }
