@@ -324,6 +324,26 @@
    "path": "gen/alex_run.glb",
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185422_0e2ff77d-18d5-46bf-ac1d-aa95e6de23d6.glb",
    "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project"
+  },
+  {
+   "path": "gen/zombie_walk.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_185711_c0c7b86e-446f-4b73-97f1-b006e9c0ae6d.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/alex_walk.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_190224_9fc4d18b-5974-42f9-8075-a7a3224b5208.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/alex_idle.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_190224_ecf67798-b9a6-4e8d-80a3-9cebc9f9d804.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project"
+  },
+  {
+   "path": "gen/alex_swing.glb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3M9n1AaYa0egMe1FXbH9taAZS4A/hf_20261121_190225_29327889-22a1-4f97-a2b5-4c6fddbb2c31.glb",
+   "source": "Higgsfield (Meshy 6 / Meshy rigging) generated for this project"
   }
  ]
 }
