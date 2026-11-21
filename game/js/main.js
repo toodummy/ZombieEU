@@ -517,6 +517,9 @@ class Game {
       const yaw = cs.driveYaw + cs.lookOff;
       const dist = 6.6 + sp * 0.06, h = 2.5 + sp * 0.02;
       pos.set(car.x + Math.sin(yaw) * dist, h, car.z + Math.cos(yaw) * dist);
+      // pull the chase camera in (and up) when a pump, wall or building sits between it and the car
+      let k = 1; for (let s = 0.3; s <= 1.001; s += 0.1) { const x = lerp(car.x, pos.x, s), z = lerp(car.z, pos.z, s); if (this.world.obstacles.some(o => !o.disabled && (o.building || o.r < 4) && o.contains(x, z, 0.35))) { k = s - 0.1; break; } }
+      if (k < 1) { k = Math.max(0.4, k); pos.set(lerp(car.x, pos.x, k), h + (1 - k) * 2.2, lerp(car.z, pos.z, k)); }
       look.set(car.x + fx * 3.5, 1.1, car.z + fz * 3.5);
       fov = Math.min(80, 62 + sp * 0.5);
       cs.worldYaw = yaw; cs.yaw = yaw;
