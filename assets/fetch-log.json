@@ -145,102 +145,122 @@
   {
    "path": "sfx/engine_idle.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 72837
+   "bytes": "exists"
   },
   {
    "path": "sfx/engine_rev.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 73361
+   "bytes": "exists"
   },
   {
    "path": "sfx/rain.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 131708
+   "bytes": "exists"
   },
   {
    "path": "sfx/groan.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 59330
+   "bytes": "exists"
   },
   {
    "path": "sfx/snarl.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 43950
+   "bytes": "exists"
   },
   {
    "path": "sfx/scream.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 69144
+   "bytes": "exists"
   },
   {
    "path": "sfx/crash.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 41974
+   "bytes": "exists"
   },
   {
    "path": "sfx/bodyhit.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 35872
+   "bytes": "exists"
   },
   {
    "path": "sfx/gun.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 35978
+   "bytes": "exists"
   },
   {
    "path": "sfx/crowbar.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 28885
+   "bytes": "exists"
   },
   {
    "path": "sfx/pump.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 70969
+   "bytes": "exists"
   },
   {
    "path": "sfx/door.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 36499
+   "bytes": "exists"
   },
   {
    "path": "sfx/thunder.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 84834
+   "bytes": "exists"
   },
   {
    "path": "sfx/skid.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 42807
+   "bytes": "exists"
   },
   {
    "path": "sfx/reload.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 36521
+   "bytes": "exists"
   },
   {
    "path": "sfx/static.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 29979
+   "bytes": "exists"
   },
   {
    "path": "sfx/shutter.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 62043
+   "bytes": "exists"
   },
   {
    "path": "sfx/horde.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 95427
+   "bytes": "exists"
   },
   {
    "path": "sfx/swing.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 28207
+   "bytes": "exists"
   },
   {
    "path": "sfx/gate.mp3",
    "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
-   "bytes": 53597
+   "bytes": "exists"
+  },
+  {
+   "path": "sfx/horn.mp3",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
+   "bytes": 30612
+  },
+  {
+   "path": "sfx/claw.mp3",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
+   "bytes": 37383
+  },
+  {
+   "path": "gen/car.glb",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
+   "bytes": 11041836
+  },
+  {
+   "path": "gen/alex_run.glb",
+   "source": "Higgsfield (Meshy 6 / Mirelo) generated for this project",
+   "bytes": 9959312
   }
  ],
  "errors": [
