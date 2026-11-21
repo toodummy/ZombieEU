@@ -141,7 +141,108 @@
    "origname": "street_lamp_01_1k.gltf"
   }
  ],
- "urls": [],
+ "urls": [
+  {
+   "path": "sfx/engine_idle.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 72837
+  },
+  {
+   "path": "sfx/engine_rev.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 73361
+  },
+  {
+   "path": "sfx/rain.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 131708
+  },
+  {
+   "path": "sfx/groan.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 59330
+  },
+  {
+   "path": "sfx/snarl.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 43950
+  },
+  {
+   "path": "sfx/scream.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 69144
+  },
+  {
+   "path": "sfx/crash.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 41974
+  },
+  {
+   "path": "sfx/bodyhit.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 35872
+  },
+  {
+   "path": "sfx/gun.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 35978
+  },
+  {
+   "path": "sfx/crowbar.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 28885
+  },
+  {
+   "path": "sfx/pump.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 70969
+  },
+  {
+   "path": "sfx/door.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 36499
+  },
+  {
+   "path": "sfx/thunder.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 84834
+  },
+  {
+   "path": "sfx/skid.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 42807
+  },
+  {
+   "path": "sfx/reload.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 36521
+  },
+  {
+   "path": "sfx/static.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 29979
+  },
+  {
+   "path": "sfx/shutter.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 62043
+  },
+  {
+   "path": "sfx/horde.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 95427
+  },
+  {
+   "path": "sfx/swing.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 28207
+  },
+  {
+   "path": "sfx/gate.mp3",
+   "source": "Higgsfield mirelo_text_to_audio (generated for this project)",
+   "bytes": 53597
+  }
+ ],
  "errors": [
   [
    "cone",
