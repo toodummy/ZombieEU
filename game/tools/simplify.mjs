@@ -1,0 +1,10 @@
+import { NodeIO } from '@gltf-transform/core'; import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
+import { simplify, weld, prune } from '@gltf-transform/functions'; import { MeshoptSimplifier } from 'meshoptimizer';
+const [,, inp, out, ratio, err='0.01'] = process.argv;
+await MeshoptSimplifier.ready;
+const io = new NodeIO().registerExtensions(ALL_EXTENSIONS);
+const doc = await io.read(inp);
+await doc.transform(weld(), simplify({ simplifier: MeshoptSimplifier, ratio: +ratio, error: +err, lockBorder: false }), prune());
+await io.write(out, doc);
+const tris = doc.getRoot().listMeshes().reduce((a, m) => a + m.listPrimitives().reduce((s, p) => s + (p.getIndices()?.getCount() || 0) / 3, 0), 0);
+console.log(out, tris | 0);
