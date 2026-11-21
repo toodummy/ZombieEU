@@ -1,0 +1,172 @@
+{
+ "polyhaven": [
+  {
+   "as": "asphalt",
+   "id": "asphalt_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/asphalt_02",
+   "maps": {
+    "Diffuse": "tex/asphalt_diffuse.jpg",
+    "nor_gl": "tex/asphalt_nor_gl.jpg",
+    "Rough": "tex/asphalt_rough.jpg"
+   }
+  },
+  {
+   "as": "brick",
+   "id": "red_brick_03",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/red_brick_03",
+   "maps": {
+    "Diffuse": "tex/brick_diffuse.jpg",
+    "nor_gl": "tex/brick_nor_gl.jpg",
+    "Rough": "tex/brick_rough.jpg"
+   }
+  },
+  {
+   "as": "brick2",
+   "id": "brick_wall_006",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/brick_wall_006",
+   "maps": {
+    "Diffuse": "tex/brick2_diffuse.jpg",
+    "nor_gl": "tex/brick2_nor_gl.jpg",
+    "Rough": "tex/brick2_rough.jpg"
+   }
+  },
+  {
+   "as": "pavement",
+   "id": "patterned_paving_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/patterned_paving_02",
+   "maps": {
+    "Diffuse": "tex/pavement_diffuse.jpg",
+    "nor_gl": "tex/pavement_nor_gl.jpg",
+    "Rough": "tex/pavement_rough.jpg"
+   }
+  },
+  {
+   "as": "concrete",
+   "id": "concrete_floor_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/concrete_floor_02",
+   "maps": {
+    "Diffuse": "tex/concrete_diffuse.jpg",
+    "nor_gl": "tex/concrete_nor_gl.jpg",
+    "Rough": "tex/concrete_rough.jpg"
+   }
+  },
+  {
+   "as": "gravel",
+   "id": "gravel_floor_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/gravel_floor_02",
+   "maps": {
+    "Diffuse": "tex/gravel_diffuse.jpg",
+    "nor_gl": "tex/gravel_nor_gl.jpg",
+    "Rough": "tex/gravel_rough.jpg"
+   }
+  },
+  {
+   "as": "grass",
+   "id": "aerial_grass_rock",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/aerial_grass_rock",
+   "maps": {
+    "Diffuse": "tex/grass_diffuse.jpg",
+    "nor_gl": "tex/grass_nor_gl.jpg",
+    "Rough": "tex/grass_rough.jpg"
+   }
+  },
+  {
+   "as": "metal",
+   "id": "corrugated_iron",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/corrugated_iron",
+   "maps": {
+    "Diffuse": "tex/metal_diffuse.jpg",
+    "nor_gl": "tex/metal_nor_gl.jpg",
+    "Rough": "tex/metal_rough.jpg"
+   }
+  },
+  {
+   "as": "plaster",
+   "id": "painted_plaster_wall",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/painted_plaster_wall",
+   "maps": {
+    "Diffuse": "tex/plaster_diffuse.jpg",
+    "nor_gl": "tex/plaster_nor_gl.jpg",
+    "Rough": "tex/plaster_rough.jpg"
+   }
+  },
+  {
+   "as": "night",
+   "id": "dikhololo_night",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/dikhololo_night"
+  },
+  {
+   "as": "barrier",
+   "id": "concrete_road_barrier",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/concrete_road_barrier",
+   "origname": "concrete_road_barrier_1k.gltf"
+  },
+  {
+   "as": "barrel",
+   "id": "Barrel_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/Barrel_01",
+   "origname": "Barrel_01_1k.gltf"
+  },
+  {
+   "as": "trashcan",
+   "id": "metal_trash_can",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/metal_trash_can",
+   "origname": "metal_trash_can_1k.gltf"
+  },
+  {
+   "as": "hydrant",
+   "id": "fire_hydrant",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/fire_hydrant",
+   "origname": "fire_hydrant_1k.gltf"
+  },
+  {
+   "as": "streetlamp",
+   "id": "street_lamp_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/street_lamp_01",
+   "origname": "street_lamp_01_1k.gltf"
+  }
+ ],
+ "urls": [],
+ "errors": [
+  [
+   "cone",
+   "no model found",
+   [
+    "traffic_cone_01",
+    "traffic_cone"
+   ]
+  ],
+  [
+   "pallet",
+   "no model found",
+   [
+    "wooden_pallet",
+    "pallet_01"
+   ]
+  ],
+  [
+   "jerrycan",
+   "no model found",
+   [
+    "jerrycan",
+    "gas_can",
+    "jerry_can_01"
+   ]
+  ]
+ ]
+}
