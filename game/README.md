@@ -51,6 +51,19 @@ Jerrycans and a tyre repair kit are placed as authored recovery items. Wheels an
 Click the game view to capture the mouse. Settings cover volume, mouse sensitivity, invert Y, subtitles, camera shake,
 visual sound cues, graphics quality and an FPS counter.
 
+## Automated playthrough
+
+`tools/qa-playthrough.mjs` drives a headless Chromium (Playwright) through the loop with `?qa=1`: it fails on any console
+error and checks frames render, the mission starts, the car drives, the forecourt checkpoint saves, Alex exits the car,
+refuelling transfers fuel and is credited exactly once on release, re-entry, checkpoint restore, the High Street escape,
+the debrief and replay. Screenshots go to `$OUT` (default `qa-shots/`).
+
+```bash
+python3 -m http.server 8931 &            # repo root
+npm i playwright-core && npx playwright-core install chromium
+node game/tools/qa-playthrough.mjs low   # CHROME=/path/to/chrome to use a system browser
+```
+
 ## Code map
 
 | File | Role (from the technical design) |
