@@ -32,7 +32,7 @@ for t in ph.get('textures', []):
         for want_map in t['maps']:
             key = next((k for k in fj if k.lower() == want_map.lower()), None)
             if not key: continue
-            node = fj[key].get(RES) or next(iter(fj[key].values()))
+            node = fj[key].get(t.get('res', RES)) or next(iter(fj[key].values()))
             fmt = 'jpg' if 'jpg' in node else next(iter(node))
             url = node[fmt]['url']
             rel = f"tex/{t['as']}_{want_map.lower()}.{fmt}"
@@ -55,7 +55,7 @@ for m in ph.get('models', []):
     for aid in m['want']:
         fj = files(aid)
         if not fj or 'gltf' not in fj: continue
-        node = fj['gltf'].get(RES) or next(iter(fj['gltf'].values()))
+        node = fj['gltf'].get(m.get('res', RES)) or next(iter(fj['gltf'].values()))
         g = node['gltf']
         try:
             save(f"models/{m['as']}/{m['as']}.gltf", g['url'])

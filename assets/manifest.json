@@ -127,6 +127,118 @@
      "nor_gl",
      "Rough"
     ]
+   },
+   {
+    "as": "road2k",
+    "want": [
+     "asphalt_02",
+     "asphalt_04"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "2k"
+   },
+   {
+    "as": "brick2k",
+    "want": [
+     "red_brick_03",
+     "red_brick_04"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "2k"
+   },
+   {
+    "as": "cobble",
+    "want": [
+     "cobblestone_floor_04",
+     "cobblestone_floor_01",
+     "cobblestone_05",
+     "cobblestone_floor_08",
+     "cobblestone_02"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "2k"
+   },
+   {
+    "as": "stonewall",
+    "want": [
+     "stone_brick_wall_001",
+     "castle_brick_07",
+     "stone_wall_04"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "1k"
+   },
+   {
+    "as": "rust",
+    "want": [
+     "rusty_metal_02",
+     "rusty_metal_04",
+     "rust_coarse_01"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "1k"
+   },
+   {
+    "as": "planks",
+    "want": [
+     "weathered_planks",
+     "wood_planks_dirt",
+     "old_planks_02"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "1k"
+   },
+   {
+    "as": "roofslate",
+    "want": [
+     "roof_slates_02",
+     "roof_slates_03",
+     "roof_tiles_14"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "1k"
+   },
+   {
+    "as": "mud",
+    "want": [
+     "brown_mud_leaves_01",
+     "brown_mud_02",
+     "forrest_ground_01"
+    ],
+    "maps": [
+     "Diffuse",
+     "nor_gl",
+     "Rough"
+    ],
+    "res": "1k"
    }
   ],
   "hdris": [
@@ -138,6 +250,34 @@
      "moonless_golf",
      "satara_night",
      "kloppenheim_02"
+    ]
+   },
+   {
+    "as": "sky_ind",
+    "res": "2k",
+    "want": [
+     "industrial_sunset_02_puresky"
+    ]
+   },
+   {
+    "as": "sky_waste",
+    "res": "2k",
+    "want": [
+     "wasteland_clouds_puresky"
+    ]
+   },
+   {
+    "as": "sky_belfast",
+    "res": "2k",
+    "want": [
+     "belfast_sunset_puresky"
+    ]
+   },
+   {
+    "as": "sky_fire",
+    "res": "2k",
+    "want": [
+     "the_sky_is_on_fire"
     ]
    }
   ],
@@ -200,6 +340,240 @@
      "jerrycan",
      "gas_can",
      "jerry_can_01"
+    ]
+   },
+   {
+    "as": "modular_urban_apartments_facade",
+    "want": [
+     "modular_urban_apartments_facade"
+    ]
+   },
+   {
+    "as": "modular_fire_escape",
+    "want": [
+     "modular_fire_escape"
+    ]
+   },
+   {
+    "as": "rollershutter_door",
+    "want": [
+     "rollershutter_door"
+    ]
+   },
+   {
+    "as": "rollershutter_window_01",
+    "want": [
+     "rollershutter_window_01"
+    ]
+   },
+   {
+    "as": "utility_box_01",
+    "want": [
+     "utility_box_01"
+    ]
+   },
+   {
+    "as": "exterior_aircon_unit",
+    "want": [
+     "exterior_aircon_unit"
+    ]
+   },
+   {
+    "as": "security_light",
+    "want": [
+     "security_light"
+    ]
+   },
+   {
+    "as": "flood_lights",
+    "want": [
+     "flood_lights"
+    ]
+   },
+   {
+    "as": "portable_searchlight",
+    "want": [
+     "portable_searchlight"
+    ]
+   },
+   {
+    "as": "covered_car",
+    "want": [
+     "covered_car"
+    ]
+   },
+   {
+    "as": "old_tyre",
+    "want": [
+     "old_tyre"
+    ]
+   },
+   {
+    "as": "trashbag",
+    "want": [
+     "trashbag"
+    ]
+   },
+   {
+    "as": "cardboard_box_01",
+    "want": [
+     "cardboard_box_01"
+    ]
+   },
+   {
+    "as": "wooden_crate_01",
+    "want": [
+     "wooden_crate_01"
+    ]
+   },
+   {
+    "as": "plastic_crate_01",
+    "want": [
+     "plastic_crate_01"
+    ]
+   },
+   {
+    "as": "old_military_crate",
+    "want": [
+     "old_military_crate"
+    ]
+   },
+   {
+    "as": "metal_jerrycan",
+    "want": [
+     "metal_jerrycan"
+    ]
+   },
+   {
+    "as": "propane_tank",
+    "want": [
+     "propane_tank"
+    ]
+   },
+   {
+    "as": "portable_generator",
+    "want": [
+     "portable_generator"
+    ]
+   },
+   {
+    "as": "concrete_road_barrier_02",
+    "want": [
+     "concrete_road_barrier_02"
+    ]
+   },
+   {
+    "as": "water_manhole_cover",
+    "want": [
+     "water_manhole_cover"
+    ]
+   },
+   {
+    "as": "modular_street_seating",
+    "want": [
+     "modular_street_seating"
+    ]
+   },
+   {
+    "as": "modular_electricity_poles",
+    "want": [
+     "modular_electricity_poles"
+    ]
+   },
+   {
+    "as": "crowbar_01",
+    "want": [
+     "crowbar_01"
+    ]
+   },
+   {
+    "as": "service_pistol",
+    "want": [
+     "service_pistol"
+    ]
+   },
+   {
+    "as": "medical_box",
+    "want": [
+     "medical_box"
+    ]
+   },
+   {
+    "as": "ammo_box",
+    "want": [
+     "ammo_box"
+    ]
+   },
+   {
+    "as": "pine_tree_01",
+    "want": [
+     "pine_tree_01"
+    ]
+   },
+   {
+    "as": "fir_tree_01",
+    "want": [
+     "fir_tree_01"
+    ]
+   },
+   {
+    "as": "shrub_01",
+    "want": [
+     "shrub_01"
+    ]
+   },
+   {
+    "as": "shrub_03",
+    "want": [
+     "shrub_03"
+    ]
+   },
+   {
+    "as": "dead_tree_trunk",
+    "want": [
+     "dead_tree_trunk"
+    ]
+   },
+   {
+    "as": "street_rat",
+    "want": [
+     "street_rat"
+    ]
+   },
+   {
+    "as": "lifebuoy",
+    "want": [
+     "lifebuoy"
+    ]
+   },
+   {
+    "as": "modular_chainlink_fence",
+    "want": [
+     "modular_chainlink_fence"
+    ]
+   },
+   {
+    "as": "wooden_military_crate",
+    "want": [
+     "wooden_military_crate"
+    ]
+   },
+   {
+    "as": "street_lamp_02",
+    "want": [
+     "street_lamp_02"
+    ]
+   },
+   {
+    "as": "bolt_action_rifle_7_62",
+    "want": [
+     "bolt_action_rifle_7_62"
+    ]
+   },
+   {
+    "as": "baseball_bat",
+    "want": [
+     "baseball_bat"
     ]
    }
   ]
@@ -366,5 +740,5 @@
    "source": "Higgsfield (Meshy rigging) generated for this project"
   }
  ],
- "catalog": true
+ "catalog": false
 }
