@@ -1,0 +1,15 @@
+name: fetch-creatures
+on:
+  push:
+    branches: [assets-pipeline]
+    paths: [tools/fetch_creatures.py, .github/workflows/fetch-creatures.yml]
+permissions: { contents: write }
+jobs:
+  c:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/fetch_creatures.py && ls -la assets/creatures
+      - run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add assets/creatures && git commit -m "Creature/character models (CC0 / CC-BY / three.js examples)" && for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
