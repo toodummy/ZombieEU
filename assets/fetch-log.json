@@ -100,10 +100,122 @@
    }
   },
   {
+   "as": "road2k",
+   "id": "asphalt_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/asphalt_02",
+   "maps": {
+    "Diffuse": "tex/road2k_diffuse.jpg",
+    "nor_gl": "tex/road2k_nor_gl.jpg",
+    "Rough": "tex/road2k_rough.jpg"
+   }
+  },
+  {
+   "as": "brick2k",
+   "id": "red_brick_03",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/red_brick_03",
+   "maps": {
+    "Diffuse": "tex/brick2k_diffuse.jpg",
+    "nor_gl": "tex/brick2k_nor_gl.jpg",
+    "Rough": "tex/brick2k_rough.jpg"
+   }
+  },
+  {
+   "as": "cobble",
+   "id": "cobblestone_floor_04",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/cobblestone_floor_04",
+   "maps": {
+    "Diffuse": "tex/cobble_diffuse.jpg",
+    "nor_gl": "tex/cobble_nor_gl.jpg",
+    "Rough": "tex/cobble_rough.jpg"
+   }
+  },
+  {
+   "as": "stonewall",
+   "id": "stone_brick_wall_001",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/stone_brick_wall_001",
+   "maps": {
+    "Diffuse": "tex/stonewall_diffuse.jpg",
+    "nor_gl": "tex/stonewall_nor_gl.jpg",
+    "Rough": "tex/stonewall_rough.jpg"
+   }
+  },
+  {
+   "as": "rust",
+   "id": "rusty_metal_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/rusty_metal_02",
+   "maps": {
+    "Diffuse": "tex/rust_diffuse.jpg",
+    "nor_gl": "tex/rust_nor_gl.jpg",
+    "Rough": "tex/rust_rough.jpg"
+   }
+  },
+  {
+   "as": "planks",
+   "id": "weathered_planks",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/weathered_planks",
+   "maps": {
+    "Diffuse": "tex/planks_diffuse.jpg",
+    "nor_gl": "tex/planks_nor_gl.jpg",
+    "Rough": "tex/planks_rough.jpg"
+   }
+  },
+  {
+   "as": "roofslate",
+   "id": "roof_slates_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/roof_slates_02",
+   "maps": {
+    "Diffuse": "tex/roofslate_diffuse.jpg",
+    "nor_gl": "tex/roofslate_nor_gl.jpg",
+    "Rough": "tex/roofslate_rough.jpg"
+   }
+  },
+  {
+   "as": "mud",
+   "id": "brown_mud_leaves_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+   "maps": {
+    "Diffuse": "tex/mud_diffuse.jpg",
+    "nor_gl": "tex/mud_nor_gl.jpg",
+    "Rough": "tex/mud_rough.jpg"
+   }
+  },
+  {
    "as": "night",
    "id": "dikhololo_night",
    "license": "CC0",
    "source": "https://polyhaven.com/a/dikhololo_night"
+  },
+  {
+   "as": "sky_ind",
+   "id": "industrial_sunset_02_puresky",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/industrial_sunset_02_puresky"
+  },
+  {
+   "as": "sky_waste",
+   "id": "wasteland_clouds_puresky",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/wasteland_clouds_puresky"
+  },
+  {
+   "as": "sky_belfast",
+   "id": "belfast_sunset_puresky",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/belfast_sunset_puresky"
+  },
+  {
+   "as": "sky_fire",
+   "id": "the_sky_is_on_fire",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/the_sky_is_on_fire"
   },
   {
    "as": "barrier",
@@ -139,6 +251,265 @@
    "license": "CC0",
    "source": "https://polyhaven.com/a/street_lamp_01",
    "origname": "street_lamp_01_1k.gltf"
+  },
+  {
+   "as": "modular_urban_apartments_facade",
+   "id": "modular_urban_apartments_facade",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/modular_urban_apartments_facade",
+   "origname": "modular_urban_apartments_facade_1k.gltf"
+  },
+  {
+   "as": "modular_fire_escape",
+   "id": "modular_fire_escape",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/modular_fire_escape",
+   "origname": "modular_fire_escape_1k.gltf"
+  },
+  {
+   "as": "rollershutter_door",
+   "id": "rollershutter_door",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/rollershutter_door",
+   "origname": "rollershutter_door_1k.gltf"
+  },
+  {
+   "as": "rollershutter_window_01",
+   "id": "rollershutter_window_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/rollershutter_window_01",
+   "origname": "rollershutter_window_01_1k.gltf"
+  },
+  {
+   "as": "utility_box_01",
+   "id": "utility_box_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/utility_box_01",
+   "origname": "utility_box_01_1k.gltf"
+  },
+  {
+   "as": "exterior_aircon_unit",
+   "id": "exterior_aircon_unit",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/exterior_aircon_unit",
+   "origname": "exterior_aircon_unit_1k.gltf"
+  },
+  {
+   "as": "security_light",
+   "id": "security_light",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/security_light",
+   "origname": "security_light_1k.gltf"
+  },
+  {
+   "as": "flood_lights",
+   "id": "flood_lights",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/flood_lights",
+   "origname": "flood_lights_1k.gltf"
+  },
+  {
+   "as": "portable_searchlight",
+   "id": "portable_searchlight",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/portable_searchlight",
+   "origname": "portable_searchlight_1k.gltf"
+  },
+  {
+   "as": "covered_car",
+   "id": "covered_car",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/covered_car",
+   "origname": "covered_car_1k.gltf"
+  },
+  {
+   "as": "old_tyre",
+   "id": "old_tyre",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/old_tyre",
+   "origname": "old_tyre_1k.gltf"
+  },
+  {
+   "as": "trashbag",
+   "id": "trashbag",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/trashbag",
+   "origname": "trashbag_1k.gltf"
+  },
+  {
+   "as": "cardboard_box_01",
+   "id": "cardboard_box_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/cardboard_box_01",
+   "origname": "cardboard_box_01_1k.gltf"
+  },
+  {
+   "as": "wooden_crate_01",
+   "id": "wooden_crate_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/wooden_crate_01",
+   "origname": "wooden_crate_01_1k.gltf"
+  },
+  {
+   "as": "plastic_crate_01",
+   "id": "plastic_crate_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/plastic_crate_01",
+   "origname": "plastic_crate_01_1k.gltf"
+  },
+  {
+   "as": "old_military_crate",
+   "id": "old_military_crate",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/old_military_crate",
+   "origname": "old_military_crate_1k.gltf"
+  },
+  {
+   "as": "metal_jerrycan",
+   "id": "metal_jerrycan",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/metal_jerrycan",
+   "origname": "metal_jerrycan_1k.gltf"
+  },
+  {
+   "as": "propane_tank",
+   "id": "propane_tank",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/propane_tank",
+   "origname": "propane_tank_1k.gltf"
+  },
+  {
+   "as": "portable_generator",
+   "id": "portable_generator",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/portable_generator",
+   "origname": "portable_generator_1k.gltf"
+  },
+  {
+   "as": "concrete_road_barrier_02",
+   "id": "concrete_road_barrier_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/concrete_road_barrier_02",
+   "origname": "concrete_road_barrier_02_1k.gltf"
+  },
+  {
+   "as": "water_manhole_cover",
+   "id": "water_manhole_cover",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/water_manhole_cover",
+   "origname": "water_manhole_cover_1k.gltf"
+  },
+  {
+   "as": "modular_street_seating",
+   "id": "modular_street_seating",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/modular_street_seating",
+   "origname": "modular_street_seating_1k.gltf"
+  },
+  {
+   "as": "modular_electricity_poles",
+   "id": "modular_electricity_poles",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/modular_electricity_poles",
+   "origname": "modular_electricity_poles_1k.gltf"
+  },
+  {
+   "as": "crowbar_01",
+   "id": "crowbar_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/crowbar_01",
+   "origname": "crowbar_01_1k.gltf"
+  },
+  {
+   "as": "service_pistol",
+   "id": "service_pistol",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/service_pistol",
+   "origname": "service_pistol_1k.gltf"
+  },
+  {
+   "as": "medical_box",
+   "id": "medical_box",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/medical_box",
+   "origname": "medical_box_1k.gltf"
+  },
+  {
+   "as": "ammo_box",
+   "id": "ammo_box",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/ammo_box",
+   "origname": "ammo_box_1k.gltf"
+  },
+  {
+   "as": "shrub_01",
+   "id": "shrub_01",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/shrub_01",
+   "origname": "shrub_01_1k.gltf"
+  },
+  {
+   "as": "shrub_03",
+   "id": "shrub_03",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/shrub_03",
+   "origname": "shrub_03_1k.gltf"
+  },
+  {
+   "as": "dead_tree_trunk",
+   "id": "dead_tree_trunk",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/dead_tree_trunk",
+   "origname": "dead_tree_trunk_1k.gltf"
+  },
+  {
+   "as": "street_rat",
+   "id": "street_rat",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/street_rat",
+   "origname": "street_rat_1k.gltf"
+  },
+  {
+   "as": "lifebuoy",
+   "id": "lifebuoy",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/lifebuoy",
+   "origname": "lifebuoy_1k.gltf"
+  },
+  {
+   "as": "modular_chainlink_fence",
+   "id": "modular_chainlink_fence",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/modular_chainlink_fence",
+   "origname": "modular_chainlink_fence_1k.gltf"
+  },
+  {
+   "as": "wooden_military_crate",
+   "id": "wooden_military_crate",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/wooden_military_crate",
+   "origname": "wooden_military_crate_1k.gltf"
+  },
+  {
+   "as": "street_lamp_02",
+   "id": "street_lamp_02",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/street_lamp_02",
+   "origname": "street_lamp_02_1k.gltf"
+  },
+  {
+   "as": "bolt_action_rifle_7_62",
+   "id": "bolt_action_rifle_7_62",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/bolt_action_rifle_7_62",
+   "origname": "bolt_action_rifle_7_62_1k.gltf"
+  },
+  {
+   "as": "baseball_bat",
+   "id": "baseball_bat",
+   "license": "CC0",
+   "source": "https://polyhaven.com/a/baseball_bat",
+   "origname": "baseball_bat_1k.gltf"
   }
  ],
  "urls": [
