@@ -64,12 +64,12 @@ function buildFurniture(){brkTypes();
   for(const it of items){const T=BRKT[it.t];const c=Math.cos(it.ry),s=Math.sin(it.ry);const circ=T.circ||[[0,0]];for(const [lx,lz] of circ){const o={x:it.x+lx*c+lz*s,z:it.z-lx*s+lz*c,r:T.r,brk:it};OBC.push(o);it.obs.push(o);}BRK.push(it);}
 }
 const POOLI=[];const _zero=new THREE.Matrix4().makeScale(0,0,0);
-function breakProp(it,sp,hx,hz){if(!it.alive)return;it.alive=false;const T=BRKT[it.t];for(const o of it.obs)o.off=true;
+function breakProp(it,sp,hx,hz,cvx=car.vx,cvz=car.vz){if(!it.alive)return;it.alive=false;const T=BRKT[it.t];for(const o of it.obs)o.off=true;
   it.mesh.setMatrixAt(it.idx,_zero);it.mesh.instanceMatrix.needsUpdate=true;if(it.src){it.src.i=0;it.src.base=0;const P=POOLI[it.pool];if(P){P[0].setMatrixAt(P[1],_zero);P[0].instanceMatrix.needsUpdate=true;}}
   // debris rigid body
   const m=new THREE.Mesh(T.geo,T.mats.map(x=>x));m.position.set(it.x,it.y,it.z);m.rotation.y=it.ry;m.castShadow=true;scene.add(m);
   const dx=it.x-hx,dz=it.z-hz,l=Math.hypot(dx,dz)||1;const k=1-T.mass;
-  const d={m,v:new THREE.Vector3(car.vx*(.75+k*.3)+dx/l*2,1.5+sp*.12*(1-T.mass),car.vz*(.75+k*.3)+dz/l*2),w:new THREE.Vector3(rnd(-1,1),rnd(-.4,.4),rnd(-1,1)).normalize().multiplyScalar(sp*.35+2),bb:T.geo.boundingBox,sleep:0};DEBRIS.push(d);if(DEBRIS.length>60){const o=DEBRIS.shift();o.sleep=99;}
+  const d={m,v:new THREE.Vector3(cvx*(.75+k*.3)+dx/l*2,1.5+sp*.12*(1-T.mass),cvz*(.75+k*.3)+dz/l*2),w:new THREE.Vector3(rnd(-1,1),rnd(-.4,.4),rnd(-1,1)).normalize().multiplyScalar(sp*.35+2),bb:T.geo.boundingBox,sleep:0};DEBRIS.push(d);if(DEBRIS.length>60){const o=DEBRIS.shift();o.sleep=99;}
   return T;}
 const _c8=[...Array(8)].map(()=>new THREE.Vector3()),_dq=new THREE.Quaternion(),_dv=new THREE.Vector3();
 function updDebris(dt){for(const d of DEBRIS){if(d.sleep>2)continue;const m=d.m;d.v.y-=18*dt;m.position.addScaledVector(d.v,dt);const wl=d.w.length();if(wl>1e-3){_dq.setFromAxisAngle(_dv.copy(d.w).divideScalar(wl),wl*dt);m.quaternion.premultiply(_dq);}

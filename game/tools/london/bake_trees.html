@@ -12,7 +12,7 @@ const scene=new THREE.Scene();const out={};
 for(const v of V){for(const lod of ['hi','lo']){const t=new Tree();t.loadPreset(v.preset);const o=t.options;o.seed=v.seed;o.bark.type=v.bark;o.bark.tint=v.barkTint;o.leaves.type=v.leaf;o.leaves.tint=v.tint;o.leaves.count=v.count[lod];o.leaves.size=v.size;
    for(const k in o.branch.segments)o.branch.segments[k]=Math.max(3,Math.round(o.branch.segments[k]*(k<2?.6:.4)));for(const k in o.branch.sections)o.branch.sections[k]=Math.max(2,Math.round(o.branch.sections[k]*(k<2?.6:.4)));if(o.branch.children[2])o.branch.children[2]=Math.min(o.branch.children[2],3);
    if(lod==='lo'){o.branch.levels=Math.min(o.branch.levels,1);for(const k in o.branch.children)o.branch.children[k]=Math.min(o.branch.children[k],7);for(const k in o.branch.segments)o.branch.segments[k]=Math.max(3,Math.ceil(o.branch.segments[k]/2));for(const k in o.branch.sections)o.branch.sections[k]=Math.max(3,Math.ceil(o.branch.sections[k]/2));o.leaves.size=v.size*4.2;o.leaves.count=v.count.lo;}
-   t.generate();t.updateMatrixWorld(true);const bb=new THREE.Box3().setFromObject(t);const k=v.h/(bb.max.y-bb.min.y);t.scale.setScalar(k);t.position.y=-bb.min.y*k;t.name=v.name+'_'+lod;
+   t.generate();t.updateMatrixWorld(true);const bb=new THREE.Box3().setFromObject(t);const bt=new THREE.Box3().setFromObject(t.branchesMesh);const k=v.h/(bb.max.y-bb.min.y);t.scale.setScalar(k);t.position.y=-bt.min.y*k+.02;t.name=v.name+'_'+lod;
    const tri=m=>m.geometry.index?m.geometry.index.count/3:m.geometry.attributes.position.count/3;out[t.name]={branches:tri(t.branchesMesh),leaves:tri(t.leavesMesh)};
    // plain materials so the exporter keeps the textures
    t.branchesMesh.name=t.name+'_bark';t.leavesMesh.name=t.name+'_leaf';scene.add(t);}}

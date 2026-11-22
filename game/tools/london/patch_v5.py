@@ -195,10 +195,70 @@ a=s.index('function busModel(o={}){');b=s.index('function placeBus(x,z,ry,o={})'
 s=s[:a]+open('/home/claude/game/bus2.js').read()+'\n'+s[b:]
 rep("function placeBus(x,z,ry,o={}){const g=busModel(o);g.position.set(x,0,z);","function placeBus(x,z,ry,o={}){const g=busModel(o);g.position.set(x,(typeof groundH==='function'&&WD)?groundH(x,z):0,z);")
 open(p,'w').write(s);print('bus ok')
+
+s=open(p).read()
+# ---------------------------------------------------------------- v6: rigid-body wrecks, explosions, world damage
+s=s.replace("const muzzle=new THREE.PointLight(0xffc070,0,14,2);scene.add(muzzle);","const muzzle=new THREE.PointLight(0xffc070,0,14,2);scene.add(muzzle);\n"+open('/home/claude/game/physics2.js').read(),1)
+rep("const fx=Math.sin(ry),fz=Math.cos(ry);obCircle(x+fx*1.2,z+fz*1.2,1.15);obCircle(x-fx*1.2,z-fz*1.2,1.15);WRECKS.push(g);return g;}",
+    "const fx=Math.sin(ry),fz=Math.cos(ry);obCircle(x+fx*1.2,z+fz*1.2,1.15);obCircle(x-fx*1.2,z-fz*1.2,1.15);g.userData.obs=[OBC[OBC.length-2],OBC[OBC.length-1]];g.userData.burn=!!o.burn;WRECKS.push(g);return g;}")
+rep("  if(OGN){const gx=Math.floor(x/OGC),gz=Math.floor(z/OGC);for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++){const a=OGRID.get((gx+i)+','+(gz+j));if(a)for(const o of a)circ(o);}for(let i=OGN;i<OBC.length;i++)circ(OBC[i]);}else for(const o of OBC)circ(o);",
+    "  if(OGN){const gx=Math.floor(x/OGC),gz=Math.floor(z/OGC);for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++){const a=OGRID.get((gx+i)+','+(gz+j));if(a)for(const o of a)circ(o);}for(let i=OGN;i<OBC.length;i++)circ(OBC[i]);for(const o of DYNOBC)circ(o);}else for(const o of OBC)circ(o);")
+rep("const circ=o=>{if(o.off)return;","const circ=o=>{if(o.off||(PUSH_NOWR&&o.wr))return;")
+rep("  carBreak();\n  // collisions\n  let impact=0,inx=0,inz=0;const hl=CARDIM.len/2-1.0;\n  for(const off of[hl,-hl]){const cx=car.x+Math.sin(car.h)*off,cz=car.z+Math.cos(car.h)*off;let px=cx,pz=cz;const c=constrain(cx,cz,1.0);if(c){px=c.x;pz=c.z;}const o=pushObs(px,pz,1.0);",
+    "  carBreak();carVsWrecks();\n  // collisions\n  let impact=0,inx=0,inz=0;const hl=CARDIM.len/2-1.0;\n  for(const off of[hl,-hl]){const cx=car.x+Math.sin(car.h)*off,cz=car.z+Math.cos(car.h)*off;let px=cx,pz=cz;const c=constrain(cx,cz,1.0);if(c){px=c.x;pz=c.z;}PUSH_NOWR=true;const o=pushObs(px,pz,1.0);PUSH_NOWR=false;")
+rep("const cx=car.x+Math.sin(car.h)*off,cz=car.z+Math.cos(car.h)*off;let px=cx,pz=cz;const c=constrain(cx,cz,1.0);","const cx=car.x+Math.sin(car.h)*off,cz=car.z+Math.cos(car.h)*off;let px=cx,pz=cz;let c=constrain(cx,cz,1.0);if(c&&c.seg&&c.seg.p&&off>0&&tryBreakWall(c.seg.p,Math.hypot(car.vx,car.vz),car.vx,car.vz,true))c=null;")
+rep("  flushWindows();\n  obGridBuild();\n}","  flushWindows();\n  obGridBuild();physWrecks();\n}")
+rep("carBody.rotation.x=clamp(car.pitch,-.07,.07)-(car.pitchK||0);updDebris(dt);","carBody.rotation.x=clamp(car.pitch,-.07,.07)-(car.pitchK||0);")
+rep("function updDyn(dt){","function updDyn(dt){updWrecks(dt);updDebris(dt);kickClutter();")
+# shots and swings hit the world too
+rep("if(best)hurtZ(best,36*clamp(1.4-bd/14,.4,1.2),PL.x,PL.z,'shotgun');}}","if(best)hurtZ(best,36*clamp(1.4-bd/14,.4,1.2),PL.x,PL.z,'shotgun');else worldShot(PL.x,PL.z,px,pz,16,.7);}}")
+rep("if(Math.random()<clamp(1.05-d/40,.45,.98)){const hs=t.stag>0&&d<18||(still&&d<15&&Math.random()<.35);hurtZ(t,hs?999:(t.type==='screamer'?60:70),PL.x,PL.z,'gun',hs);}}}",
+    "if(Math.random()<clamp(1.05-d/40,.45,.98)){const hs=t.stag>0&&d<18||(still&&d<15&&Math.random()<.35);hurtZ(t,hs?999:(t.type==='screamer'?60:70),PL.x,PL.z,'gun',hs);}else worldShot(PL.x,PL.z,ax+rnd(-.04,.04),az+rnd(-.04,.04),45,1);}else worldShot(PL.x,PL.z,ax,az,45,1);}")
+rep("hit++;}}if(hit)shake=Math.max(shake,.18);noise(PL.x,PL.z,9);","hit++;}}if(!hit&&worldMelee())hit=1;if(hit)shake=Math.max(shake,.18);noise(PL.x,PL.z,9);")
+open(p,'w').write(s);print('physics ok')
+s=open(p).read()
+# ---------------------------------------------------------------- v6: infected roster (bodies + animals)
+s=s.replace("const muzzle=new THREE.PointLight(0xffc070,0,14,2);scene.add(muzzle);","const muzzle=new THREE.PointLight(0xffc070,0,14,2);scene.add(muzzle);\n"+open('/home/claude/game/creatures.js').read(),1)
+rep("  jobs.push(track(loadGLB(murl('trees'))","  AS.cre={};for(const [k,h] of [['michelle',1.7],['soldier',1.82],['michelle_low',0],['soldier_low',0],['husky',.82],['shibainu',.66],['wolf',.95],['fox',.52]])jobs.push(track(loadGLB(murl(k)).then(g=>{if(h)normalizeChar(g,h);if(['husky','shibainu','wolf','fox'].includes(k))prepAnimal(g);AS.cre[k]=g;}),k));\n  jobs.push(track(loadGLB(murl('trees'))")
+rep("function initClips(){","function initClips(){setTimeout(()=>{},0);",1)
+s=s.replace("ACLIPS[k]=prepClip(AS.aclips[k],k);const B=AS.aBind||{};","ACLIPS[k]=prepClip(AS.aclips[k],k);const B=AS.aBind||{};",1)
+rep("for(const k of ['run','walk','idle','swing']){ACLIPS[k]=prepClip(","initBases();for(const k of ['run','walk','idle','swing']){ACLIPS[k]=prepClip(")
+# makeZombieModel: body pick + animals + elderly
+rep("function makeZombieModel(type){\n  const useAlex=AS.alex&&AS.aLowGeo&&type!=='brute'&&type!=='screamer'&&Math.random()<.45;const base=useAlex?AS.alex:AS.zombie;\n  if(base){",
+    "function makeZombieModel(type,hint){\n  if(ANIMAL[type])return makeAnimalModel(type);\n  const ZB=pickBase(type,hint)||{scene:AS.zombie&&AS.zombie.scene,clips:ZCLIPS,low:AS.zLowGeo};const useAlex=ZB!==ZBASES.zombie;const base=ZB.scene?{scene:ZB.scene}:null;\n  if(base){")
+rep("let hi=null;o.traverse(c=>{if(c.isSkinnedMesh&&!hi)hi=c;});let lo=null;const lg=useAlex?AS.aLowGeo:AS.zLowGeo;","let hi=null;o.traverse(c=>{if(c.isSkinnedMesh&&!hi)hi=c;});let lo=null;const lg=ZB.low;")
+rep("const Bn=n=>o.getObjectByName(n);","const Bn=n=>boneOf(o,n);")
+rep("for(const n of['LeftHand','RightHand'])sc(n,useAlex?.74:.85+R()*.15);","for(const n of['LeftHand','RightHand'])sc(n,ZB.hands||.88+R()*.12);")
+rep("if(R()<.25){const side=R()<.5?'Left':'Right';","let old=false;if(type==='walker'&&R()<.14){old=true;const sp2=Bn('Spine02'),nk=Bn('neck');if(sp2)pose.push([sp2,new THREE.Quaternion().setFromEuler(new THREE.Euler(.45,0,0))]);if(nk)pose.push([nk,new THREE.Quaternion().setFromEuler(new THREE.Euler(.3,0,0))]);}\n    if(R()<.25){const side=R()<.5?'Left':'Right';")
+rep("const mixer=new THREE.AnimationMixer(o);const acts={};for(const k in ZCLIPS)if(ZCLIPS[k])acts[k]=mixer.clipAction(ZCLIPS[k]);\n    let head=null;o.traverse(b=>{if(b.isBone&&!head&&/head/i.test(b.name))head=b;});return{g,mixer,acts,head,skinned:true,hi,lo,lodT:0,pose,tsk:.82+R()*.4,seed};}",
+    "const mixer=new THREE.AnimationMixer(o);const acts={};const CL=ZB.clips||ZCLIPS;for(const k in CL)if(CL[k])acts[k]=mixer.clipAction(CL[k]);\n    let head=null;o.traverse(b=>{if(b.isBone&&!head&&/head/i.test(b.name))head=b;});return{g,mixer,acts,head,skinned:true,hi,lo,lodT:0,pose,tsk:(old?.62:.82)+R()*.4,seed,old};}")
+s=s.replace("function addAccessories(o,type,R){if(!ACC.M)accInit();const B=n=>o.getObjectByName(n);","function addAccessories(o,type,R){if(!ACC.M)accInit();const B=n=>boneOf(o,n);")
+# spawn tables
+rep("function spawnZ(x,z,type='walker',state='idle',seed=Math.random()){const r=mulberry((seed*1e6)|0);const M=makeZombieModel(type);scene.add(M.g);\n  const hp={walker:100,runner:70,brute:420,screamer:130}[type];const speed={walker:1.0+r()*1.0,runner:4.3+r()*.8,brute:1.7,screamer:2.2}[type];",
+    "function spawnZ(x,z,type='walker',state='idle',seed=Math.random(),hint){const r=mulberry((seed*1e6)|0);const M=makeZombieModel(type,hint);scene.add(M.g);\n  const A=ANIMAL[type];const hp=A?A.hp:{walker:100,runner:70,brute:420,screamer:130}[type];let speed=A?A.speed*(.85+r()*.3):{walker:1.0+r()*1.0,runner:4.3+r()*.8,brute:1.7,screamer:2.2}[type];if(M.old)speed*=.6;")
+rep("const dmg={walker:13,runner:9,brute:30,screamer:10}[z.type];","const dmg=({walker:13,runner:9,brute:30,screamer:10})[z.type]??ANIMAL[z.type].dmg;")
+rep("z.type!=='brute'&&z.type!=='screamer'&&clingN<3&&","z.type!=='brute'&&z.type!=='screamer'&&!z.animal&&clingN<3&&")
+rep("else if(!(z.atkT>0&&z.cur==='attack')){if(z.type==='runner'&&mv>2.5)play(z,'run',{ts:mv/4.5});else play(z,'walk',{ts:clamp(mv/1.1,.25,2.2)});}",
+    "else if(!(z.atkT>0&&z.cur==='attack')){if(z.animal){if(mv<.3&&z.acts.idle)play(z,'idle',{fade:.25});else if(mv>2.2&&z.acts.run)play(z,'run',{ts:clamp(mv/5.5,.6,1.8)});else play(z,'walk',{ts:clamp(mv/1.2,.4,2)});}else if(z.type==='runner'&&mv>2.5)play(z,'run',{ts:mv/4.5});else play(z,'walk',{ts:clamp(mv/1.1,.25,2.2)});}")
+rep("    else{z.ph+=dt*(1.5+mv*2.4);animBox(z.box,mv,z.ph,z.alert,z.atkT>.35);}","    else if(z.proc)z.proc(z,dt,mv);else{z.ph+=dt*(1.5+mv*2.4);animBox(z.box,mv,z.ph,z.alert,z.atkT>.35);}")
+rep("if(!z.skinned){g.rotation.order='YXZ';g.rotation.x=lerp(g.rotation.x,-Math.PI/2,1-Math.exp(-8*dt));g.position.y=.14;}","if(!z.skinned||z.noDie){g.rotation.order='YXZ';if(z.animal)g.rotation.z=lerp(g.rotation.z,Math.PI/2,1-Math.exp(-8*dt));else g.rotation.x=lerp(g.rotation.x,-Math.PI/2,1-Math.exp(-8*dt));g.position.y=z.animal?(z.gy||0)+.05:.14;}")
+rep("snd(Math.random()<.7?'groan':'snarl',z.x,z.z,.55,rnd(.8,1.15));","if(z.animal){sfxAnimal(z);z.groanT=z.animal==='rat'?1+Math.random()*3:3+Math.random()*6;}else snd(Math.random()<.7?'groan':'snarl',z.x,z.z,.55,rnd(.8,1.15));")
+rep("list.forEach(([x,z,t],i)=>spawnZ(x,z,t||'walker','idle',(i+1)*.0137+k.length*.31));","list.forEach(([x,z,t,h],i)=>spawnZ(x,z,t||'walker','idle',(i+1)*.0137+k.length*.31,h));")
+rep("    port:{c:PT(935,462),r:140,list:","    port:{c:PT(935,462),r:140,extra:[['dog',2]],list:")
+rep("  };}\n", """  };
+  // animals and body hints per area: foxes and cats in the estates, dog packs on the high streets, rats around the bins, soldiers at the checkpoint
+  const EX={res:[['fox',1],['cat',2],['rat',7]],bridge:[['dog',2]],high:[['dog',3],['cat',2],['rat',8]],high2:[['dog',2],['fox',1]],okr:[['dog',3],['rat',6],['cat',1]],mil:[['dog',2]],pile:[['dog',3],['cat',1],['rat',5]],fore:[['cat',1],['rat',5]],port:[['dog',2]]};
+  for(const k in SETS){const S=SETS[k];const L0=S.list;const base=S.gen||(r=>L0.map(p=>[p[0],p[1],'walker']));const ex=EX[k]||[];
+    S.gen=r=>{let o=base(r).map(e=>[e[0],e[1],e[2]||'walker',k==='mil'&&e[2]!=='brute'&&r()<.8?'soldier':e[3]]);if(!o.length)return o;for(const [t,n] of ex){if(t==='rat'){const c=o[(r()*o.length)|0];for(let i=0;i<n;i++)o.push([c[0]+rnd(-2.5,2.5),c[1]+rnd(-2.5,2.5),'rat']);}else for(let i=0;i<n;i++){const c=o[(r()*o.length)|0];o.push([c[0]+rnd(-4,4),c[1]+rnd(-4,4),t]);}}return o;};delete S.list;}}
+""",1)
+rep("const ZTYPES={walker:{tint:0x8a8f84,scale:1},runner:{tint:0x8f7a72,scale:.98},brute:{tint:0x5f605a,scale:1.38},screamer:{tint:0xb4b8c0,scale:1.06}};","const ZTYPES={walker:{tint:0x8a8f84,scale:1},runner:{tint:0x8f7a72,scale:.98},brute:{tint:0x5f605a,scale:1.38},screamer:{tint:0xb4b8c0,scale:1.06},dog:{scale:1},fox:{scale:1},cat:{scale:1},rat:{scale:1}};")
+rep("  if(MS.screamer&&MS.screamer.state!=='dead')hint('scream',","  if(Z.some(z=>z.animal==='dog'&&z.state!=='dead'&&Math.hypot(z.x-px,z.z-pz)<30))hint('dogs','🐕','Infected <b>dogs</b> — you can\\'t outrun them on foot. Get in the car or face them with the crowbar.',6);\n  if(MS.screamer&&MS.screamer.state!=='dead')hint('scream',")
+open(p,'w').write(s);print('roster ok')
+
 s=open(p).read()
 import re as _re
 m=_re.search(r'const BLOB=\{(.*?)\};',s,_re.S);body=m.group(1)
-for k,v in {'trees':'ffdd48049699d9663db53dcbb1a037e9','alex_low':'c5cfbf6803839e12e0eba1d9e110956f','zombie_low':'3fb6c85224c381ed049cfb52063cf0bc'}.items():
+for k,v in {'trees':'fdf2247c5024e8f4d2b368d3de2a1846','alex_low':'c5cfbf6803839e12e0eba1d9e110956f','zombie_low':'3fb6c85224c381ed049cfb52063cf0bc','husky':'100850978e966055bdbe88d766c484d5','shibainu':'32b3431feb958f72da7dc1a43407fb13','wolf':'f98802827c48a4f3b8535e8757d726c8','fox':'9518d4668c9ed191eab542b1996f144d','michelle':'3762517b0a286f668ef79a7e1612c895','soldier':'5fbea64c24de6f219f52d6ac56f24aba','michelle_low':'ef036e94291ba22b366192e54886e1f9','soldier_low':'8c87985505101d8da96f5414583eef25'}.items():
     pat=_re.compile(r'(["\']?)'+k+r'\1\s*:\s*["\'][0-9a-f]{32}["\']')
     body=pat.sub(f'{k}:"{v}"',body,1) if pat.search(body) else body.rstrip().rstrip(',')+f',{k}:"{v}"'
 s=s[:m.start(1)]+body+s[m.end(1):]

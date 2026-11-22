@@ -33,3 +33,10 @@ The level is built from OpenStreetMap data (© OpenStreetMap contributors, ODbL)
 - Trees baked from ez-tree (MIT, github.com/dgreenheck/ez-tree) — `tools/london/bake_trees.html` → `trees.glb` (near/far LOD).
 - Infected variety: two base bodies, per-instance clothing/grime/blood shader, proportions, posture, accessories.
 - Audio engine: reverb, synthesized engine with gears, tyres, wind, squeal, footsteps per surface, glass/metal impacts, city ambience, dynamic music.
+
+## v6
+- Wrecked cars are rigid bodies: shoved, spun, dented, they smoke, burn and explode (chain reactions, blast damage).
+- Bullets and the crowbar damage wrecks, street furniture and walls (bullet holes, dust, sparks); walls, railings, hedges and guard rails break into debris; street clutter is kickable.
+- Infected roster: worker, civilian, woman (three.js Michelle) and soldier (three.js Soldier) bodies with zombie animation retargeted in-engine; elderly posture variant; dogs and wolves (Quaternius, CC0), urban foxes (Khronos Fox, CC-BY 4.0), procedural cats and rats.
+- Trees grounded on their trunks; far trees are impostors rendered from the detailed model.
+- Buses carry painted livery (panels, rivets, adverts, grime, graffiti).
