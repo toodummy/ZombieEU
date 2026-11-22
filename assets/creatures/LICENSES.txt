@@ -1,0 +1,3 @@
+husky/shibainu/wolf: Quaternius, Ultimate Animated Animals — CC0 1.0 (quaternius.com)
+fox.glb: Khronos glTF-Sample-Assets 'Fox' — CC-BY 4.0: model by PixelMannen, rigging/animation by @tomkranis, glTF conversion by @AsoboStudio and @scurest
+michelle.glb, soldier.glb: three.js examples (characters from Mixamo / Adobe)
