@@ -285,22 +285,22 @@
   {
    "path": "gen/zombie_run.glb",
    "source": "Higgsfield (Meshy rigging) generated for this project",
-   "bytes": 10467620
+   "bytes": "exists"
   },
   {
    "path": "gen/zombie_attack.glb",
    "source": "Higgsfield (Meshy rigging) generated for this project",
-   "bytes": 10546872
+   "bytes": "exists"
   },
   {
    "path": "gen/zombie_die.glb",
    "source": "Higgsfield (Meshy rigging) generated for this project",
-   "bytes": 10512344
+   "bytes": "exists"
   },
   {
    "path": "gen/zombie_scream.glb",
    "source": "Higgsfield (Meshy rigging) generated for this project",
-   "bytes": 10528680
+   "bytes": "exists"
   }
  ],
  "errors": [
