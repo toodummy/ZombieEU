@@ -67,5 +67,13 @@ for m in ph.get('models', []):
 for u in man.get('urls', []):
     try: n = save(u['path'], u['url']); log['urls'].append({**{k: v for k, v in u.items() if k != 'url'}, 'bytes': n})
     except Exception as e: log['errors'].append([u['path'], str(e)])
+if man.get('catalog'):
+    cat = {}
+    for t in ['models', 'hdris']:
+        try:
+            j = json.loads(get(f'https://api.polyhaven.com/assets?t={t}'))
+            cat[t] = {k: {'c': v.get('categories', []), 'tags': v.get('tags', [])[:8]} for k, v in j.items()}
+        except Exception as e: log['errors'].append(['catalog', t, str(e)])
+    json.dump(cat, open(os.path.join(A, 'polyhaven-catalog.json'), 'w'))
 json.dump(log, open(os.path.join(A, 'fetch-log.json'), 'w'), indent=1)
 print(json.dumps(log, indent=1))
