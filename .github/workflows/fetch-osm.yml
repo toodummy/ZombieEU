@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python3 tools/fetch_osm.py && gzip -9 -k assets/osm/london_tb_okr.json && rm assets/osm/london_tb_okr.json && ls -la assets/osm
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq osmium-tool
+      - run: python3 tools/fetch_osm.py && ls -la assets/osm
       - run: |
           git config user.name "github-actions"; git config user.email "actions@github.com"
           git add assets/osm && git commit -m "OSM data: Tower Bridge to Old Kent Road (© OpenStreetMap contributors, ODbL)" && for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
