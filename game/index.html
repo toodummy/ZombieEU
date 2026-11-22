@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Road of the Dead — Out of London (playable slice)</title>
+<meta name="description" content="Playable browser vertical slice of Road of the Dead: drive out of London, refuel under pressure, escape to the motorway checkpoint.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23ffb347%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/three.module.min.js",
+  "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+</head>
+<body>
+<canvas id="view" tabindex="0" aria-label="Game view"></canvas>
+
+<!-- ======= HUD (presentation only; derived from authoritative state) ======= -->
+<div id="hud" class="hidden" aria-live="off">
+  <div id="damageVignette"></div>
+  <div id="objective"><div class="obj-label">OBJECTIVE</div><div id="objText">—</div><div id="objSub"></div></div>
+  <div id="minimapWrap"><canvas id="minimap" width="200" height="200" aria-label="Minimap"></canvas><div class="mm-n">N</div></div>
+  <div id="threats"></div>
+  <div id="crosshair"></div>
+  <div id="prompt" class="hidden"><span class="key" id="promptKey">E</span><span id="promptText"></span><div id="promptBar"><i></i></div><div id="promptSub"></div></div>
+  <div id="vehiclePanel" class="panel">
+    <div class="speed"><b id="speedVal">0</b><small>KM/H</small></div>
+    <div class="row"><span class="ico" title="Fuel">⛽</span><div class="bar fuel"><i id="fuelBar"></i><em id="fuelMark" title="Recommended fill"></em></div><span id="fuelText">0.0 L</span></div>
+    <div class="row"><span class="ico" title="Engine">⚙</span><div class="bar"><i id="engineBar"></i></div><span id="engineText">100%</span></div>
+    <div class="carDiag" aria-label="Vehicle condition">
+      <svg viewBox="0 0 60 100" width="46" height="76">
+        <rect x="12" y="8" width="36" height="84" rx="10" fill="#1d2633" stroke="#8aa0b8" stroke-width="2"/>
+        <rect x="17" y="26" width="26" height="18" rx="3" fill="#2f4053"/>
+        <rect id="w0" x="4" y="16" width="8" height="18" rx="2"/>
+        <rect id="w1" x="48" y="16" width="8" height="18" rx="2"/>
+        <rect id="w2" x="4" y="66" width="8" height="18" rx="2"/>
+        <rect id="w3" x="48" y="66" width="8" height="18" rx="2"/>
+        <circle id="engDot" cx="30" cy="16" r="4"/>
+      </svg>
+      <div id="condText">GOOD</div>
+    </div>
+  </div>
+  <div id="footPanel" class="panel hidden">
+    <div class="row"><span class="ico">✚</span><div class="bar hp"><i id="hpBar"></i></div></div>
+    <div class="row"><span class="ico">≋</span><div class="bar st"><i id="stBar"></i></div></div>
+    <div class="row ammo"><span id="weaponName">CROWBAR</span><b id="ammoText"></b></div>
+    <div class="row inv" id="invText"></div>
+  </div>
+  <div id="warnings"></div>
+  <div id="toast"></div>
+  <div id="subtitle"><b id="subSpeaker"></b><span id="subLine"></span></div>
+  <div id="fps"></div>
+</div>
+
+<!-- ======= Screens ======= -->
+<div id="screenTitle" class="screen">
+  <div class="title-card">
+    <div class="eyebrow">ROAD OF THE DEAD · VERTICAL SLICE</div>
+    <h1>OUT OF<br><span>LONDON</span></h1>
+    <p class="lede">Day four of the outbreak. Your tank is almost dry, the motorway checkpoint is closing, and the only lit forecourt in south London is two streets away.</p>
+    <div class="menu">
+      <button id="btnContinue" class="btn hidden">Continue <small id="continueInfo"></small></button>
+      <button id="btnNew" class="btn primary">New game</button>
+      <button id="btnControls" class="btn">Controls</button>
+      <button id="btnSettings" class="btn">Settings</button>
+    </div>
+    <p class="fine">Best with keyboard + mouse (gamepad supported). Click to capture the mouse; Esc pauses. <a href="../index.html">← Project hub</a></p>
+    <p id="saveNotice" class="fine warn hidden"></p>
+  </div>
+</div>
+
+<div id="screenLoading" class="screen hidden"><div class="title-card center"><div class="eyebrow">LOADING</div><h2 id="loadText">Building south London…</h2><div class="loadbar"><i id="loadBar"></i></div></div></div>
+
+<div id="screenIntro" class="screen hidden"><div class="intro"><div class="eyebrow">LONDON · DAY 4 · 19:42</div><h2>Get out before the checkpoint closes.</h2><p>Drive to the Northgate fuel station, refuel under pressure, then pick an escape route to the motorway.</p><button id="btnIntroGo" class="btn primary">Start engine</button></div></div>
+
+<div id="screenPause" class="screen hidden"><div class="title-card"><div class="eyebrow">PAUSED</div><h2>Hold the line.</h2><div class="menu">
+  <button id="btnResume" class="btn primary">Resume</button>
+  <button id="btnRestartCp" class="btn">Restart from checkpoint</button>
+  <button id="btnPauseControls" class="btn">Controls</button>
+  <button id="btnPauseSettings" class="btn">Settings</button>
+  <button id="btnQuit" class="btn">Quit to title</button></div></div></div>
+
+<div id="screenFail" class="screen hidden"><div class="title-card"><div class="eyebrow red">MISSION FAILED</div><h2 id="failReason">You were overwhelmed.</h2><p id="failHint" class="lede"></p><div class="menu">
+  <button id="btnRetry" class="btn primary">Retry from checkpoint</button>
+  <button id="btnFailQuit" class="btn">Quit to title</button></div></div></div>
+
+<div id="screenWin" class="screen hidden"><div class="title-card wide"><div class="eyebrow green">MOTORWAY CHECKPOINT REACHED</div><h2>Out of London.</h2>
+  <div id="debrief" class="debrief"></div>
+  <p id="debriefNote" class="lede"></p>
+  <div class="menu row"><button id="btnReplay" class="btn primary">Replay mission</button><button id="btnWinQuit" class="btn">Title screen</button></div></div></div>
+
+<div id="screenControls" class="screen hidden"><div class="title-card wide"><div class="eyebrow">CONTROLS</div>
+  <div class="controls">
+    <div><h3>Driving</h3><dl>
+      <dt>W / ↑</dt><dd>Accelerate</dd><dt>S / ↓</dt><dd>Brake / reverse</dd><dt>A D / ← →</dt><dd>Steer</dd>
+      <dt>Space</dt><dd>Handbrake</dd><dt>E</dt><dd>Get out (when stopped)</dd><dt>L</dt><dd>Headlights</dd><dt>H</dt><dd>Horn (attracts infected)</dd></dl></div>
+    <div><h3>On foot</h3><dl>
+      <dt>W A S D</dt><dd>Move</dd><dt>Mouse</dt><dd>Look</dd><dt>Shift</dt><dd>Sprint</dd>
+      <dt>Left click</dt><dd>Crowbar swing / fire when aiming</dd><dt>Right click (hold)</dt><dd>Aim pistol</dd><dt>R</dt><dd>Reload</dd>
+      <dt>E</dt><dd>Enter car · pick up · pry shutter (hold)</dd><dt>F (hold)</dt><dd>Refuel at pump · pour jerrycan · patch tyre</dd></dl></div>
+    <div><h3>Gamepad</h3><dl>
+      <dt>LS / RS</dt><dd>Move-steer / camera</dd><dt>RT / LT</dt><dd>Accelerate / brake · fire / aim</dd><dt>A</dt><dd>Interact (E)</dd>
+      <dt>Y (hold)</dt><dd>Refuel (F)</dd><dt>X</dt><dd>Melee</dd><dt>B</dt><dd>Handbrake · reload</dd><dt>Start</dt><dd>Pause</dd></dl></div>
+  </div>
+  <p class="fine">Esc or P pauses. Releasing F stops refuelling and keeps every litre already transferred.</p>
+  <div class="menu row"><button class="btn primary back">Back</button></div></div></div>
+
+<div id="screenSettings" class="screen hidden"><div class="title-card"><div class="eyebrow">SETTINGS</div>
+  <form id="settingsForm" class="settings">
+    <label>Master volume <input type="range" name="volume" min="0" max="1" step="0.05"></label>
+    <label>Music volume <input type="range" name="music" min="0" max="1" step="0.05"></label>
+    <label>Mouse sensitivity <input type="range" name="sens" min="0.3" max="2.5" step="0.1"></label>
+    <label><input type="checkbox" name="invertY"> Invert look Y</label>
+    <label><input type="checkbox" name="subtitles"> Subtitles</label>
+    <label><input type="checkbox" name="shake"> Camera shake</label>
+    <label><input type="checkbox" name="soundCues"> Visual sound cues</label>
+    <label>Graphics <select name="quality"><option value="high">High (shadows + bloom)</option><option value="medium">Medium</option><option value="low">Low (performance)</option></select></label>
+    <label><input type="checkbox" name="showFps"> Show FPS</label>
+  </form>
+  <div class="menu row"><button class="btn primary back">Done</button></div></div></div>
+
+<noscript><p style="color:#fff;padding:2em">This game needs JavaScript and WebGL.</p></noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
