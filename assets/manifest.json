@@ -505,18 +505,6 @@
     ]
    },
    {
-    "as": "pine_tree_01",
-    "want": [
-     "pine_tree_01"
-    ]
-   },
-   {
-    "as": "fir_tree_01",
-    "want": [
-     "fir_tree_01"
-    ]
-   },
-   {
     "as": "shrub_01",
     "want": [
      "shrub_01"

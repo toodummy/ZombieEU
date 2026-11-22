@@ -15,6 +15,7 @@ def save(rel, url):
     if os.path.exists(p) and os.path.getsize(p) > 0: return 'exists'
     os.makedirs(os.path.dirname(p), exist_ok=True)
     data = get(url)
+    if len(data) > 90_000_000: raise Exception(f'too large for git ({len(data)//1_000_000} MB)')
     with open(p, 'wb') as f: f.write(data)
     return len(data)
 man = json.load(open(os.path.join(A, 'manifest.json')))
