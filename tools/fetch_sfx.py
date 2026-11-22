@@ -8,6 +8,15 @@ for page in ['https://kenney.nl/assets/impact-sounds', 'https://kenney.nl/assets
         h = get(page).decode('utf8', 'ignore')
         links = re.findall(r'(https?://[^"\' ]+?\.zip|/media/[^"\' ]+?\.zip)', h)
         if not links:
+            name0 = page.rsplit('/', 1)[1]
+            for folder in set(re.findall(r'/media/pages/assets/' + name0 + r'/([^/]+)/', h)):
+                for zn in [f'kenney_{name0}.zip', f'kenney_{name0.replace("-", "")}.zip', f'{name0}.zip']:
+                    u = f'https://kenney.nl/media/pages/assets/{name0}/{folder}/{zn}'
+                    try:
+                        urllib.request.urlopen(urllib.request.Request(u, headers=UA, method='HEAD'), timeout=30); links = [u]; print('found', u, flush=True); break
+                    except Exception as e: print('miss', u, e, flush=True)
+                if links: break
+        if not links:
             for m in re.finditer(r'(download|zip)', h, re.I):
                 print('CTX', h[max(0, m.start()-160):m.start()+120].replace('\n', ' '), flush=True)
                 break
