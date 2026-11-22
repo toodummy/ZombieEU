@@ -26,3 +26,10 @@ The level is built from OpenStreetMap data (© OpenStreetMap contributors, ODbL)
 - `.github/workflows/fetch-osm.yml` + `tools/fetch_osm.py` clip the Greater London extract to the game area (`assets/osm/london_tb_okr.geojson.gz`).
 - `game/tools/london/route.py` and `convert.py` turn it into `game/assets/world.json` (buildings with heights, roof shapes, facade styles, shopfronts; roads; river; parks; rail viaducts; walls; trees; street furniture; gameplay anchors).
 - `game/tools/london/london.js` builds the 3D city at load time; `patch_london.py` / `patch_mission.py` wire it into the game.
+
+## v5
+- Roads are unioned OSM polygons (clean junctions, raised kerbs, markings clipped at junctions); street furniture moved off carriageways, lamps regenerated along kerbs.
+- Free driving with kerb hops; solid buildings, walls, railings and river edges; breakable lamps, signals, bus shelters, signs, bollards, bins, post boxes and phone boxes with mass-scaled damage.
+- Trees baked from ez-tree (MIT, github.com/dgreenheck/ez-tree) — `tools/london/bake_trees.html` → `trees.glb` (near/far LOD).
+- Infected variety: two base bodies, per-instance clothing/grime/blood shader, proportions, posture, accessories.
+- Audio engine: reverb, synthesized engine with gears, tyres, wind, squeal, footsteps per surface, glass/metal impacts, city ambience, dynamic music.

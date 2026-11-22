@@ -1,0 +1,23 @@
+<!doctype html><html><body><script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';import {Tree} from '/bake/ez-tree.es.js';import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';import * as BGU from 'three/addons/utils/BufferGeometryUtils.js';
+// London planes / limes / ash in late autumn — high and low detail per variant
+const V=[
+ {name:'plane',preset:'ash_large',seed:101,bark:'birch',barkTint:0xb8b0a0,leaf:'oak',tint:0xd89a3a,count:{hi:5,lo:5},size:5.2,h:17},
+ {name:'lime',preset:'oak_large',seed:202,bark:'oak',barkTint:0x9a8e80,leaf:'aspen',tint:0xd8b84a,count:{hi:5,lo:5},size:4.4,h:14},
+ {name:'ash',preset:'aspen_large',seed:303,bark:'willow',barkTint:0xa09888,leaf:'ash',tint:0xc8762e,count:{hi:5,lo:5},size:4.4,h:15},
+ {name:'bare',preset:'ash_medium',seed:404,bark:'oak',barkTint:0x8a7e70,leaf:'oak',tint:0x9a6a2a,count:{hi:2,lo:1},size:3.2,h:12},
+];
+const scene=new THREE.Scene();const out={};
+for(const v of V){for(const lod of ['hi','lo']){const t=new Tree();t.loadPreset(v.preset);const o=t.options;o.seed=v.seed;o.bark.type=v.bark;o.bark.tint=v.barkTint;o.leaves.type=v.leaf;o.leaves.tint=v.tint;o.leaves.count=v.count[lod];o.leaves.size=v.size;
+   for(const k in o.branch.segments)o.branch.segments[k]=Math.max(3,Math.round(o.branch.segments[k]*(k<2?.6:.4)));for(const k in o.branch.sections)o.branch.sections[k]=Math.max(2,Math.round(o.branch.sections[k]*(k<2?.6:.4)));if(o.branch.children[2])o.branch.children[2]=Math.min(o.branch.children[2],3);
+   if(lod==='lo'){o.branch.levels=Math.min(o.branch.levels,1);for(const k in o.branch.children)o.branch.children[k]=Math.min(o.branch.children[k],7);for(const k in o.branch.segments)o.branch.segments[k]=Math.max(3,Math.ceil(o.branch.segments[k]/2));for(const k in o.branch.sections)o.branch.sections[k]=Math.max(3,Math.ceil(o.branch.sections[k]/2));o.leaves.size=v.size*4.2;o.leaves.count=v.count.lo;}
+   t.generate();t.updateMatrixWorld(true);const bb=new THREE.Box3().setFromObject(t);const k=v.h/(bb.max.y-bb.min.y);t.scale.setScalar(k);t.position.y=-bb.min.y*k;t.name=v.name+'_'+lod;
+   const tri=m=>m.geometry.index?m.geometry.index.count/3:m.geometry.attributes.position.count/3;out[t.name]={branches:tri(t.branchesMesh),leaves:tri(t.leavesMesh)};
+   // plain materials so the exporter keeps the textures
+   t.branchesMesh.name=t.name+'_bark';t.leavesMesh.name=t.name+'_leaf';scene.add(t);}}
+window.__stats=out;
+await new Promise(r=>setTimeout(r,4000));
+scene.traverse(m=>{if(!m.isMesh)return;const o=m.material;const n=new THREE.MeshStandardMaterial({map:o.map,normalMap:o.normalMap,roughnessMap:o.roughnessMap,aoMap:o.aoMap,color:o.color,alphaTest:o.alphaTest||0,transparent:false,side:o.side,roughness:1,metalness:0});m.material=n;});
+new GLTFExporter().parse(scene,g=>{window.__glb=g;window.__done=true;},e=>{window.__err=String(e);},{binary:true,maxTextureSize:1024});
+</script></body></html>

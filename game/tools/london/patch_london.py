@@ -137,7 +137,7 @@ function walkRes(x,z,r){let best=null;for(const R of REG){if(R.on&&!R.on())conti
   const cell=RGRID.get(Math.floor(x/RG)+','+Math.floor(z/RG));if(cell)for(const c of cell){const q=capRes(c,x,z,r);if(!q)return null;if(!best||q.d<best.d)best=q;}
   const ac=AGRID.get(Math.floor(x/RG)+','+Math.floor(z/RG));if(ac)for(const A of ac){if(x<A.bb[0]||x>A.bb[2]||z<A.bb[1]||z>A.bb[3])continue;if(inRing(A.ring,x,z)&&!(A.holes||[]).some(h=>inRing(h,x,z)))return null;}
   return best;}
-function constrain(x,z,r){const w=walkRes(x,z,r);if(w)return w;return bldAt(x,z,r);}
+function constrain(x,z,r){return bldAt(x,z,r)||segAt(x,z,r);}
 function regionAt(x,z){for(const R of REG){if(R.on&&!R.on())continue;const [lx,lz]=regLocal(R,x,z);if(lx>=R.x0&&lx<=R.x1&&lz>=R.z0&&lz<=R.z1)return{s:R.s,id:R.id};}
   const cell=RGRID.get(Math.floor(x/RG)+','+Math.floor(z/RG));if(cell)for(const c of cell){if(!capRes(c,x,z,0))return{s:c[5],id:c[6]};}
   const ac=AGRID.get(Math.floor(x/RG)+','+Math.floor(z/RG));if(ac)for(const A of ac){if(inRing(A.ring,x,z))return{s:A.s,id:'area'};}

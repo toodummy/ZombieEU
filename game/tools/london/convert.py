@@ -350,3 +350,121 @@ W['ground'] = [[flat(q.exterior.coords[:-1]), [flat(h.coords[:-1]) for h in q.in
 s = json.dumps(W, separators=(',', ':'))
 open('/home/claude/osm/world.json', 'w').write(s)
 print('anchors', json.dumps(A)); print('bytes', len(s))
+
+# ------------------------------------------------------------ v5: clean road surfaces, kerbs, markings, furniture placement
+from shapely.geometry import MultiLineString
+from shapely.ops import unary_union as UU
+CLS = ['trunk', 'primary', 'secondary', 'tertiary', 'minor', 'service']
+car_ways = []
+for r in W['roads']:
+    cls, w, br, layer, name, pts = r
+    ls = LineString([(pts[i], pts[i + 1]) for i in range(0, len(pts), 2)])
+    car_ways.append((cls, w, br, name, ls))
+ground_ways = [c for c in car_ways if not c[2]]
+carr = UU([ls.buffer(w / 2, quad_segs=6) for cls, w, br, nm, ls in ground_ways]).simplify(.15)
+pavesrc = UU([ls.buffer(w / 2 + 3.2, quad_segs=6) for cls, w, br, nm, ls in ground_ways if cls <= 4])
+bldU = UU([Polygon([(b[6][i], b[6][i + 1]) for i in range(0, len(b[6]), 2)]).buffer(0) for b in W['buildings']])
+pave = pavesrc.difference(carr).difference(bldU.buffer(.05)).difference(wu).simplify(.15)
+# junctions: nodes shared by >=2 ways
+cnt = collections.Counter(); wmax = {}
+for cls, w, br, nm, ls in car_ways:
+    if cls > 4: continue
+    for c in set((round(x, 1), round(z, 1)) for x, z in ls.coords):
+        cnt[c] += 1; wmax[c] = max(wmax.get(c, 0), w)
+junc_pts = [Point(c).buffer(wmax[c] / 2 + 2.5, quad_segs=4) for c, n in cnt.items() if n >= 2]
+JZ = UU(junc_pts)
+def polys(g):
+    return [q for q in (g.geoms if hasattr(g, 'geoms') else [g]) if q.geom_type == 'Polygon' and q.area > 1]
+def lines(g):
+    out = []
+    for q in (g.geoms if hasattr(g, 'geoms') else [g]):
+        if q.geom_type == 'LineString' and q.length > 1.5: out.append(flat(q.coords))
+        elif q.geom_type in ('MultiLineString', 'GeometryCollection'): out += lines(q)
+    return out
+W['carr'] = [[flat(q.exterior.coords[:-1]), [flat(h.coords[:-1]) for h in q.interiors]] for q in polys(carr)]
+W['pave'] = [[flat(q.exterior.coords[:-1]), [flat(h.coords[:-1]) for h in q.interiors]] for q in polys(pave)]
+W['kerb'] = lines(carr.boundary.intersection(pave.buffer(.4)))
+main = UU([ls.buffer(w / 2, quad_segs=6) for cls, w, br, nm, ls in ground_ways if cls <= 2])
+W['yellow'] = lines(UU([main.buffer(-.45).boundary, main.buffer(-.65).boundary]).difference(JZ).intersection(carr.buffer(-.2)))
+W['dash'] = lines(UU([ls for cls, w, br, nm, ls in ground_ways if cls <= 3 and w >= 8.5]).difference(JZ.buffer(2)))
+# ---- street furniture: keep off the carriageway, regenerate lamps along kerbs
+ctree = carr
+def onCarr(x, z): return carr.contains(Point(x, z))
+def toKerb(x, z, off=1.0):
+    pt = Point(x, z)
+    q = carr.exterior.interpolate(0) if False else None
+    b = carr.boundary
+    d = b.project(pt) if b.geom_type == 'LineString' else None
+    # nearest boundary point
+    from shapely.ops import nearest_points
+    qb = nearest_points(b, pt)[0]
+    nx, nz = x - qb.x, z - qb.y; L = math.hypot(nx, nz) or 1
+    # outward = away from carriageway: test a probe
+    for sgn in (1, -1):
+        px, pz = qb.x + nx / L * off * sgn * (1 if onCarr(x, z) is False else -1), qb.y + nz / L * off * sgn * (1 if onCarr(x, z) is False else -1)
+        if not onCarr(px, pz) and not bldU.contains(Point(px, pz)): return px, pz
+    return None
+bt = STRtree(polys(bldU))
+def inBld(x, z, r=.3):
+    p = Point(x, z).buffer(r)
+    return any(bt.geometries[i].intersects(p) for i in bt.query(p))
+newn = []; moved = 0; dropped = 0
+for n in W['nodes']:
+    k, x, z, a = n
+    if k == 'lamp': continue   # regenerated below
+    if onCarr(x, z) or (k == 'tree' and carr.distance(Point(x, z)) < .9):
+        if k == 'signal': newn.append(n); continue  # signals are expanded at junction kerbs below
+        r = toKerb(x, z, 1.4 if k == 'tree' else .9)
+        if not r: dropped += 1; continue
+        x, z = r; moved += 1
+    if k == 'tree' and inBld(x, z, 1.2): dropped += 1; continue
+    newn.append([k, r1(x), r1(z), a])
+# signals: two poles at the kerb either side of the carriageway at each signal node
+sig = [n for n in newn if n[0] == 'signal']; newn = [n for n in newn if n[0] != 'signal']
+from shapely.ops import nearest_points
+for k, x, z, a in sig:
+    # nearest way direction
+    best = min(ground_ways, key=lambda c: c[4].distance(Point(x, z)), default=None)
+    if not best or best[4].distance(Point(x, z)) > 8: continue
+    ls = best[4]; t = ls.project(Point(x, z)); p0 = ls.interpolate(max(0, t - 2)); p1 = ls.interpolate(min(ls.length, t + 2))
+    dx, dz = p1.x - p0.x, p1.y - p0.y; L = math.hypot(dx, dz) or 1; nx, nz = dz / L, -dx / L
+    q = ls.interpolate(t)
+    for s in (-1, 1):
+        for off in [best[1] / 2 + .6 + i * .4 for i in range(8)]:
+            px, pz = q.x + nx * off * s, q.y + nz * off * s
+            if not onCarr(px, pz) and not inBld(px, pz, .2): newn.append(['signal', r1(px), r1(pz), round(math.atan2(-nx * s, -nz * s), 2)]); break
+# lamps every ~30 m along kerbs of real streets, staggered, never in junction mouths or on the carriageway
+lamps = []
+from shapely.strtree import STRtree as ST
+def farFromLamps(x, z, d=12):
+    return all((x - a) ** 2 + (z - b) ** 2 > d * d for a, b in lamps[-60:])
+JZb = JZ.buffer(2)
+for cls, w, br, nm, ls in ground_ways:
+    if cls > 4 or ls.distance(ROUTE) > CORR: continue
+    step = 26 if cls <= 2 else 32; side = 1; t = 6
+    while t < ls.length - 4:
+        p0 = ls.interpolate(t); p1 = ls.interpolate(min(ls.length, t + 1)); dx, dz = p1.x - p0.x, p1.y - p0.y; L = math.hypot(dx, dz) or 1
+        nx, nz = dz / L, -dx / L; off = w / 2 + .6
+        x, z = p0.x + nx * off * side, p0.y + nz * off * side
+        if not onCarr(x, z) and not JZb.contains(Point(x, z)) and not inBld(x, z, .3) and farFromLamps(x, z):
+            lamps.append((x, z)); newn.append(['lamp', r1(x), r1(z), round(math.atan2(-nx * side, -nz * side), 2)])
+        side = -side; t += step
+# road signs near junctions on main roads (breakable props)
+SIGNS_K = ['sign_20', 'sign_noentry', 'sign_giveway', 'sign_keepleft', 'sign_bus', 'sign_nostop']
+hj = 0
+for c, n in cnt.items():
+    if n < 2 or Point(c).distance(ROUTE) > CORR: continue
+    hj += 1
+    if hj % 2: continue
+    pt = Point(c)
+    for ang in (0.7, 3.9):
+        r = wmax[c] / 2 + 2.2
+        x, z = c[0] + math.cos(ang + hj) * r, c[1] + math.sin(ang + hj) * r
+        if not onCarr(x, z) and not inBld(x, z, .3) and pave.contains(Point(x, z)):
+            newn.append([SIGNS_K[(hj // 2 + int(ang)) % len(SIGNS_K)], r1(x), r1(z), round(ang + hj, 2)])
+W['nodes'] = newn
+print('furniture moved', moved, 'dropped', dropped, 'lamps', len(lamps), collections.Counter(n[0] for n in newn))
+print('carr polys', len(W['carr']), 'pave', len(W['pave']), 'kerb', len(W['kerb']), 'yellow', len(W['yellow']), 'dash', len(W['dash']))
+s = json.dumps(W, separators=(',', ':'))
+open('/home/claude/osm/world.json', 'w').write(s)
+print('bytes', len(s))
