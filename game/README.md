@@ -20,3 +20,9 @@ Replace the car texture before any distributed build.
 
 ## Rebuilding web assets
 `tools/build_static.mjs` (Poly Haven → webp/glb) and `tools/build_gen.mjs` (generated GLBs → compressed models + clip-only files) expect the fetched files in `../assets/`.
+
+## Real London map (v4)
+The level is built from OpenStreetMap data (© OpenStreetMap contributors, ODbL): Mansell Street → Tower Bridge → Tower Bridge Road → Bricklayers Arms → Old Kent Road.
+- `.github/workflows/fetch-osm.yml` + `tools/fetch_osm.py` clip the Greater London extract to the game area (`assets/osm/london_tb_okr.geojson.gz`).
+- `game/tools/london/route.py` and `convert.py` turn it into `game/assets/world.json` (buildings with heights, roof shapes, facade styles, shopfronts; roads; river; parks; rail viaducts; walls; trees; street furniture; gameplay anchors).
+- `game/tools/london/london.js` builds the 3D city at load time; `patch_london.py` / `patch_mission.py` wire it into the game.
