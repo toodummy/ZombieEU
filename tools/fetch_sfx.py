@@ -6,7 +6,11 @@ def get(u): return urllib.request.urlopen(urllib.request.Request(u, headers=UA),
 for page in ['https://kenney.nl/assets/impact-sounds', 'https://kenney.nl/assets/rpg-audio']:
     try:
         h = get(page).decode('utf8', 'ignore')
-        links = re.findall(r'href="([^"]+\.zip)"', h)
+        links = re.findall(r'(https?://[^"\' ]+?\.zip|/media/[^"\' ]+?\.zip)', h)
+        if not links:
+            for m in re.finditer(r'(download|zip)', h, re.I):
+                print('CTX', h[max(0, m.start()-160):m.start()+120].replace('\n', ' '), flush=True)
+                break
         print(page, links[:3], flush=True)
         if not links: continue
         u = links[0] if links[0].startswith('http') else 'https://kenney.nl' + links[0]
